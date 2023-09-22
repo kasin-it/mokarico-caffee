@@ -3,13 +3,24 @@
 import logo from "public/logo/logo.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { useMenuModal } from "@/app/hooks/use-menu-modal";
+import { useCartModal } from "@/app/hooks/use-cart-modal";
 
 const Navbar = () => {
 	const isNavbarTransparent = false;
+	const menuModal = useMenuModal();
+	const cartModal = useCartModal();
 
 	return (
-		<nav className="fixed top-0 left-0 py-3 px-4 w-full flex justify-between items-center drop-shadow-sm bg-white z-10">
-			{" "}
+		<nav
+			className={cn(
+				"fixed top-0 left-0 py-3 px-4 w-full flex justify-between items-center z-10 transition-colors duration-200",
+				isNavbarTransparent
+					? "bg-transparent text-white"
+					: "drop-shadow-sm bg-white text-black"
+			)}
+		>
 			<Image src={logo} alt="logo" width={200} height={64} />
 			<section className="flex items-center">
 				<section className="px-8 space-x-5">
@@ -20,7 +31,7 @@ const Navbar = () => {
 							viewBox="0 0 24 24"
 							strokeWidth={1}
 							stroke="currentColor"
-							className="h-7 w-7 hover:text-orange-500"
+							className="h-7 w-7 hover:text-orange-500 transition duration-150"
 						>
 							<path
 								strokeLinecap="round"
@@ -37,7 +48,7 @@ const Navbar = () => {
 							viewBox="0 0 24 24"
 							strokeWidth={1}
 							stroke="currentColor"
-							className="h-7 w-7 hover:text-orange-500"
+							className="h-7 w-7 hover:text-orange-500 transition duration-150"
 						>
 							<path
 								strokeLinecap="round"
@@ -49,7 +60,7 @@ const Navbar = () => {
 
 					{/* CART */}
 
-					<button onClick={() => {}} className="cursor-pointer">
+					<button onClick={cartModal.onOpen} className="cursor-pointer">
 						<div className="relative">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +68,7 @@ const Navbar = () => {
 								viewBox="0 0 24 24"
 								strokeWidth="1"
 								stroke="currentColor"
-								className="h-7 w-7 hover:text-orange-500"
+								className="h-7 w-7 hover:text-orange-500 transition duration-150"
 							>
 								<path
 									strokeLinecap="round"
@@ -74,10 +85,10 @@ const Navbar = () => {
 
 				{/* MENU BUTTON */}
 				<button
-					onClick={() => {}}
+					onClick={menuModal.onOpen}
 					className={`rounded-full outline ${
 						isNavbarTransparent ? "outline-white" : "outline-black"
-					} hover:outline-orange-500 hover:text-white outline-2 hover:outline-none hover:bg-orange-500 py-3 px-4 flex flex-row items-center hover:outline-offset-0 ease-out duration-300`}
+					} hover:outline-orange-500 hover:text-white outline-2 hover:outline-none hover:bg-orange-500 py-3 px-4 flex flex-row items-center hover:outline-offset-0 ease-out duration-100`}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -93,8 +104,6 @@ const Navbar = () => {
 							d="M3.75 9h16.5m-16.5 6.75h16.5"
 						/>
 					</svg>
-
-					<span className="font-bold text-md px-1">MENU</span>
 				</button>
 			</section>
 		</nav>
