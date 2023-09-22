@@ -1,7 +1,9 @@
+import Navbar from "@/components/navbar";
+
 function DashboardLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<>
-			{/* <Navbar /> */}
+			<Navbar />
 			{children}
 		</>
 	);
