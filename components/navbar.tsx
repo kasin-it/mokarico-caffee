@@ -9,9 +9,10 @@ import { useCartModal } from "@/app/hooks/use-cart-modal";
 import { useSmallMenuModal } from "@/app/hooks/use-small-menu-modal";
 import { useSearchModal } from "@/app/hooks/use-search-modal";
 import { useLoginModal } from "@/app/hooks/use-login-modal";
+import { useNavbarProperties } from "@/app/hooks/use-navbar-properties";
 
 const Navbar = () => {
-	const isNavbarTransparent = false;
+	const navbarProperties = useNavbarProperties();
 	const menuModal = useMenuModal();
 	const smallMenuModal = useSmallMenuModal();
 	const cartModal = useCartModal();
@@ -22,7 +23,7 @@ const Navbar = () => {
 		<nav
 			className={cn(
 				"fixed top-0 left-0 py-3 px-4 w-full flex justify-between items-center z-10 transition-colors duration-200",
-				isNavbarTransparent
+				navbarProperties.isTransparent
 					? "bg-transparent text-white"
 					: "drop-shadow-sm bg-white text-black"
 			)}
@@ -31,7 +32,9 @@ const Navbar = () => {
 				onClick={smallMenuModal.onOpen}
 				className={cn(
 					`py-3 px-4 flex flex-row items-center lg:hidden`,
-					isNavbarTransparent ? "text-white" : "text-black"
+					navbarProperties.isTransparent
+						? "text-white md:text-black"
+						: "text-black"
 				)}
 			>
 				<svg
@@ -126,7 +129,7 @@ const Navbar = () => {
 				<button
 					onClick={menuModal.onOpen}
 					className={`rounded-full outline hidden lg:block ${
-						isNavbarTransparent ? "outline-white" : "outline-black"
+						navbarProperties.isTransparent ? "outline-white" : "outline-black"
 					} hover:outline-orange-500 hover:text-white outline-2 hover:outline-none hover:bg-orange-500 py-3 px-4 flex flex-row items-center hover:outline-offset-0 ease-out duration-300`}
 				>
 					<svg
