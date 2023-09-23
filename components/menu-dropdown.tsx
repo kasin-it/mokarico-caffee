@@ -53,9 +53,14 @@ function MenuDropdown(props: MenuDropdownProps) {
 								dropdownName={item.label}
 								itemsList={item.items}
 								bigLabel={false} // Pass the value of bigLabel to nested dropdown
+								key={index}
 							/>
 						) : (
-							<Link href={item.href} className="hover:text-orange-600">
+							<Link
+								href={item.href}
+								className="hover:text-orange-600"
+								key={index}
+							>
 								{item.label}
 							</Link>
 						)}

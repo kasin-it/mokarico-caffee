@@ -42,13 +42,12 @@ function PaymentsProviders({ className, size = 20 }: PaymentsProvidersProps) {
 	return (
 		<article className={cn("flex space-x-4", className)}>
 			{providers.map((provider, index) => (
-				<div className="relative w-12 h-12 items-center flex">
+				<div className="relative w-12 h-12 items-center flex" key={index}>
 					<Image
 						width={provider.svg.width}
 						height={provider.svg.height}
 						src={provider.svg}
 						alt={provider.alt}
-						key={index}
 					/>
 				</div>
 			))}

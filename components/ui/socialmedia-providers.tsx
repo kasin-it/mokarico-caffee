@@ -33,11 +33,10 @@ function SocialmediaProviders({
 	return (
 		<article className={cn("flex space-x-8", className)}>
 			{providers.map((provider, index) => (
-				<div className="relative w-7 h-7 items-center flex">
+				<div className="relative w-7 h-7 items-center flex" key={index}>
 					<Link
 						href={"/"}
 						className="hover:text-orange-600 transition duration-200"
-						key={index}
 					>
 						{provider.svg}
 					</Link>

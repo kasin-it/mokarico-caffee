@@ -63,7 +63,7 @@ export const MenuModal = () => {
 
 	return (
 		<Modal isOpen={menuModal.isOpen} onClose={menuModal.onClose} vertical="end">
-			<div className="space-y-4 pb-4 bg-white h-full z-50 w-[320px] sm:w-[475px] px-12 py-10">
+			<div className="space-y-4 pb-4 bg-white h-full z-50 w-full sm:w-[475px] px-12 py-10">
 				<div
 					onClick={menuModal.onClose}
 					className="opacity-50 hover:opacity-80 text-gray-600 hover:text-orange-600 cursor-pointer w-12 h-12"

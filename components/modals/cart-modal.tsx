@@ -1,8 +1,5 @@
 "use client";
 
-import * as z from "zod";
-
-import React, { useState } from "react";
 import { useCartModal } from "@/app/hooks/use-cart-modal";
 import Modal from "../ui/modal";
 import { X } from "lucide-react";
@@ -18,7 +15,7 @@ export const CartModal = () => {
 			vertical="end"
 			horizontal="center"
 		>
-			<div className="space-y-4 pb-4 bg-white h-full z-50 w-[320px] sm:w-[475px] px-12 py-10">
+			<div className="space-y-4 pb-4 bg-white h-full z-50 w-full sm:w-[475px] px-12 py-10">
 				<X
 					size={34}
 					className="opacity-50 hover:opacity-80 hover:text-orange-600 cursor-pointer text-gray-600"

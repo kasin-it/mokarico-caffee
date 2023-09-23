@@ -21,10 +21,35 @@ const Navbar = () => {
 					: "drop-shadow-sm bg-white text-black"
 			)}
 		>
-			<Image src={logo} alt="logo" width={200} height={64} />
+			<button
+				onClick={menuModal.onOpen}
+				className={cn(
+					`py-3 px-4 flex flex-row items-center lg:hidden`,
+					isNavbarTransparent ? "text-white" : "text-black"
+				)}
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					strokeWidth={1.2}
+					stroke="currentColor"
+					className="h-7 w-7"
+				>
+					<path
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						d="M3.75 9h16.5m-16.5 6.75h16.5"
+					/>
+				</svg>
+			</button>
+			<div className="w-[140px] lg:w-[200px]">
+				<Image src={logo} alt="logo" width={200} height={64} />
+			</div>
+
 			<section className="flex items-center">
-				<section className="px-8 space-x-5">
-					<button onClick={() => {}}>
+				<section className="px-0 pr-2 lg:px-8 space-x-5 flex">
+					<button onClick={() => {}} className="cursor-pointer hidden lg:block">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -41,7 +66,8 @@ const Navbar = () => {
 						</svg>
 					</button>
 
-					<button onClick={() => {}} className="cursor-pointer">
+					{/* ACCOUNT */}
+					<button onClick={() => {}} className="cursor-pointer hidden lg:block">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -86,7 +112,7 @@ const Navbar = () => {
 				{/* MENU BUTTON */}
 				<button
 					onClick={menuModal.onOpen}
-					className={`rounded-full outline ${
+					className={`rounded-full outline hidden lg:block ${
 						isNavbarTransparent ? "outline-white" : "outline-black"
 					} hover:outline-orange-500 hover:text-white outline-2 hover:outline-none hover:bg-orange-500 py-3 px-4 flex flex-row items-center hover:outline-offset-0 ease-out duration-300`}
 				>
