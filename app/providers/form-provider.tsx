@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import React from "react";
 
-const ModalProvider = () => {
+const FormProvider = () => {
 	const [isMounted, setIsMounted] = useState(false);
 
 	useEffect(() => {
@@ -17,12 +17,7 @@ const ModalProvider = () => {
 		return null;
 	}
 
-	return (
-		<>
-			<MenuModal />
-			<CartModal />
-		</>
-	);
+	return <>x</>;
 };
 
-export default ModalProvider;
+export default FormProvider;

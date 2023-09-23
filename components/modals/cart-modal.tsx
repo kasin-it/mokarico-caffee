@@ -4,9 +4,9 @@ import * as z from "zod";
 
 import React, { useState } from "react";
 import { useCartModal } from "@/app/hooks/use-cart-modal";
-import Modal from "./ui/modal";
+import Modal from "../ui/modal";
 import { X } from "lucide-react";
-import DefaultButton from "./ui/default-button";
+import DefaultButton from "../ui/default-button";
 
 export const CartModal = () => {
 	const cartModal = useCartModal();

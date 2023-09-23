@@ -4,13 +4,13 @@ import * as z from "zod";
 
 import React, { useState } from "react";
 import { useMenuModal } from "@/app/hooks/use-menu-modal";
-import Modal from "./ui/modal";
+import Modal from "../ui/modal";
 import { Archive, Phone, X } from "lucide-react";
-import MenuDropdown from "./menu-dropdown";
+import MenuDropdown from "../menu-dropdown";
 import Link from "next/link";
-import Separator from "./ui/separator";
-import PaymentsProviders from "./ui/payment-providers";
-import SocialmediaProviders from "./ui/socialmedia-providers";
+import Separator from "../ui/separator";
+import PaymentsProviders from "../ui/payment-providers";
+import SocialmediaProviders from "../ui/socialmedia-providers";
 
 export const MenuModal = () => {
 	const menuModal = useMenuModal();
