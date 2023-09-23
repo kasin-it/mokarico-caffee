@@ -88,7 +88,7 @@ const Navbar = () => {
 					onClick={menuModal.onOpen}
 					className={`rounded-full outline ${
 						isNavbarTransparent ? "outline-white" : "outline-black"
-					} hover:outline-orange-500 hover:text-white outline-2 hover:outline-none hover:bg-orange-500 py-3 px-4 flex flex-row items-center hover:outline-offset-0 ease-out duration-100`}
+					} hover:outline-orange-500 hover:text-white outline-2 hover:outline-none hover:bg-orange-500 py-3 px-4 flex flex-row items-center hover:outline-offset-0 ease-out duration-300`}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
