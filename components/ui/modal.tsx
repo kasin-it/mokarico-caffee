@@ -2,22 +2,26 @@ import { cn } from "@/lib/utils";
 
 interface ModalProps {
 	isOpen: boolean;
-	onClose: () => void;
+	onClose?: () => void;
 	className?: string;
+	overlayClassName?: string;
+
 	children?: React.ReactNode;
-	horizontal?: "start" | "center" | "end";
-	vertical?: "start" | "center" | "end";
+	// horizontal?: "start" | "center" | "end";
+	// vertical?: "start" | "center" | "end";
 }
 
 const Modal: React.FC<ModalProps> = ({
 	isOpen,
 	onClose,
 	children,
-	horizontal = "center",
-	vertical = "center",
+	className,
+	overlayClassName,
+	// horizontal = "center",
+	// vertical = "center",
 }) => {
 	const onClick = () => {
-		onClose();
+		onClose && onClose();
 	};
 
 	return (
@@ -25,12 +29,16 @@ const Modal: React.FC<ModalProps> = ({
 			className={cn(
 				"fixed inset-0 flex z-50 h-full w-full",
 				isOpen ? "" : "hidden",
-				`items-${horizontal}`,
-				`justify-${vertical}`
+				className
+				// `items-${horizontal}`,
+				// `justify-${vertical}`
 			)}
 		>
 			<div
-				className="modal-overlay fixed inset-0 bg-black opacity-50"
+				className={cn(
+					"modal-overlay fixed inset-0 bg-black opacity-50",
+					overlayClassName
+				)}
 				onClick={onClick}
 			></div>
 			{children}

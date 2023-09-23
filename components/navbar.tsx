@@ -6,11 +6,17 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useMenuModal } from "@/app/hooks/use-menu-modal";
 import { useCartModal } from "@/app/hooks/use-cart-modal";
+import { useSmallMenuModal } from "@/app/hooks/use-small-menu-modal";
+import { useSearchModal } from "@/app/hooks/use-search-modal";
+import { useLoginModal } from "@/app/hooks/use-login-modal";
 
 const Navbar = () => {
 	const isNavbarTransparent = false;
 	const menuModal = useMenuModal();
+	const smallMenuModal = useSmallMenuModal();
 	const cartModal = useCartModal();
+	const searchModal = useSearchModal();
+	const loginModal = useLoginModal();
 
 	return (
 		<nav
@@ -22,7 +28,7 @@ const Navbar = () => {
 			)}
 		>
 			<button
-				onClick={menuModal.onOpen}
+				onClick={smallMenuModal.onOpen}
 				className={cn(
 					`py-3 px-4 flex flex-row items-center lg:hidden`,
 					isNavbarTransparent ? "text-white" : "text-black"
@@ -47,9 +53,13 @@ const Navbar = () => {
 				<Image src={logo} alt="logo" width={200} height={64} />
 			</div>
 
+			{/* SEARCH */}
 			<section className="flex items-center">
 				<section className="px-0 pr-2 lg:px-8 space-x-5 flex">
-					<button onClick={() => {}} className="cursor-pointer hidden lg:block">
+					<button
+						onClick={searchModal.toggle}
+						className="cursor-pointer hidden lg:block"
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -67,7 +77,10 @@ const Navbar = () => {
 					</button>
 
 					{/* ACCOUNT */}
-					<button onClick={() => {}} className="cursor-pointer hidden lg:block">
+					<button
+						onClick={loginModal.toggle}
+						className="cursor-pointer hidden lg:block"
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"

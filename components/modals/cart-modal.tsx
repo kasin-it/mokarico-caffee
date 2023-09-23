@@ -9,8 +9,8 @@ export const CartModal = () => {
 	const cartModal = useCartModal();
 
 	return (
-		<Modal isOpen={cartModal.isOpen} onClose={cartModal.onClose} vertical="end">
-			<div className="space-y-4 pb-4 bg-white h-full z-50 w-full sm:w-[475px] px-12 py-10">
+		<Modal isOpen={cartModal.isOpen} onClose={cartModal.onClose}>
+			<div className="space-y-4 pb-4 bg-white h-full z-50 w-full sm:w-[475px] px-12 py-10 absolute right-0">
 				<X
 					size={34}
 					className="opacity-50 hover:opacity-80 hover:text-orange-600 cursor-pointer text-gray-600"

@@ -1,17 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
-import { useMenuModal } from "@/app/hooks/use-menu-modal";
+import { useSmallMenuModal } from "@/app/hooks/use-small-menu-modal";
 import Modal from "../ui/modal";
-import { Archive, Phone, X } from "lucide-react";
+import { Search, UserCircle, X } from "lucide-react";
+import DefaultButton from "../ui/default-button";
 import MenuDropdown from "../menu-dropdown";
 import Link from "next/link";
 import Separator from "../ui/separator";
-import PaymentsProviders from "../ui/payment-providers";
-import SocialmediaProviders from "../ui/socialmedia-providers";
+import { Input } from "postcss";
 
-export const MenuModal = () => {
-	const menuModal = useMenuModal();
+export const SmallMenuModal = () => {
+	const smallMenuModal = useSmallMenuModal();
 
 	const shopItemsList = [
 		{ label: "All Coffees", href: "#" },
@@ -60,70 +59,86 @@ export const MenuModal = () => {
 	];
 
 	return (
-		<Modal isOpen={menuModal.isOpen} onClose={menuModal.onClose}>
-			<div className="space-y-4 pb-4 bg-white h-full z-50 w-full sm:w-[475px] px-12 py-10 absolute right-0">
-				<div
-					onClick={menuModal.onClose}
-					className="opacity-50 hover:opacity-80 text-gray-600 hover:text-orange-600 cursor-pointer w-12 h-12"
-				>
-					<X size={34} />
-				</div>
+		<Modal isOpen={smallMenuModal.isOpen} onClose={smallMenuModal.onClose}>
+			<div className="space-y-4 pb-4 bg-white h-full z-50 w-full sm:w-[475px] px-6 py-10 absolute left">
+				<X
+					size={34}
+					className="opacity-50 hover:opacity-80 hover:text-orange-600 cursor-pointer text-gray-600"
+					onClick={smallMenuModal.onClose}
+				/>
 
-				{/* ADD CHANGE LANG HERE */}
+				<form>
+					<label
+						htmlFor="search"
+						className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+					>
+						Search
+					</label>
+					<div className="relative">
+						<input
+							type="search"
+							id="search"
+							className="block w-full p-3 text-sm border ring-0 outline-none"
+							placeholder="Search"
+							required
+						/>
+						<button
+							type="submit"
+							className="text-gray-500/50 absolute right-2.5 top-3 "
+						>
+							<Search size={22} />
+						</button>
+					</div>
+				</form>
 
-				<div className="block w-full space-y-5 pb-4">
-					<Link href={"#"} className="text-orange-600 text-4xl">
+				<div className="block w-full space-y-2 pb-11">
+					<Link href={"#"} className="text-orange-600 text-2xl">
 						Home
 					</Link>
+					<Separator />
 					<MenuDropdown
 						dropdownName="Shop"
 						itemsList={shopItemsList}
 						bigLabel={true}
+						sizeBig="2xl"
+						sizeSmall="xl"
 					/>
+					<Separator />
+
 					<MenuDropdown
 						dropdownName="Assistance"
 						itemsList={assistanceItemsList}
 						bigLabel={true}
+						sizeBig="2xl"
+						sizeSmall="xl"
 					/>
+					<Separator />
+
 					<MenuDropdown
 						dropdownName="Coffe"
 						itemsList={coffeItemsList}
 						bigLabel={true}
+						sizeBig="2xl"
+						sizeSmall="xl"
 					/>
+					<Separator />
+
 					<MenuDropdown
 						dropdownName="Business"
 						itemsList={businessItemsList}
 						bigLabel={true}
+						sizeBig="2xl"
+						sizeSmall="xl"
 					/>
+					<Separator />
 				</div>
+				<Link href={"#"} className=" text-2xl flex justify-between">
+					<p>Login</p>
+					<UserCircle />
+				</Link>
 				<Separator />
-				<section className="py-3 space-y-8">
-					<article className="flex p-0 m-0 space-x-5 items-start">
-						<Phone className="mt-2" />
-						<div className="space-y-3">
-							<h4 className="text-lg">Assistance</h4>
-							<a
-								href="mailto:info@mokarico.com"
-								className="hover:text-orange-600 font-semibold text-xl"
-							>
-								info@mokarico.com
-							</a>
-							<p className="font-semibold text-xl">055 444 555 555</p>
-						</div>
-					</article>
-					<article className="flex p-0 m-0 space-x-5 items-start">
-						<Archive className="mt-2" />
-						<div className="space-y-3">
-							<h4 className="text-lg">Shipping</h4>
-
-							<p className="font-semibold text-xl">2-6 working days</p>
-						</div>
-					</article>
-				</section>
+				{/* IMPLEMENT CHANGING LANG */}
 				<Separator />
-				<PaymentsProviders />
-				<Separator />
-				<SocialmediaProviders />
 			</div>
 		</Modal>
 	);

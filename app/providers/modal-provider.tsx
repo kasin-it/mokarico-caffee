@@ -2,6 +2,7 @@
 
 import { CartModal } from "@/components/modals/cart-modal";
 import { MenuModal } from "@/components/modals/menu-modal";
+import { SmallMenuModal } from "@/components/modals/small-menu-modal";
 import { useEffect, useState } from "react";
 
 import React from "react";
@@ -21,6 +22,7 @@ const ModalProvider = () => {
 		<>
 			<MenuModal />
 			<CartModal />
+			<SmallMenuModal />
 		</>
 	);
 };

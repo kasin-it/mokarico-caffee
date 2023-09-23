@@ -7,16 +7,24 @@ type DropdownItem = {
 	items?: DropdownItem[];
 };
 
+type Sizes = "4xl" | "3xl" | "2xl" | "xl" | "lg" | "md" | "sm" | "xs";
+
 type MenuDropdownProps = {
 	dropdownName: string;
 	itemsList: DropdownItem[];
 	bigLabel?: boolean;
+	sizeBig?: Sizes;
+	sizeSmall?: Sizes;
 };
 
-function MenuDropdown(props: MenuDropdownProps) {
+function MenuDropdown({
+	dropdownName,
+	itemsList,
+	bigLabel = false,
+	sizeBig = "4xl",
+	sizeSmall = "2xl",
+}: MenuDropdownProps) {
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-	const { dropdownName, itemsList, bigLabel } = props;
-
 	const toggleDropdown = () => {
 		setIsDropdownOpen((prev) => !prev);
 	};
@@ -27,7 +35,7 @@ function MenuDropdown(props: MenuDropdownProps) {
 				<Link
 					href="#"
 					className={`hover:text-orange-600 ${
-						bigLabel ? "text-4xl" : "text-2xl"
+						bigLabel ? `text-${sizeBig}` : `text-${sizeSmall}`
 					}`}
 				>
 					{dropdownName}
