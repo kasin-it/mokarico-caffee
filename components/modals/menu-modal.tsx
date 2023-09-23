@@ -1,7 +1,5 @@
 "use client";
 
-import * as z from "zod";
-
 import React, { useState } from "react";
 import { useMenuModal } from "@/app/hooks/use-menu-modal";
 import Modal from "../ui/modal";

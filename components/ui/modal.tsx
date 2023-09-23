@@ -16,7 +16,7 @@ const Modal: React.FC<ModalProps> = ({
 	horizontal = "center",
 	vertical = "center",
 }) => {
-	const onChange = () => {
+	const onClick = () => {
 		onClose();
 	};
 
@@ -30,8 +30,8 @@ const Modal: React.FC<ModalProps> = ({
 			)}
 		>
 			<div
-				className="modal-overlay absolute inset-0 bg-black opacity-50"
-				onClick={onChange}
+				className="modal-overlay fixed inset-0 bg-black opacity-50"
+				onClick={onClick}
 			></div>
 			{children}
 		</div>

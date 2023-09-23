@@ -9,12 +9,7 @@ export const CartModal = () => {
 	const cartModal = useCartModal();
 
 	return (
-		<Modal
-			isOpen={cartModal.isOpen}
-			onClose={cartModal.onClose}
-			vertical="end"
-			horizontal="center"
-		>
+		<Modal isOpen={cartModal.isOpen} onClose={cartModal.onClose} vertical="end">
 			<div className="space-y-4 pb-4 bg-white h-full z-50 w-full sm:w-[475px] px-12 py-10">
 				<X
 					size={34}
