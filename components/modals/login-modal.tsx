@@ -22,8 +22,8 @@ export const LoginModal = () => {
     <Modal
       isOpen={loginModal.isOpen}
       // onClose={loginModal.onClose}
-      overlayclassName='h-0 w-0'
-      className='top-[82px] z-40'
+      overlayClassName={'h-0 w-0'}
+      className={'top-[82px] z-40'}
     >
       <div
         className={

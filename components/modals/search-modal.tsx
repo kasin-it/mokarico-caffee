@@ -12,7 +12,7 @@ export const SearchModal = () => {
     <Modal
       isOpen={searchModal.isOpen}
       onClose={searchModal.onClose}
-      overlayclassName="top-[82px]"
+      overlayClassName={'top-[82px]'}
       className={'top-[82px] z-40'}
     >
       <div
