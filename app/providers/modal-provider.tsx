@@ -1,5 +1,6 @@
 "use client";
 
+import ArrowUpModal from "@/components/modals/arrow-up-modal";
 import { CartModal } from "@/components/modals/cart-modal";
 import { MenuModal } from "@/components/modals/menu-modal";
 import { SmallMenuModal } from "@/components/modals/small-menu-modal";
@@ -23,6 +24,7 @@ const ModalProvider = () => {
 			<MenuModal />
 			<CartModal />
 			<SmallMenuModal />
+			<ArrowUpModal />
 		</>
 	);
 };

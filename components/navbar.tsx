@@ -22,7 +22,7 @@ const Navbar = () => {
 	return (
 		<nav
 			className={cn(
-				"fixed top-0 left-0 py-3 px-4 w-full flex justify-between items-center z-10 transition-colors duration-200",
+				"fixed top-0 left-0 py-3 px-4 w-full flex justify-between items-center z-50 transition-colors duration-200",
 				navbarProperties.isTransparent
 					? "bg-transparent text-white"
 					: "drop-shadow-sm bg-white text-black"
