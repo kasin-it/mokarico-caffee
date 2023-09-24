@@ -12,11 +12,14 @@ import origini_svg from "@/public/svg/origini.svg";
 import miscele_svg from "@/public/svg/miscele.svg";
 import qualita_svg from "@/public/svg/qualita.svg";
 import bioworld_svg from "@/public/svg/bioworld.svg";
+import cups_img from "@/public/img/cups.jpg";
+import home_office_img from "@/public/img/home_office.jpg";
 
 import Image from "next/image";
 import { useLayoutEffect } from "react";
 import { ArrowDownCircleIcon } from "lucide-react";
 import Link from "next/link";
+import Separator from "@/components/ui/separator";
 
 function Home() {
 	const searchModal = useSearchModal();
@@ -178,8 +181,88 @@ function Home() {
 					</span>
 				</article>
 			</section>
-			<section>
-				
+			<section className="flex justify-center items-center pt-20 pb-28 w-full">
+				<article className="relative top-[100px] mr-[200px]">
+					<Image
+						src={cups_img}
+						alt="cups"
+						width={cups_img.width}
+						height={cups_img.height}
+					/>
+					<div className="absolute top-[50%] right-[-100px]">
+						<h2>
+							Four your <br /> Businness
+						</h2>
+						<AnimatedButton childrenClassName="justify-end pe-10" width={300}>
+							DISCOVER
+						</AnimatedButton>
+					</div>
+				</article>
+				<article className="relative">
+					<Image
+						src={home_office_img}
+						alt="cups"
+						width={home_office_img.width}
+						height={home_office_img.height}
+					/>
+					<div className="absolute top-[50%] right-[-100px]">
+						<h2>
+							Four your <br /> Businness
+						</h2>
+						<AnimatedButton childrenClassName="justify-end pe-10" width={300}>
+							DISCOVER
+						</AnimatedButton>
+					</div>
+				</article>
+			</section>
+			<div className="py-11">
+				<Separator />
+			</div>
+			<section className="py-6">
+				<h3>Certifications are an appropriate reward for our quality </h3>
+				<article className="flex space-x-5 px-11">
+					<Image
+						src={miscele_svg}
+						alt="miscele"
+						height={miscele_svg.height}
+						width={miscele_svg.width}
+					/>{" "}
+					<Image
+						src={miscele_svg}
+						alt="miscele"
+						height={miscele_svg.height}
+						width={miscele_svg.width}
+					/>{" "}
+					<Image
+						src={miscele_svg}
+						alt="miscele"
+						height={miscele_svg.height}
+						width={miscele_svg.width}
+					/>
+				</article>{" "}
+				<article className="flex space-x-5 px-11">
+					<Image
+						src={miscele_svg}
+						alt="miscele"
+						height={miscele_svg.height}
+						width={miscele_svg.width}
+					/>{" "}
+					<Image
+						src={miscele_svg}
+						alt="miscele"
+						height={miscele_svg.height}
+						width={miscele_svg.width}
+					/>{" "}
+					<Image
+						src={miscele_svg}
+						alt="miscele"
+						height={miscele_svg.height}
+						width={miscele_svg.width}
+					/>
+				</article>
+				<div className="pt-11 pb-6">
+					<Separator />
+				</div>
 			</section>
 		</>
 	);
