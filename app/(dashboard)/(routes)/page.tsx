@@ -19,7 +19,6 @@ import Image from "next/image";
 import { useLayoutEffect } from "react";
 import { ArrowDownCircleIcon } from "lucide-react";
 import Link from "next/link";
-import Separator from "@/components/ui/separator";
 
 function Home() {
 	const searchModal = useSearchModal();
@@ -58,7 +57,7 @@ function Home() {
 
 	return (
 		<>
-			<section className="flex items-center justify-center h-full w-full">
+			<section className="flex items-center justify-center h-full w-full z-50">
 				<div className="hidden md:block w-[50%] h-full absolute left-0"></div>
 				<div className="w-full md:w-[50%] h-full absolute right-0 bg-blue-200">
 					<video
@@ -214,55 +213,6 @@ function Home() {
 						</AnimatedButton>
 					</div>
 				</article>
-			</section>
-			<div className="py-11">
-				<Separator />
-			</div>
-			<section className="py-6">
-				<h3>Certifications are an appropriate reward for our quality </h3>
-				<article className="flex space-x-5 px-11">
-					<Image
-						src={miscele_svg}
-						alt="miscele"
-						height={miscele_svg.height}
-						width={miscele_svg.width}
-					/>{" "}
-					<Image
-						src={miscele_svg}
-						alt="miscele"
-						height={miscele_svg.height}
-						width={miscele_svg.width}
-					/>{" "}
-					<Image
-						src={miscele_svg}
-						alt="miscele"
-						height={miscele_svg.height}
-						width={miscele_svg.width}
-					/>
-				</article>{" "}
-				<article className="flex space-x-5 px-11">
-					<Image
-						src={miscele_svg}
-						alt="miscele"
-						height={miscele_svg.height}
-						width={miscele_svg.width}
-					/>{" "}
-					<Image
-						src={miscele_svg}
-						alt="miscele"
-						height={miscele_svg.height}
-						width={miscele_svg.width}
-					/>{" "}
-					<Image
-						src={miscele_svg}
-						alt="miscele"
-						height={miscele_svg.height}
-						width={miscele_svg.width}
-					/>
-				</article>
-				<div className="pt-11 pb-6">
-					<Separator />
-				</div>
 			</section>
 		</>
 	);

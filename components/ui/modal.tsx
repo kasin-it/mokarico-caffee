@@ -27,7 +27,7 @@ const Modal: React.FC<ModalProps> = ({
 	return (
 		<div
 			className={cn(
-				"fixed inset-0 flex z-50 h-full w-full",
+				"fixed inset-0 flex z-[52] h-full w-full",
 				isOpen ? "" : "hidden",
 				className
 				// `items-${horizontal}`,
