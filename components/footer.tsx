@@ -111,8 +111,8 @@ function Footer() {
   ];
 
   return (
-    <footer className='max-w-[1140px]'>
-      <Separator className='max-w-[1140px]' />
+    <footer className="max-w-[1140px]">
+      <Separator className="max-w-[1140px]" />
       <section className={'py-6'}>
         <h3>Certifications are an appropriate reward for our quality </h3>
         <article className={'flex space-x-5 px-11'}>
@@ -156,8 +156,12 @@ function Footer() {
           />
         </article>
       </section>
-      <Separator className='max-w-[1140px]' />
-      <section className={'flex flex-col lg:flex-row py-10 px-11 xxl:px-0 justify-center'}>
+      <Separator className="max-w-[1140px]" />
+      <section
+        className={
+          'flex flex-col lg:flex-row py-10 px-11 xxl:px-0 justify-center'
+        }
+      >
         <form className={'w-full lg:w-[600px]'}>
           Keep up to date with us
           <input
@@ -248,7 +252,7 @@ function Footer() {
           ))}
         </section>
       </section>
-      <Separator className='max-w-[1140px]' />
+      <Separator className="max-w-[1140px]" />
       <article>
         <Headphones />
         We are available to answer any query by phone from Mon - Fri 9:00 -12:30
