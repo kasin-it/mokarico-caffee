@@ -9,5 +9,5 @@ interface useArrowUpModalProps {
 export const useArrowUpModal = create<useArrowUpModalProps>((set) => ({
 	isOpen: false,
 	onOpen: () => set({ isOpen: true }),
-	onClose: () => set({ isOpen: false }),
+	onClose: () => set({ isOpen: false })
 }));

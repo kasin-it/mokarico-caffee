@@ -16,7 +16,7 @@ import cups_img from '@/public/img/cups.jpg';
 import home_office_img from '@/public/img/home_office.jpg';
 
 import Image from 'next/image';
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { ArrowDownCircleIcon } from 'lucide-react';
 import Link from 'next/link';
 
@@ -26,24 +26,28 @@ function Home() {
   const navbarProperties = useNavbarProperties();
   const arrowUp = useArrowUpModal();
 
-  useLayoutEffect(() => {
+  
+  useEffect(() => {
     // Function to handle scroll events
     const handleScroll = () => {
-      // Check if the current scroll position is at the top
-      const isTop = window.scrollY === 0;
-
-      if (isTop && arrowUp.isOpen) {
+      const screanHeight = window.scrollY;
+      
+      const isTop = screanHeight === 0
+      
+      if (isTop) {
         arrowUp.onClose();
-      } else if (!isTop && !arrowUp.isOpen) {
+        
+        
+      } else if (!isTop) {
         arrowUp.onOpen();
       }
-
+      
       navbarProperties.setisTransparent(
         isTop && !(loginModal.isOpen || searchModal.isOpen)
-      );
-    };
-
-    // Manually trigger the scroll event once after the component is mounted
+        );
+      };
+      
+      // Manually trigger the scroll event once after the component is mounted
     handleScroll();
 
     // Attach the scroll event listener
@@ -192,7 +196,7 @@ function Home() {
             <h2>
               Four your <br /> Businness
             </h2>
-            <AnimatedButton childrenClassName='justify-end pe-10' width={300}>
+            <AnimatedButton childrenClassName='justify-end pe-10' width={200} className=''>
               DISCOVER
             </AnimatedButton>
           </div>
@@ -208,7 +212,7 @@ function Home() {
             <h2>
               Four your <br /> Businness
             </h2>
-            <AnimatedButton childrenClassName='justify-end pe-10' width={300}>
+            <AnimatedButton childrenClassName='justify-end pe-10' width={200}>
               DISCOVER
             </AnimatedButton>
           </div>

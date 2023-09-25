@@ -1,12 +1,12 @@
 import { cn } from '@/lib/utils';
 
 interface SeparatorProps {
-  width?: number;
+  className?: string;
 }
 
-function Separator({ width }: SeparatorProps) {
+function Separator({ className }: SeparatorProps) {
   return (
-    <div className={cn('h-[1px] border-b-[1px]', width ? `w-${width}` : '')} />
+    <div className={cn('h-[1px] border-b-[1px]', className)} />
   );
 }
 export default Separator;
