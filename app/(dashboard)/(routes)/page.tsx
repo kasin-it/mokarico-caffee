@@ -14,6 +14,7 @@ import qualita_svg from '@/public/svg/qualita.svg';
 import bioworld_svg from '@/public/svg/bioworld.svg';
 import cups_img from '@/public/img/cups.jpg';
 import home_office_img from '@/public/img/home_office.jpg';
+import story_sm_img from '@/public/img/story_img_sm.png';
 
 import Image from 'next/image';
 import { useEffect, useLayoutEffect } from 'react';
@@ -58,6 +59,7 @@ function Home() {
 
   return (
     <>
+      {/* HERO */}
       <section className="z-50 flex h-full w-full items-center justify-center">
         <div className="absolute left-0 hidden h-full w-[50%] md:block"></div>
         <div className="absolute right-0 h-full w-full bg-blue-200 md:w-[50%]">
@@ -75,7 +77,7 @@ function Home() {
           </video>
         </div>
 
-        <div className="absolute left-0 pl-12 z-50">
+        <div className="absolute left-0 pl-12 z-30">
           <h1 className="font-playfair-display text-[5vw] leading-[1] hidden md:block text-black">
             The Stylish
             <br /> coffee
@@ -125,120 +127,142 @@ function Home() {
           <SocialmediaProviders className="text-white" />
         </div>
       </section>
+      {/* STORY SECTION */}
       <section className="relative mt-11 flex justify-center">
         <Image
           src={story_img}
           alt="story"
           width={story_img.width / 2}
           height={story_img.height / 2}
+          className="hidden lg:block"
         />
         <article className="flex flex-col">
-          <h1 className="text-7xl">
-            A century <br /> long story
-          </h1>
-          <p>
-            Where tradition and quality maintain <br /> their values over time.
-          </p>
-          <section className="grid grid-cols-2">
-            {/* <article className="w-[200px]">
-						</article>
-						<article className="w-[200px]">
-						</article>
-						<article className="w-[200px]">
-						</article>
-						<article className="w-[200px]">
-					</article> */}
-            <Link
-              href={'/'}
-              className="group flex h-[200px] w-[200px] flex-col items-center justify-end pb-12"
-            >
+          <article className="ml-5 mt-11 space-y-5">
+            <div className="relative">
               <Image
-                src={origini_svg}
-                alt="origini"
-                className="group-hover:opacity-30"
+                src={story_sm_img}
+                alt="story"
+                width={story_sm_img.width}
+                height={story_sm_img.height}
+                className="lg:hidden absolute bottom-[-200px] z-[-20]"
               />
-              <AnimatedButton width={140}>COMPANY</AnimatedButton>
-            </Link>
-            <Link
-              href={'/'}
-              className="group flex h-[200px] w-[200px] flex-col items-center justify-end border-b border-l pb-12"
-            >
-              <Image
-                src={miscele_svg}
-                alt="miscele"
-                className="group-hover:opacity-30"
-              />
-              <AnimatedButton width={140}>BLENDS</AnimatedButton>
-            </Link>
-            <Link
-              href={'/'}
-              className="group flex h-[200px] w-[200px] flex-col items-center justify-end border-r border-t pb-12"
-            >
-              <Image
-                src={qualita_svg}
-                alt="qualita"
-                className="group-hover:opacity-30"
-              />
-              <AnimatedButton width={140}>QUALITY</AnimatedButton>
-            </Link>
-            <Link
-              href={'/'}
-              className="group flex h-[200px] w-[200px] flex-col items-center justify-end pb-12"
-            >
-              <Image
-                src={bioworld_svg}
-                alt="bioworld"
-                className="group-hover:opacity-30"
-              />
-              <AnimatedButton width={140}>BIO WORLD</AnimatedButton>
-            </Link>
+            </div>
+            <h1 className="text-5xl font-playfair-display pl-8 sm:pl-0">
+              A century <br /> long story
+            </h1>
+            <p className="pl-11 sm:pl-0">
+              Where tradition and quality maintain <br /> their values over
+              time.
+            </p>
+          </article>
+          <section className="flex flex-row">
+            <div className="flex flex-col border-r">
+              <Link
+                href={'/'}
+                className="group flex h-[200px] w-[260px] flex-col items-center justify-end pb-12 border-b"
+              >
+                <Image
+                  src={origini_svg}
+                  alt="origini"
+                  className="group-hover:opacity-30"
+                />
+                <AnimatedButton width={140}>COMPANY</AnimatedButton>
+              </Link>
+              <Link
+                href={'/'}
+                className="group flex h-[200px] w-[260px] flex-col items-center justify-end  pb-12 "
+              >
+                <Image
+                  src={qualita_svg}
+                  alt="qualita"
+                  className="group-hover:opacity-30"
+                />
+                <AnimatedButton width={140}>QUALITY</AnimatedButton>
+              </Link>
+            </div>
+            <div className="flex flex-col relative">
+              <Link
+                href={'/'}
+                className="group flex h-[200px] w-[260px] flex-col items-center justify-end pb-12  border-b"
+              >
+                <Image
+                  src={miscele_svg}
+                  alt="miscele"
+                  className="group-hover:opacity-30"
+                />
+                <AnimatedButton width={140}>BLENDS</AnimatedButton>
+              </Link>
+              <Link
+                href={'/'}
+                className="group flex h-[200px] w-[260px] flex-col items-center justify-end pb-12"
+              >
+                <Image
+                  src={bioworld_svg}
+                  alt="bioworld"
+                  className="group-hover:opacity-30"
+                />
+                <AnimatedButton width={140}>BIO WORLD</AnimatedButton>
+              </Link>
+              <span className="absolute text-xs right-[-60px] top-[180px] rotate-90 font-bold tracking-widest hidden md:block">
+                1936-2018
+              </span>
+            </div>
           </section>
-          <span className="absolute right-[80px] top-[370px] rotate-90">
-            1936-2018
-          </span>
         </article>
       </section>
-      <section className="w-full items-center justify-center pb-28 pt-20 hidden lg:flex px-10">
-        <article className="relative top-[100px] mr-[200px]">
+
+      <section className="w-full items-center justify-center pb-28 pt-20 hidden lg:flex flex-col xl:flex-row mx-auto xl:translate-x-[-60px]">
+        <Link
+          href={'/'}
+          className="relative group top-[100px] right-[200px] xl:right-0  mr-[250px]"
+        >
           <Image
             src={cups_img}
             alt="cups"
             width={cups_img.width}
             height={cups_img.height}
           />
-          <div className="absolute right-[-100px] top-[50%]">
-            <h2>
-              Four your <br /> Businness
+          <div className="absolute right-[-200px] top-[30%]">
+            <h2
+              className={
+                'group-hover:text-orange-600 text-black text-4xl font-playfair-display ml-[100px] sm:pl-0 transition duration-500'
+              }
+            >
+              For your <br /> Businness
             </h2>
             <AnimatedButton
               childrenClassName="justify-end pe-10"
-              width={220}
-              className=""
+              width={260}
+              className="w-[260px]"
             >
               DISCOVER
             </AnimatedButton>
           </div>
-        </article>
-        <article className="relative">
+        </Link>
+        <Link href={'/'} className="relative group right-[-150px] xl:right-0 ">
           <Image
             src={home_office_img}
             alt="cups"
             width={home_office_img.width}
             height={home_office_img.height}
           />
-          <div className="absolute right-[-100px] top-[50%]">
-            <h2>
-              Four your <br /> Businness
+          <div className="absolute right-[-200px] top-[30%]">
+            <h2
+              className={
+                'group-hover:text-orange-600 text-black text-4xl font-playfair-display ml-[100px] sm:pl-0 transition duration-500'
+              }
+            >
+              Home & <br /> Office
             </h2>
             <AnimatedButton
               childrenClassName="justify-end pe-10"
               width={260}
-              // className="w-[260px]"
+              className="w-[260px]"
             >
-              DISCOVER
+              SHOP ONLINE
             </AnimatedButton>
           </div>
-        </article>
+        </Link>
       </section>
       <section className="w-full px-5 flex lg:hidden flex-col">
         <Image
