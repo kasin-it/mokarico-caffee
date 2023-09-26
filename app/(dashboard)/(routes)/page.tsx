@@ -75,36 +75,51 @@ function Home() {
           </video>
         </div>
 
-        <div className="absolute left-0">
-          <h1>
+        <div className="absolute left-0 pl-12 z-50">
+          <h1 className="font-playfair-display text-[5vw] leading-[1] hidden md:block text-black">
             The Stylish
             <br /> coffee
           </h1>
           <br />
-          <p>
+          <p className="text-lg hidden xl:block 2xl:ml-0  w-[310px] font-normal leading-[1.5] text-white ">
             A cup of coffee lasts only a moment, but it is that moment that
             makes your day better.
           </p>
           <AnimatedButton
+            childrenClassName="text-white md:text-black"
             secoundChildren={
               <ArrowDownCircleIcon className="rotate-[-90deg] text-white" />
             }
-            className="rotate-90"
-            width={140}
+            className="rotate-90 hidden md:block left-[10px]top-[190px] w-[150px]"
+            width={160}
             // height={64} NOT working for now
           >
             BROWSE
           </AnimatedButton>
         </div>
-        <div className="z-20 flex">
+        <div className="z-20 flex flex-col justify-center">
+          <h1 className="text-6xl text-white font-playfair-display left-[130px] top-[-70px] text-center md:hidden translate-y-6">
+            The Stylish
+            <br /> coffee
+          </h1>
           <Image
             src={hero_img}
             alt="hero"
             width={hero_img.width}
             height={hero_img.height}
+            className="px-11 md:px-0"
           />
+          <AnimatedButton
+            childrenClassName="text-white md:text-black"
+            secoundChildren={
+              <ArrowDownCircleIcon className="rotate-[-90deg] text-white" />
+            }
+            className="rotate-90 hidden md:block left-[10px]top-[190px] w-[150px]"
+            width={160}
+            // height={64} NOT working for now
+          ></AnimatedButton>
         </div>
-        <div className="absolute right-0">
+        <div className="absolute right-11 bottom-[130px] hidden xl:block">
           <SocialmediaProviders className="text-white" />
         </div>
       </section>
