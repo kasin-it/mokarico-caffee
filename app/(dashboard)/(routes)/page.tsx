@@ -81,7 +81,7 @@ function Home() {
             <br /> coffee
           </h1>
           <br />
-          <p className="text-lg hidden xl:block 2xl:ml-0  w-[310px] font-normal leading-[1.5] text-white ">
+          <p className="text-lg hidden xl:block 2xl:ml-0 w-[310px] font-normal leading-[1.5] 2xl:w-[400px]">
             A cup of coffee lasts only a moment, but it is that moment that
             makes your day better.
           </p>
@@ -90,14 +90,14 @@ function Home() {
             secoundChildren={
               <ArrowDownCircleIcon className="rotate-[-90deg] text-white" />
             }
-            className="rotate-90 hidden md:block left-[10px]top-[190px] w-[150px]"
+            className="rotate-90 hidden md:block lg:left-[10px] md:left-[-60px] top-[190px] w-[150px]"
             width={160}
             // height={64} NOT working for now
           >
             BROWSE
           </AnimatedButton>
         </div>
-        <div className="z-20 flex flex-col justify-center">
+        <div className="z-20 flex flex-col justify-center items-center">
           <h1 className="text-6xl text-white font-playfair-display left-[130px] top-[-70px] text-center md:hidden translate-y-6">
             The Stylish
             <br /> coffee
@@ -114,10 +114,12 @@ function Home() {
             secoundChildren={
               <ArrowDownCircleIcon className="rotate-[-90deg] text-white" />
             }
-            className="rotate-90 hidden md:block left-[10px]top-[190px] w-[150px]"
+            className="rotate-90 md:hidden bottom-[-150px] w-[150px]"
             width={160}
             // height={64} NOT working for now
-          ></AnimatedButton>
+          >
+            BROWSE
+          </AnimatedButton>
         </div>
         <div className="absolute right-11 bottom-[130px] hidden xl:block">
           <SocialmediaProviders className="text-white" />
