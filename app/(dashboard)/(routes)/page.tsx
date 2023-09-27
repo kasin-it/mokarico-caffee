@@ -116,7 +116,7 @@ function Home() {
             secoundChildren={
               <ArrowDownCircleIcon className="rotate-[-90deg] text-white" />
             }
-            className="rotate-90 md:hidden bottom-[-150px] w-[150px]"
+            className="rotate-90 md:hidden bottom-[-100px] w-[150px]"
             width={160}
             // height={64} NOT working for now
           >

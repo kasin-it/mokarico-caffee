@@ -15,6 +15,11 @@ import cqy from '@/public/img/CQY.png';
 import cqy2 from '@/public/img/9001.png';
 import Accordion from './ui/accordion';
 
+import regione from '@/public/svg/por-creo-regione-toscana.svg';
+import toscana from '@/public/svg/regione-toscana.svg';
+import repubblica from '@/public/svg/repubblica-italiana.svg';
+import unione from '@/public/svg/unione-europea.svg';
+
 function Footer() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -141,128 +146,192 @@ function Footer() {
   ];
 
   return (
-    <footer className="max-w-[1140px] ">
-      <Separator className="max-w-[1140px]" />
-      <section className={'py-6  px-6'}>
-        <h3 className="text-xl font-playfair-display">
-          Certifications are an appropriate reward for our quality{' '}
-        </h3>
-        <article className={'grid grid-cols-1 md:grid-cols-2 space-y-5'}>
-          {/* {badges.map((badge, index) => (
-
+    <div className="flex justify-center w-full">
+      <footer className="max-w-[1140px]">
+        <Separator className="max-w-[1140px]" />
+        <section className={'py-6  px-6'}>
+          <h3 className="text-xl font-playfair-display">
+            Certifications are an appropriate reward for our quality{' '}
+          </h3>
+          <article className={'grid grid-cols-1 md:grid-cols-2 space-y-5'}>
+            {/* {badges.map((badge, index) => (
+            
             <Image
-              src={badge.img.src}
-              // width={badge.img.width}
-              width={60}
-              height={60}
-              // height={badge.img.height}
-              key={index}
-              alt={badge.alt}
+            src={badge.img.src}
+            // width={badge.img.width}
+            width={60}
+            height={60}
+            // height={badge.img.height}
+            key={index}
+            alt={badge.alt}
             />
           ))} */}
 
-          <div className="flex space-x-7 h-[60px]">
-            <Image src={biologico.src} width={60} height={60} alt="biologico" />
-            <Image src={italiano.src} width={60} height={60} alt="italiano" />
-            <Image src={europe.src} width={60} height={60} alt="europe" />
-          </div>
-          <div className="flex space-x-7 h-[60px]">
-            <p>Certified quality and environmental management system </p>
-            <Image src={cqy.src} width={60} height={60} alt="cqy" />
-            <Image src={cqy2.src} width={60} height={60} alt="cqy2" />
-          </div>
-        </article>
-      </section>
-      <Separator className="max-w-[1140px]" />
-      <section
-        className={
-          'flex flex-col lg:flex-row py-10 px-11 xxl:px-0 justify-center'
-        }
-      >
-        <form className={'w-full lg:w-[600px]'}>
-          Keep up to date with us
-          <input
-            type="email"
-            className={
-              'mb-7 w-full border-b-2 border-b-gray-600 p-3 outline-none'
-            }
-            placeholder="Enter your email address"
-            required
-          />
-          <div className={'mb-4 flex w-full flex-row justify-start'}>
-            <input type="checkbox" />
-
-            <span className={'ms-4 items-start text-sm'}>
-              Accept our{' '}
-              <Link
-                href={'#'}
-                className={'text-gray-600 hover:text-orange-600'}
-              >
-                Privacy Policy
-              </Link>
-            </span>
-          </div>
-          <AnimatedButton
-            className={'border-2 border-orange-600'}
-            secoundChildren={<Mail className={'text-white'} />}
-          >
-            SUBSCRIBE
-          </AnimatedButton>
-        </form>
+            <div className="flex space-x-7 h-[60px]">
+              <Image
+                src={biologico.src}
+                width={60}
+                height={60}
+                alt="biologico"
+              />
+              <Image src={italiano.src} width={60} height={60} alt="italiano" />
+              <Image src={europe.src} width={60} height={60} alt="europe" />
+            </div>
+            <div className="flex space-x-7 h-[60px]">
+              <p>Certified quality and environmental management system </p>
+              <Image src={cqy.src} width={60} height={60} alt="cqy" />
+              <Image src={cqy2.src} width={60} height={60} alt="cqy2" />
+            </div>
+          </article>
+        </section>
+        <Separator className="max-w-[1140px]" />
         <section
-          className={'hidden lg:flex justify-between w-full px-11 max-w-5xl'}
+          className={
+            'flex flex-col lg:flex-row py-10 px-11 xxl:px-0 justify-center'
+          }
         >
-          {routes.map((route, index) => (
-            <article key={index}>
-              <h5>{route.title}</h5>
-              <ul className={''}>
-                {route.routes.map(
-                  (
-                    subRoute,
-                    subIndex, // Use a different variable name for the nested map
-                  ) => (
-                    <li key={subIndex}>
-                      <Link href={subRoute.href} className={'text-gray-600'}>
+          <form className={'w-full lg:w-[600px]'}>
+            Keep up to date with us
+            <input
+              type="email"
+              className={
+                'mb-7 w-full border-b-2 border-b-gray-600 p-3 outline-none'
+              }
+              placeholder="Enter your email address"
+              required
+            />
+            <div className={'mb-4 flex w-full flex-row justify-start'}>
+              <input type="checkbox" />
+
+              <span className={'ms-4 items-start text-sm'}>
+                Accept our{' '}
+                <Link
+                  href={'#'}
+                  className={'text-gray-600 hover:text-orange-600'}
+                >
+                  Privacy Policy
+                </Link>
+              </span>
+            </div>
+            <AnimatedButton
+              className={'border-2 border-orange-600'}
+              secoundChildren={<Mail className={'text-white'} />}
+            >
+              SUBSCRIBE
+            </AnimatedButton>
+          </form>
+          <section
+            className={'hidden lg:flex justify-between w-full px-11 max-w-5xl'}
+          >
+            {routes.map((route, index) => (
+              <article key={index}>
+                <h5>{route.title}</h5>
+                <ul className={''}>
+                  {route.routes.map(
+                    (
+                      subRoute,
+                      subIndex, // Use a different variable name for the nested map
+                    ) => (
+                      <li key={subIndex}>
+                        <Link href={subRoute.href} className={'text-gray-600'}>
+                          {subRoute.label}
+                        </Link>
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </article>
+            ))}
+          </section>
+          <section className="lg:hidden">
+            {routes.map((route, index) => (
+              <Accordion
+                children={
+                  <>
+                    {route.routes.map((subRoute, subIndex) => (
+                      <Link
+                        href={subRoute.href}
+                        className="text-black hover:text-orange-600 py-2 text-sm ps-5 border-t block"
+                        key={subIndex}
+                      >
                         {subRoute.label}
                       </Link>
-                    </li>
-                  ),
-                )}
-              </ul>
-            </article>
-          ))}
+                    ))}
+                  </>
+                }
+                title={route.title}
+                key={index}
+                id={`acordion-${index}`}
+              />
+            ))}
+          </section>
         </section>
-        <section className="lg:hidden">
-          {routes.map((route, index) => (
-            <Accordion
-              children={
-                <>
-                  {route.routes.map((subRoute, subIndex) => (
-                    <Link
-                      href={subRoute.href}
-                      className="text-black hover:text-orange-600 py-2 text-sm ps-5 border-t block"
-                      key={subIndex}
-                    >
-                      {subRoute.label}
-                    </Link>
-                  ))}
-                </>
-              }
-              title={route.title}
-              key={index}
-              id={`acordion-${index}`}
+        <Separator className="max-w-[1140px]" />
+        <article className="flex p-5">
+          <Headphones className="text-orange-600 me-3" size={40} />
+          We are available to answer any query by phone from Mon - Fri 9:00
+          -12:30 and 14:00 - 17:30 at 055 849 5085 or email at info@mokarico.com
+        </article>
+        <Separator />
+        <article className="grid grid-cols-1 md:grid-cols-2 p-5">
+          <section className="flex p-2 space-x-3">
+            <Link href={'#'} className={'text-black hover:text-orange-600'}>
+              Enviroment Respec
+            </Link>
+            <Link href={'#'} className={'text-black hover:text-orange-600'}>
+              Terms and Conditions
+            </Link>
+            <Link href={'#'} className={'text-black hover:text-orange-600'}>
+              Privacy
+            </Link>
+          </section>
+          <p>
+            A.D.A. Srl - Via del Bagnone, 24 - 50032 Borgo San Lorenzo - PI:
+            06334730485 - Powered by Ecommerce Therapy Web Agency Firenze
+          </p>
+          t
+        </article>{' '}
+        <Separator />
+        <article className="grid grid-cols-1 md:grid-cols-2 p-5">
+          <p>
+            MOKAR - Investimento nella realizzazione di un nuovo impianto di
+            torrefazione caffè scalabile per piccole produzioni, per affrontare
+            nuovi mercati e superare le difficoltà di sviluppo in questo settore
+            dovute alla pandemia Covid-19 Progetto co-finanziato dal POR FESR
+            Toscana 2014-2020 ASSE – AZIONE MOK-ACT - Mokarico:
+            internationalisation strategy for a historic Tuscan coffee roasting
+            in the areas of China and Taiwan” Project co-financed by the POR
+            FESR Tuscany 2014-2020 AXIS III - ACTION 3.4.2 sub a)
+          </p>
+          <section className="flex p-5 space-x-5">
+            <Image
+              src={regione.src}
+              height={regione.height}
+              width={regione.width / 2}
+              alt={''}
             />
-          ))}
-        </section>
-      </section>
-      <Separator className="max-w-[1140px]" />
-      <article>
-        <Headphones />
-        We are available to answer any query by phone from Mon - Fri 9:00 -12:30
-        and 14:00 - 17:30 at 055 849 5085 or email at info@mokarico.com
-      </article>
-      <Separator />
-    </footer>
+            <Image
+              src={toscana.src}
+              height={toscana.height}
+              width={toscana.width / 2}
+              alt={''}
+            />
+            <Image
+              src={repubblica.src}
+              height={repubblica.height}
+              width={repubblica.width / 2}
+              alt={''}
+            />
+            <Image
+              src={unione.src}
+              height={unione.height}
+              width={unione.width / 2}
+              alt={''}
+            />
+          </section>
+        </article>
+      </footer>
+    </div>
   );
 }
 export default Footer;
