@@ -8,6 +8,12 @@ import { Headphones, Mail } from 'lucide-react';
 import AnimatedButton from './ui/animated-button';
 import { useState } from 'react';
 
+import biologico from '@/public/img/certificazione-biologico@2x.png';
+import italiano from '@/public/img/espresso-italiano@2x.png';
+import europe from '@/public/img/speciality-coffee-assn-of-europe@2x.png';
+import cqy from '@/public/img/CQY.png';
+import cqy2 from '@/public/img/9001.png';
+
 function Footer() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -18,6 +24,29 @@ function Footer() {
       setOpenIndex(index);
     }
   };
+
+  // const badges = [
+  //   {
+  //     img: biologico,
+  //     alt: 'biologico',
+  //   },
+  //   {
+  //     img: italiano,
+  //     alt: 'italiano',
+  //   },
+  //   {
+  //     img: europe,
+  //     alt: 'europe',
+  //   },
+  //   {
+  //     img: cqy,
+  //     alt: 'cqy',
+  //   },
+  //   {
+  //     img: cqy2,
+  //     alt: 'cqy2',
+  //   },
+  // ];
 
   const routes = [
     {
@@ -111,49 +140,34 @@ function Footer() {
   ];
 
   return (
-    <footer className="max-w-[1140px]">
+    <footer className="max-w-[1140px] ">
       <Separator className="max-w-[1140px]" />
-      <section className={'py-6'}>
+      <section className={'py-6  px-6'}>
         <h3>Certifications are an appropriate reward for our quality </h3>
-        <article className={'flex space-x-5 px-11'}>
-          <Image
-            src={miscele_svg}
-            alt="miscele"
-            height={miscele_svg.height}
-            width={miscele_svg.width}
-          />{' '}
-          <Image
-            src={miscele_svg}
-            alt="miscele"
-            height={miscele_svg.height}
-            width={miscele_svg.width}
-          />{' '}
-          <Image
-            src={miscele_svg}
-            alt="miscele"
-            height={miscele_svg.height}
-            width={miscele_svg.width}
-          />
-        </article>{' '}
-        <article className={'flex space-x-5 px-11'}>
-          <Image
-            src={miscele_svg}
-            alt="miscele"
-            height={miscele_svg.height}
-            width={miscele_svg.width}
-          />{' '}
-          <Image
-            src={miscele_svg}
-            alt="miscele"
-            height={miscele_svg.height}
-            width={miscele_svg.width}
-          />{' '}
-          <Image
-            src={miscele_svg}
-            alt="miscele"
-            height={miscele_svg.height}
-            width={miscele_svg.width}
-          />
+        <article className={'grid grid-cols-1 md:grid-cols-2 space-y-5'}>
+          {/* {badges.map((badge, index) => (
+
+            <Image
+              src={badge.img.src}
+              // width={badge.img.width}
+              width={60}
+              height={60}
+              // height={badge.img.height}
+              key={index}
+              alt={badge.alt}
+            />
+          ))} */}
+
+          <div className="flex space-x-7 h-[60px]">
+            <Image src={biologico.src} width={60} height={60} alt="biologico" />
+            <Image src={italiano.src} width={60} height={60} alt="italiano" />
+            <Image src={europe.src} width={60} height={60} alt="europe" />
+          </div>
+          <div className="flex space-x-7 h-[60px]">
+            <p>Certified quality and environmental management system </p>
+            <Image src={cqy.src} width={60} height={60} alt="cqy" />
+            <Image src={cqy2.src} width={60} height={60} alt="cqy2" />
+          </div>
         </article>
       </section>
       <Separator className="max-w-[1140px]" />
