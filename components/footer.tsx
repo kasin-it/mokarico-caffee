@@ -13,6 +13,7 @@ import italiano from '@/public/img/espresso-italiano@2x.png';
 import europe from '@/public/img/speciality-coffee-assn-of-europe@2x.png';
 import cqy from '@/public/img/CQY.png';
 import cqy2 from '@/public/img/9001.png';
+import Accordion from './ui/accordion';
 
 function Footer() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -143,7 +144,9 @@ function Footer() {
     <footer className="max-w-[1140px] ">
       <Separator className="max-w-[1140px]" />
       <section className={'py-6  px-6'}>
-        <h3>Certifications are an appropriate reward for our quality </h3>
+        <h3 className="text-xl font-playfair-display">
+          Certifications are an appropriate reward for our quality{' '}
+        </h3>
         <article className={'grid grid-cols-1 md:grid-cols-2 space-y-5'}>
           {/* {badges.map((badge, index) => (
 
@@ -231,38 +234,19 @@ function Footer() {
         </section>
         <section className="lg:hidden">
           {routes.map((route, index) => (
-            <article key={index}>
-              <div className=" bg-black w-full h-10">
-                <input
-                  type="checkbox"
-                  id={`accordion-${index}`}
-                  checked={openIndex === index}
-                  onChange={() => toggleAccordion(index)}
-                  className="collapse-toggle"
-                />
-                <label
-                  htmlFor={`accordion-${index}`}
-                  className="collapse-title text-xl font-medium cursor-pointer"
-                >
-                  {route.title}
-                </label>
-                <div
-                  className={`collapse-content ${
-                    openIndex === index ? 'block' : 'hidden'
-                  }`}
-                >
-                  {route.routes.map((subRoute, subIndex) => (
-                    <a
-                      href={subRoute.href}
-                      className="text-gray-600 block py-2"
-                      key={subIndex}
-                    >
-                      {subRoute.label}
-                    </a>
+            <Accordion
+              children={
+                <>
+                  {route.routes.map((subRoute) => (
+                    <div className="text-black hover:text-orange-600 py-5 text-sm ps-5 border-t">
+                      <Link href={subRoute.href}>{subRoute.label}</Link>
+                    </div>
                   ))}
-                </div>
-              </div>
-            </article>
+                </>
+              }
+              title={route.title}
+              id={index}
+            />
           ))}
         </section>
       </section>
