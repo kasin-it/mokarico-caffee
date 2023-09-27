@@ -237,15 +237,20 @@ function Footer() {
             <Accordion
               children={
                 <>
-                  {route.routes.map((subRoute) => (
-                    <div className="text-black hover:text-orange-600 py-5 text-sm ps-5 border-t">
-                      <Link href={subRoute.href}>{subRoute.label}</Link>
-                    </div>
+                  {route.routes.map((subRoute, subIndex) => (
+                    <Link
+                      href={subRoute.href}
+                      className="text-black hover:text-orange-600 py-2 text-sm ps-5 border-t block"
+                      key={subIndex}
+                    >
+                      {subRoute.label}
+                    </Link>
                   ))}
                 </>
               }
               title={route.title}
-              id={index}
+              key={index}
+              id={`acordion-${index}`}
             />
           ))}
         </section>
