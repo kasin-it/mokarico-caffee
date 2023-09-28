@@ -268,9 +268,16 @@ function Footer() {
         </section>
         <Separator className="max-w-[1140px]" />
         <article className="flex p-5">
-          <Headphones className="text-orange-600 me-3" size={40} />
+          <Headphones className="text-orange-600 me-3" size={70} />
           We are available to answer any query by phone from Mon - Fri 9:00
-          -12:30 and 14:00 - 17:30 at 055 849 5085 or email at info@mokarico.com
+          -12:30 and 14:00 - 17:30 at{' '}
+          <span className="font-bold mx-2"> 055 849 5085 </span> or email at
+          <a
+            className="font-bold hover:text-orange-600 mx-2"
+            href="mailto:info@mokarico.com"
+          >
+            info@mokarico.com
+          </a>
         </article>
         <Separator />
         <article className="grid grid-cols-1 md:grid-cols-2 p-5">
@@ -289,7 +296,6 @@ function Footer() {
             A.D.A. Srl - Via del Bagnone, 24 - 50032 Borgo San Lorenzo - PI:
             06334730485 - Powered by Ecommerce Therapy Web Agency Firenze
           </p>
-          t
         </article>{' '}
         <Separator />
         <article className="grid grid-cols-1 md:grid-cols-2 p-5">

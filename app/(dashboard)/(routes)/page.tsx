@@ -264,13 +264,52 @@ function Home() {
           </div>
         </Link>
       </section>
-      <section className="w-full px-5 flex lg:hidden flex-col">
+
+      <section className="w-full px-5 flex lg:hidden flex-col space-y-6 justify-center items-center py-11">
         <Image
           src={cups_img}
           alt="cups"
           width={cups_img.width}
           height={cups_img.height}
         />
+        <div className="flex flex-col justify-center items-center">
+          <h2
+            className={
+              'group-hover:text-orange-600 text-black text-4xl font-playfair-display transition duration-500'
+            }
+          >
+            For your Businness
+          </h2>
+          <AnimatedButton
+            childrenClassName="justify-center"
+            width={260}
+            className="w-[260px]"
+          >
+            DISCOVER
+          </AnimatedButton>
+        </div>
+        <Image
+          src={home_office_img}
+          alt="cups"
+          width={home_office_img.width}
+          height={home_office_img.height}
+        />
+        <div className="flex flex-col justify-center items-center">
+          <h2
+            className={
+              'group-hover:text-orange-600 text-black text-4xl font-playfair-display transition duration-500'
+            }
+          >
+            Home & Office
+          </h2>
+          <AnimatedButton
+            childrenClassName="justify-center"
+            width={260}
+            className="w-[260px]"
+          >
+            DISCOVER
+          </AnimatedButton>
+        </div>
       </section>
     </>
   );
