@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import img from '@/public/img/hero_img.jpg';
+import img from '@/public/img/aromi-caffe-mokarico.jpg';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 function ImageZoom() {
   const [isHovered, setIsHovered] = useState(false);
@@ -23,19 +25,21 @@ function ImageZoom() {
 
   return (
     <div
-      className="relative overflow-hidden"
+      className="relative overflow-hidden bg-black h-full opacity-95"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
     >
-      <img
+      <Image
         src={img.src}
         alt="Your Image"
-        className={`transform transition-transform ${
-          isHovered ? 'scale-150' : 'scale-100'
-        }`}
+        className={cn(
+          `transform transition-transform duration-500 scale-110 h-full w-full opacity-80`,
+        )}
+        fill
+        objectFit="cover"
         style={{
-          transformOrigin: `${mousePosition.x}px ${mousePosition.y}px`,
+          transformOrigin: `${mousePosition.x / 5}px ${mousePosition.y / 5}px`,
         }}
       />
     </div>

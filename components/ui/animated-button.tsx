@@ -8,6 +8,7 @@ interface AnimatedButtonProps {
   children?: React.ReactNode;
   childrenClassName?: string;
   secoundChildren?: React.ReactNode;
+  secoundChildrenClassName?: React.ReactNode;
 }
 
 function AnimatedButton({
@@ -17,6 +18,7 @@ function AnimatedButton({
   children,
   childrenClassName,
   secoundChildren,
+  secoundChildrenClassName,
 }: AnimatedButtonProps) {
   return (
     <button
@@ -46,6 +48,7 @@ function AnimatedButton({
                 2 * height,
               )}px]`
             : 'top-[102px] group-hover/btn:translate-y-[-102px]',
+          secoundChildrenClassName,
         )}
       >
         {secoundChildren}
