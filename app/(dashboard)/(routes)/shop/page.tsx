@@ -82,16 +82,16 @@ function ShopPage() {
         </article>
       </section>
       <section
-        className={'flex flex-col items-center justify-center space-y-24'}
+        className={'flex flex-col items-center justify-center space-y-24 pt-24'}
       >
-        <article className="flex flex-col-reverse items-center">
+        <article className="flex flex-col-reverse lg:flex-row lg:items-start items-center">
           <Image
             src={rainforest}
             height={rainforest.height}
             width={rainforest.width}
             alt={''}
           />
-          <article className="w-full lg:w-1/2  px-10 py-10">
+          <article className="w-full lg:w-1/2  px-10 py-10 max-w-2xl">
             <h2 className="text-[4vw] font-playfair-display">Rainforest</h2>
             <p className="text-lg text-gray-600/90">
               Eines unserer Topseller jetzt auch Rainforest Alliance
@@ -101,8 +101,8 @@ function ShopPage() {
             <AnimatedButton className="w-[150px]">DISCOVER</AnimatedButton>
           </article>
         </article>
-        <article className="flex flex-col items-center">
-          <article className="w-full lg:w-1/2 px-10 py-10 space-y-5">
+        <article className="flex flex-col items-center lg:flex-row lg:items-start">
+          <article className="w-full lg:w-1/2 px-10 py-10 space-y-5 max-w-2xl">
             <h2 className="text-[4vw] font-playfair-display leading-none">
               Discover our <br /> organic soul.
             </h2>
