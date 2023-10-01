@@ -2,11 +2,12 @@
 
 import React, { MouseEvent as ReactMouseEvent, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useMotionValue, useSpring, type PanInfo } from 'framer-motion';
 import { MoveLeft, MoveRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import coffee from '@/public/img/i_mono_brasile_1000.jpg';
-import CarouselItem from './carousel-item';
+import AddToCartButton from '@/components/ui/add-to-cart-button';
 
 const START_INDEX = 1;
 const DRAG_THRESHOLD = 150;
@@ -14,20 +15,21 @@ const FALLBACK_WIDTH = 509;
 
 const CURSOR_SIZE = 80;
 
-const articles = [
+const items = [
   {
-    title:
-      'Building a fully customisable carousel slider with swipe gestures and navigation using Framer Motion',
-    url: 'https://medium.com/@jeyprox/building-a-fully-customisable-carousel-slider-with-swipe-gestures-navigation-and-custom-cursor-4e986ccbd08f',
+    label: 'caffe',
+    img: coffee,
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, nesciunt nam explicabo facere alias repellat in aperiam placeat rerum. Hic explicabo nam, beatae veniam tenetur adipisci illo dicta eligendi maiores!',
   },
   {
-    title:
-      'Building a customisable Input component with NextJS, ReactHookForm, TailwindCSS and TypeScript',
-    url: 'https://medium.com/@jeyprox/building-a-fully-customisable-input-component-with-nextjs-reacthookfrom-tailwindcss-and-ts-58874a2e3450',
+    label: 'caffe',
+    img: coffee,
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, nesciunt nam explicabo facere alias repellat in aperiam placeat rerum. Hic explicabo nam, beatae veniam tenetur adipisci illo dicta eligendi maiores!',
   },
   {
-    title: 'Handling Forms in NextJS with busboy, ReactHookForm and TypeScript',
-    url: 'https://medium.com/@jeyprox/handling-forms-in-nextjs-with-busboy-reacthookform-and-ts-3f86c70545b3',
+    label: 'caffe',
+    img: coffee,
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, nesciunt nam explicabo facere alias repellat in aperiam placeat rerum. Hic explicabo nam, beatae veniam tenetur adipisci illo dicta eligendi maiores!',
   },
 ];
 
@@ -36,7 +38,7 @@ export default function SuggestedCarousel() {
   const itemsRef = useRef<(HTMLLIElement | null)[]>([]);
   const [activeSlide, setActiveSlide] = useState(START_INDEX);
   const canScrollPrev = activeSlide > 0;
-  const canScrollNext = activeSlide < articles.length - 1;
+  const canScrollNext = activeSlide < items.length - 1;
   const offsetX = useMotionValue(0);
   const animatedX = useSpring(offsetX, {
     damping: 20,
@@ -185,43 +187,17 @@ export default function SuggestedCarousel() {
 
   return (
     <>
-      <div className="text-center">
-        <div className="flex justify-center gap-4">
-          <Link
-            className="text-sm underline underline-offset-2 hover:text-lime-300"
-            href={'https://medium.com/@jeyprox'}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            to the article
-          </Link>
-          <Link
-            className="text-sm underline underline-offset-2 hover:text-lime-300"
-            href={'https://github.com/jeyprox/framer-carousel'}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            to the repo
-          </Link>
-        </div>
-        <h1 className="mt-2 text-6xl font-bold uppercase">
-          Framer Motion Carousel
-        </h1>
-        <p className="text-sm text-gray-400">
-          only really works on desktop for now
-        </p>
-      </div>
       <div className="group container mx-6">
         <div className="relative overflow-hidden">
           <motion.ul
             ref={containerRef}
-            className="flex cursor-grab items-start"
+            className="flex cursor-grab justify-center"
             style={{
               x: animatedX,
             }}
             drag="x"
             dragConstraints={{
-              left: -(FALLBACK_WIDTH * (articles.length - 1)),
+              left: -(FALLBACK_WIDTH * (items.length - 1)),
               right: FALLBACK_WIDTH,
             }}
             onMouseMove={({ currentTarget, clientX, clientY }) => {
@@ -237,72 +213,60 @@ export default function SuggestedCarousel() {
             }}
             onDragEnd={handleDragSnap}
           >
-            {articles.map((article, index) => {
+            {items.map((item, index) => {
               const active = index === activeSlide;
               return (
                 <motion.li
                   layout
-                  key={article.title}
+                  key={index}
                   ref={(el) => (itemsRef.current[index] = el)}
                   className={cn(
-                    'group relative shrink-0 select-none px-3 transition-opacity duration-300',
+                    'group relative shrink-0 select-none px-3 transition-opacity duration-300 w-[516px] text-center',
                     !active && 'opacity-30',
                   )}
                   transition={{
                     ease: 'easeInOut',
-                    duration: 0.4,
-                  }}
-                  style={{
-                    flexBasis: active ? '40%' : '30%',
+                    duration: 0.2,
                   }}
                 >
                   <Link
-                    href={article.url}
-                    className="block"
+                    href={item.label}
+                    className="flex flex-col justify-center items-center text-center"
                     target="_blank"
                     rel="noopener noreferrer"
                     draggable={false}
                     onClick={disableDragClick}
                   >
-                    <div
-                      className={cn(
-                        'grid place-content-center overflow-hidden rounded-lg bg-gray-900',
-                        active ? 'aspect-[5/3]' : 'aspect-[4/3]',
-                      )}
-                    >
-                      <span
-                        className={cn(
-                          'text-xl font-bold',
-                          active && 'text-lime-300',
-                        )}
-                      >
-                        {index}
-                      </span>
-                    </div>
+                    <Image
+                      src={coffee}
+                      width={coffee.width}
+                      height={coffee.height}
+                      alt={''}
+                      draggable={false}
+                    />
+                    <h3 className="text-4xl font-playfair-display">coffee</h3>
                   </Link>
-                  <div
-                    className={cn(
-                      'mt-4 flex justify-center',
-                      !active && 'hidden',
-                    )}
-                  >
+                  <p className="text-md text-gray-500/90">
+                    asdaskjdkjashdkjahkdjhakjh
+                  </p>
+                  <div className={cn('mt-4 flex justify-center')}>
                     <Link
-                      href={article.url}
+                      href={item.label}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="cursor-none text-xl font-bold leading-tight transition-colors group-hover:text-lime-300"
+                      className="text-xl font-bold leading-tight transition-colors hover:text-lime-300"
                       draggable={false}
                       onClick={disableDragClick}
                       onMouseEnter={() => setHoverType('click')}
                       onMouseLeave={() => setHoverType(null)}
                     >
-                      {article.title}
+                      <AddToCartButton />
                     </Link>
                   </div>
                 </motion.li>
               );
             })}
-         </motion.ul>
+          </motion.ul>
 
           {/* NAV BUTTONS */}
 

@@ -85,6 +85,7 @@ export const MenuModal = () => {
             dropdownName="Shop"
             itemsList={shopItemsList}
             bigLabel={true}
+            href="/shop"
           />
           <MenuDropdown
             dropdownName="Assistance"

@@ -25,7 +25,6 @@ function Home() {
   const searchModal = useSearchModal();
   const loginModal = useLoginModal();
   const navbarProperties = useNavbarProperties();
-  const arrowUp = useArrowUpModal();
 
   useEffect(() => {
     // Function to handle scroll events
@@ -33,12 +32,6 @@ function Home() {
       const screanHeight = window.scrollY;
 
       const isTop = screanHeight === 0;
-
-      if (isTop) {
-        arrowUp.onClose();
-      } else if (!isTop) {
-        arrowUp.onOpen();
-      }
 
       navbarProperties.setisTransparent(
         isTop && !(loginModal.isOpen || searchModal.isOpen),

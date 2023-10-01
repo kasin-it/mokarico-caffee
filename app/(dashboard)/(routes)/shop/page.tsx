@@ -1,3 +1,5 @@
+'use client';
+
 import ImageZoom from '@/app/(dashboard)/(routes)/shop/components/image-zoom';
 import AnimatedButton from '@/components/ui/animated-button';
 import ItemsCarousel from './components/items-carousel';
@@ -17,8 +19,16 @@ import biologico from '@/public/img/caffe-biologico-italiano.jpg';
 import mokka from '@/public/img/caffe-moka.jpg';
 import scrivania from '@/public/img/caffe-scrivania-lavoro.jpg';
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { useNavbarProperties } from '@/app/hooks/use-navbar-properties';
 
 function ShopPage() {
+  const navbarProperties = useNavbarProperties();
+
+  useEffect(() => {
+    navbarProperties.setisTransparent(false);
+  }, []);
+
   return (
     <>
       <section className="flex flex-col lg:flex-row">

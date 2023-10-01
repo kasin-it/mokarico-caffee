@@ -15,6 +15,7 @@ type MenuDropdownProps = {
   bigLabel?: boolean;
   sizeBig?: Sizes;
   sizeSmall?: Sizes;
+  href?: string;
 };
 
 function MenuDropdown({
@@ -23,6 +24,7 @@ function MenuDropdown({
   bigLabel = false,
   sizeBig = '4xl',
   sizeSmall = '2xl',
+  href = '#',
 }: MenuDropdownProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleDropdown = () => {
@@ -33,7 +35,7 @@ function MenuDropdown({
     <>
       <div className={'flex w-full flex-row items-center justify-between'}>
         <Link
-          href="#"
+          href={href}
           className={`hover:text-orange-600 ${
             bigLabel ? `text-${sizeBig}` : `text-${sizeSmall}`
           }`}
