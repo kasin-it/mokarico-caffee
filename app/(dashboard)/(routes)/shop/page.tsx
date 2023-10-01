@@ -31,7 +31,9 @@ function ShopPage() {
             </h1>
             <AnimatedButton
               childrenClassName="text-white"
-              className="w-[200px]"
+              secoundChildren
+              className="w-[200px] absolute left-0 z-30"
+              secoundChildrenClassName=""
             >
               DISCOVER MONO
             </AnimatedButton>
@@ -39,13 +41,13 @@ function ShopPage() {
           <AnimatedButton
             childrenClassName="text-white"
             secoundChildren
-            className="w-[130px] absolute left-0 bottom-32 border-b-white rotate-90"
+            className="w-[130px] absolute left-0 bottom-32 border-b-white rotate-90 z-30"
             secoundChildrenClassName="text-black bg-white"
           >
             SCORRI
           </AnimatedButton>
         </div>
-        <article className="w-full lg:w-2/5">
+        <article className="w-full lg:w-2/5 mt-[190px]">
           <ItemsCarousel />
         </article>
       </section>
@@ -120,10 +122,10 @@ function ShopPage() {
             alt={''}
           />
         </article>
-        <section className="w-full items-center justify-center pb-28 pt-20 hidden lg:flex flex-col xl:flex-row mx-auto xl:translate-x-[-60px]">
+        <section className="w-full items-center justify-center pb-28 pt-20 hidden lg:flex flex-col xl:flex-row mx-auto lg:translate-x-[110px] xl:translate-x-0">
           <Link
             href={'/'}
-            className="relative group top-[100px] right-[200px] xl:right-0  mr-[250px]"
+            className="relative group top-[100px] right-[200px] xl:right-0  mr-[350px]"
           >
             <Image
               src={mokka}
@@ -131,13 +133,13 @@ function ShopPage() {
               width={mokka.width}
               height={mokka.height}
             />
-            <div className="absolute right-[-200px] top-[30%]">
+            <div className="absolute right-[-180px] top-[30%]">
               <h2
                 className={
                   'group-hover:text-orange-600 text-black text-4xl font-playfair-display ml-[100px] sm:pl-0 transition duration-500'
                 }
               >
-                For your <br /> Businness
+                For your <br /> home
               </h2>
               <AnimatedButton
                 childrenClassName="justify-end pe-10"
@@ -158,16 +160,16 @@ function ShopPage() {
               width={scrivania.width}
               height={scrivania.height}
             />
-            <div className="absolute right-[-200px] top-[30%]">
+            <div className="absolute left-[-120px] top-[30%]">
               <h2
                 className={
-                  'group-hover:text-orange-600 text-black text-4xl font-playfair-display ml-[100px] sm:pl-0 transition duration-500'
+                  'group-hover:text-orange-600 text-black text-4xl font-playfair-display mr-[100px] sm:pl-0 transition duration-500'
                 }
               >
-                Home & <br /> Office
+                For the <br /> office
               </h2>
               <AnimatedButton
-                childrenClassName="justify-end pe-10"
+                childrenClassName="justify-start ps-10"
                 width={260}
                 className="w-[260px]"
               >

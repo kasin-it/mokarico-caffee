@@ -24,25 +24,30 @@ function ImageZoom() {
   };
 
   return (
-    <div
-      className="relative overflow-hidden bg-black h-full opacity-95"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onMouseMove={handleMouseMove}
-    >
-      <Image
-        src={img.src}
-        alt="Your Image"
-        className={cn(
-          `transform transition-transform duration-500 scale-110 h-full w-full opacity-80`,
-        )}
-        fill
-        objectFit="cover"
-        style={{
-          transformOrigin: `${mousePosition.x / 5}px ${mousePosition.y / 5}px`,
-        }}
+    <>
+      <div
+        className="absolute h-full w-full z-20"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onMouseMove={handleMouseMove}
       />
-    </div>
+      <div className="relative overflow-hidden bg-black h-full opacity-95">
+        <Image
+          src={img.src}
+          alt="Your Image"
+          className={cn(
+            `transform transition-transform duration-500 scale-110 h-full w-full opacity-80`,
+          )}
+          fill
+          objectFit="cover"
+          style={{
+            transformOrigin: `${mousePosition.x / 5}px ${
+              mousePosition.y / 5
+            }px`,
+          }}
+        />
+      </div>
+    </>
   );
 }
 
