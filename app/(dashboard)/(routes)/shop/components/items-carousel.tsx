@@ -143,6 +143,18 @@ export default function SuggestedCarousel() {
   const [hoverType, setHoverType] = useState<'prev' | 'next' | 'click' | null>(
     null,
   );
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const animatedHoverX = useSpring(mouseX, {
+    damping: 20,
+    stiffness: 400,
+    mass: 0.1,
+  });
+  const animatedHoverY = useSpring(mouseY, {
+    damping: 20,
+    stiffness: 400,
+    mass: 0.1,
+  });
 
   function navButtonHover({
     currentTarget,
@@ -157,8 +169,11 @@ export default function SuggestedCarousel() {
     const centerX = left + width / 2;
     const centerY = top + height / 2;
 
-    // mouseX.set(left - parentLeft + offsetFromCenterX / 4);
-    // mouseY.set(top - parentTop + offsetFromCenterY / 4);
+    const offsetFromCenterX = clientX - centerX;
+    const offsetFromCenterY = clientY - centerY;
+
+    mouseX.set(left - parentLeft + offsetFromCenterX / 4);
+    mouseY.set(top - parentTop + offsetFromCenterY / 4);
   }
 
   function disableDragClick(e: ReactMouseEvent<HTMLAnchorElement>) {
@@ -170,11 +185,37 @@ export default function SuggestedCarousel() {
 
   return (
     <>
+      <div className="text-center">
+        <div className="flex justify-center gap-4">
+          <Link
+            className="text-sm underline underline-offset-2 hover:text-lime-300"
+            href={'https://medium.com/@jeyprox'}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            to the article
+          </Link>
+          <Link
+            className="text-sm underline underline-offset-2 hover:text-lime-300"
+            href={'https://github.com/jeyprox/framer-carousel'}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            to the repo
+          </Link>
+        </div>
+        <h1 className="mt-2 text-6xl font-bold uppercase">
+          Framer Motion Carousel
+        </h1>
+        <p className="text-sm text-gray-400">
+          only really works on desktop for now
+        </p>
+      </div>
       <div className="group container mx-6">
         <div className="relative overflow-hidden">
           <motion.ul
             ref={containerRef}
-            className="flex cursor-none items-start"
+            className="flex cursor-grab items-start"
             style={{
               x: animatedX,
             }}
@@ -187,8 +228,8 @@ export default function SuggestedCarousel() {
               const parent = currentTarget.offsetParent;
               if (!parent) return;
               const { left, top } = parent.getBoundingClientRect();
-              // mouseX.set(clientX - left - CURSOR_SIZE / 2);
-              // mouseY.set(clientY - top - CURSOR_SIZE / 2);
+              mouseX.set(clientX - left - CURSOR_SIZE / 2);
+              mouseY.set(clientY - top - CURSOR_SIZE / 2);
             }}
             onDragStart={() => {
               containerRef.current?.setAttribute('data-dragging', 'true');
@@ -196,32 +237,72 @@ export default function SuggestedCarousel() {
             }}
             onDragEnd={handleDragSnap}
           >
-            {articles.map((item, index) => (
-              <motion.li
-                key={index}
-                layout
-                ref={(el) => (itemsRef.current[index] = el)}
-                className={cn(
-                  'group relative shrink-0 select-none px-3 transition-opacity duration-300',
-                  index !== activeSlide && 'opacity-30',
-                )}
-                transition={{
-                  ease: 'easeInOut',
-                  duration: 0.4,
-                }}
-                style={{
-                  flexBasis: index === activeSlide ? '40%' : '30%',
-                }}
-              >
-                <CarouselItem
-                  desc={item.title}
-                  img={coffee}
-                  label={item.title}
-                  active={index === activeSlide}
-                />
-              </motion.li>
-            ))}
-          </motion.ul>
+            {articles.map((article, index) => {
+              const active = index === activeSlide;
+              return (
+                <motion.li
+                  layout
+                  key={article.title}
+                  ref={(el) => (itemsRef.current[index] = el)}
+                  className={cn(
+                    'group relative shrink-0 select-none px-3 transition-opacity duration-300',
+                    !active && 'opacity-30',
+                  )}
+                  transition={{
+                    ease: 'easeInOut',
+                    duration: 0.4,
+                  }}
+                  style={{
+                    flexBasis: active ? '40%' : '30%',
+                  }}
+                >
+                  <Link
+                    href={article.url}
+                    className="block"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    draggable={false}
+                    onClick={disableDragClick}
+                  >
+                    <div
+                      className={cn(
+                        'grid place-content-center overflow-hidden rounded-lg bg-gray-900',
+                        active ? 'aspect-[5/3]' : 'aspect-[4/3]',
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          'text-xl font-bold',
+                          active && 'text-lime-300',
+                        )}
+                      >
+                        {index}
+                      </span>
+                    </div>
+                  </Link>
+                  <div
+                    className={cn(
+                      'mt-4 flex justify-center',
+                      !active && 'hidden',
+                    )}
+                  >
+                    <Link
+                      href={article.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-none text-xl font-bold leading-tight transition-colors group-hover:text-lime-300"
+                      draggable={false}
+                      onClick={disableDragClick}
+                      onMouseEnter={() => setHoverType('click')}
+                      onMouseLeave={() => setHoverType(null)}
+                    >
+                      {article.title}
+                    </Link>
+                  </div>
+                </motion.li>
+              );
+            })}
+         </motion.ul>
 
           {/* NAV BUTTONS */}
 

@@ -13,8 +13,8 @@ function CarouselItem({ desc, img, label, active = false }: CarouselItemProps) {
   return (
     <article
       className={cn(
-        'flex flex-col text-center justify-center items-center break-words w-[377px] space-y-3',
-        active ? '' : 'opacity-50',
+        'flex flex-col text-center justify-center items-center break-words w-[377px] space-y-3 transition',
+        active ? 'scale-105' : 'opacity-50',
       )}
     >
       <Image src={img} alt="coffe" width={img.width} height={img.height} />
