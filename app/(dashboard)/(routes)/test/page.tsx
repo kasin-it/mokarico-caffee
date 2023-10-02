@@ -1,25 +1,27 @@
-"use client"
+'use client';
 
-import supabase from "@/config/supabaseClient"
-import {useEffect, useState} from "react"
-import Image from "next/image"
+import supabase from '@/config/supabaseClient';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 function page() {
+  const [data, setData] = useState<any>(null);
 
-    const [data, setData] = useState<any>(null)
-
-    useEffect(() => {
-        supabase.from('users').select('*').then(({data}) => {
-            setData(data)
-        })
-    
-    })
+  useEffect(() => {
+    try {
+      const data = async supabase.
+    } catch {
+      setData('fuck you');
+    }
+  }, []);
 
   return (
     <>
-    hello
-    {data && <Image src={data.img} width={400} height={400} alt="img" />}
+      <div className="mt-[200px]">
+        {data ? toString(data) : 'no data'}
+        {data && <Image src={data.img} width={400} height={400} alt="img" />}
+      </div>
     </>
-    )
+  );
 }
-export default page
+export default page;
