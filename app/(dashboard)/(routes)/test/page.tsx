@@ -8,18 +8,25 @@ function page() {
   const [data, setData] = useState<any>(null);
 
   useEffect(() => {
-    try {
-      const data = async supabase.
-    } catch {
-      setData('fuck you');
-    }
+    const fetchData = async () => {
+      const { data, error } = await supabase.from('coffees').select('*');
+
+      if (error) {
+        console.log(error);
+      }
+      if (data) {
+        setData(data);
+        console.log(data);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
     <>
       <div className="mt-[200px]">
-        {data ? toString(data) : 'no data'}
-        {data && <Image src={data.img} width={400} height={400} alt="img" />}
+        {data && <Image src={data[0].img} width={400} height={400} alt="img" />}
       </div>
     </>
   );

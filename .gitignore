@@ -28,7 +28,6 @@ yarn-error.log*
 .env*.local
 .env
 
-/config/supabaseClient.js
 
 # vercel
 .vercel
