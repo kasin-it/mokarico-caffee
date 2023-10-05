@@ -1,8 +1,5 @@
 'use client';
 
-import Navbar from '@/components/navbar';
-import FormProvider from '../providers/form-provider';
-import Footer from '@/components/footer';
 import { useEffect } from 'react';
 import { useArrowUpModal } from '../hooks/use-arrow-up-modal';
 
@@ -30,13 +27,6 @@ function DashboardLayout({ children }: { children: React.ReactNode }) {
     };
   }, [arrowUp]);
 
-  return (
-    <>
-      <Navbar />
-      <FormProvider />
-      {children}
-      <Footer />
-    </>
-  );
+  return <>{children}</>;
 }
 export default DashboardLayout;

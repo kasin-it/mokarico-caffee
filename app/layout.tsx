@@ -2,6 +2,9 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Playfair_Display, Sofia_Sans } from 'next/font/google';
 import ModalProvider from './providers/modal-provider';
+import Navbar from '@/components/navbar';
+import FormProvider from './providers/form-provider';
+import Footer from '@/components/footer';
 
 const playfair = Playfair_Display({ subsets: ['latin'] });
 const sofia_sans = Sofia_Sans({ subsets: ['latin'] });
@@ -20,7 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={sofia_sans.className}>
         <ModalProvider />
+        <Navbar />
+        <FormProvider />
         {children}
+        <Footer />
       </body>
     </html>
   );

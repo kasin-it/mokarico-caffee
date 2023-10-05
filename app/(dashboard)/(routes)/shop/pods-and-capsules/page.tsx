@@ -2,7 +2,7 @@ import Separator from '@/components/ui/separator';
 import supabase from '@/config/supabaseClient';
 import ProductsCollection from '../components/products-colection';
 
-async function CoffeeGrainsPage() {
+async function PodsAndCapsulesPage() {
   const getProducts = async () => {
     const { data, error } = await supabase.from('coffee-grains').select();
 
@@ -27,4 +27,4 @@ async function CoffeeGrainsPage() {
     </section>
   );
 }
-export default CoffeeGrainsPage;
+export default PodsAndCapsulesPage;

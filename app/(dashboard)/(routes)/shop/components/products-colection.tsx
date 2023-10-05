@@ -82,13 +82,14 @@ function ProductsCollection() {
   }, [sortingCriteria, items]); // Listen for changes in sortingCriteria and items
 
   return (
-    <div>
-      <div>
-        <label htmlFor="sortSelect">Sort By:</label>
+    <div className='mt-11'>
+      <div className="flex justify-end space-x-4 items-center">
+        <label htmlFor="sortSelect" className='text-xs opacity-50 font-medium'>SORT BY</label>
         <select
           id="sortSelect"
           onChange={(e) => setSortingCriteria(e.target.value)}
           value={sortingCriteria}
+          className='bg-transparent'
         >
           <option value="price">Price</option>
           <option value="label">Label</option>
