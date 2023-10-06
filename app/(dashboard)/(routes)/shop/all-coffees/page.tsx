@@ -19,11 +19,11 @@ async function GroundCoffeePage() {
   return (
     <section className="mt-[100px] flex flex-col items-center justify-center px-3 md:px-20">
       <section className="w-full space-y-3 max-w-[1100px]">
-        <h1 className="font-playfair-display text-7xl">Ground Coffee</h1>
-        <p>Home / Shop / Ground Coffee</p>
+        <h1 className="font-playfair-display text-7xl">All Coffees</h1>
+        <p>Home / Shop / All Coffees</p>
         <Separator className="bg-gray-600" />
       </section>
-      <ProductsCollection />
+      <ProductsCollection filter={true} />
     </section>
   );
 }

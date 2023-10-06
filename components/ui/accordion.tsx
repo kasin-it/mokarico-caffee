@@ -7,6 +7,7 @@ type AccordionpProps = {
   title: string;
   id: string;
   active?: boolean;
+  className?: string;
 };
 
 export default function Accordion({
@@ -14,6 +15,7 @@ export default function Accordion({
   title,
   id,
   active = false,
+  className,
 }: AccordionpProps) {
   const [accordionOpen, setAccordionOpen] = useState<boolean>(false);
 
@@ -33,7 +35,7 @@ export default function Accordion({
           aria-expanded={accordionOpen}
           aria-controls={`accordion-text-${id}`}
         >
-          <span>{title}</span>
+          <span className={className}>{title}</span>
           <svg
             className="fill-orange-600 shrink-0 ml-8"
             width="16"
