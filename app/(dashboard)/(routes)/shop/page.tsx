@@ -18,9 +18,11 @@ import rainforest from '@/public/img/rainforest.png';
 import biologico from '@/public/img/caffe-biologico-italiano.jpg';
 import mokka from '@/public/img/caffe-moka.jpg';
 import scrivania from '@/public/img/caffe-scrivania-lavoro.jpg';
+import graph from '@/public/img/graph-chicchi.png';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useNavbarProperties } from '@/app/hooks/use-navbar-properties';
+import { ArrowRightCircle } from 'lucide-react';
 
 function ShopPage() {
   const navbarProperties = useNavbarProperties();
@@ -41,18 +43,18 @@ function ShopPage() {
             </h1>
             <AnimatedButton
               childrenClassName="text-white"
-              secoundChildren
               className="w-[200px] absolute left-0 z-30"
               secoundChildrenClassName=""
+              secoundChildren={<ArrowRightCircle className="text-white" />}
             >
               DISCOVER MONO
             </AnimatedButton>
           </article>
           <AnimatedButton
             childrenClassName="text-white"
-            secoundChildren
             className="w-[130px] absolute left-0 bottom-32 border-b-white rotate-90 z-30"
             secoundChildrenClassName="text-black bg-white"
+            secoundChildren={<ArrowRightCircle />}
           >
             SCORRI
           </AnimatedButton>
@@ -61,40 +63,45 @@ function ShopPage() {
           <ItemsCarousel />
         </article>
       </section>
+
       <section className="flex items-center justify-center">
-        <article className="flex flex-col lg:flex-row space-x-4 space-y-10 items-center justify-center mt-16">
-          <div className="flex flex-col lg:flex-row items-center">
+        <article className="flex flex-col lg:flex-row lg:space-x-12 space-y-10 lg:items-end justify-center my-16 w-full">
+          <div className="flex flex-col lg:flex-row items-center lg:space-x-5">
             <Image src={express} alt="coffe" width={50} height={50} />
             <AnimatedButton
               childrenClassName="font-playfair-display px-1"
-              className="w-[250px]  text-2xl"
+              className="w-[250px] text-2xl"
+              secoundChildren={<ArrowRightCircle className="text-white" />}
             >
               Pods and Capsules
             </AnimatedButton>
           </div>
-          <div className="flex flex-col lg:flex-row items-center">
+          <div className="flex flex-col lg:flex-row items-center lg:space-x-5">
             <Image src={grani} alt="coffe" width={50} height={50} />
             <AnimatedButton
               childrenClassName="font-playfair-display px-1"
               className="w-[200px]  text-2xl"
+              secoundChildren={<ArrowRightCircle className="text-white" />}
             >
               Coffee Grains
             </AnimatedButton>
           </div>
-          <div className="flex flex-col lg:flex-row items-center">
+          <div className="flex flex-col lg:flex-row items-center lg:space-x-5">
             <Image src={maciento} alt="coffe" width={50} height={50} />
 
             <AnimatedButton
               childrenClassName="font-playfair-display px-1"
               className="w-[200px] text-2xl"
+              secoundChildren={<ArrowRightCircle className="text-white" />}
             >
               Ground Coffee
             </AnimatedButton>
           </div>
         </article>
       </section>
+
       <section
-        className={'flex flex-col items-center justify-center space-y-24 pt-24'}
+        className={'flex flex-col items-center justify-center space-y-12'}
       >
         <article className="flex flex-col-reverse lg:flex-row lg:items-start items-center">
           <Image
@@ -103,18 +110,23 @@ function ShopPage() {
             width={rainforest.width}
             alt={''}
           />
-          <article className="w-full lg:w-1/2  px-10 py-10 max-w-2xl">
+          <article className="w-full lg:w-1/2  px-10 pt-10 max-w-2xl">
             <h2 className="text-[4vw] font-playfair-display">Rainforest</h2>
             <p className="text-lg text-gray-600/90">
               Eines unserer Topseller jetzt auch Rainforest Alliance
               zertifiziert. Jeder Tropf von RFA Columbia trägt zum Schutz der
               tropischen Wälder und Menschen bei.
             </p>
-            <AnimatedButton className="w-[150px]">DISCOVER</AnimatedButton>
+            <AnimatedButton
+              secoundChildren={<ArrowRightCircle className="text-white" />}
+              className="w-[150px]"
+            >
+              DISCOVER
+            </AnimatedButton>
           </article>
         </article>
         <article className="flex flex-col items-center lg:flex-row lg:items-start">
-          <article className="w-full lg:w-1/2 px-10 py-10 space-y-5 max-w-2xl">
+          <article className="w-full lg:w-1/2 px-10 pt-10 space-y-5 max-w-2xl">
             <h2 className="text-[4vw] font-playfair-display leading-none">
               Discover our <br /> organic soul.
             </h2>
@@ -123,7 +135,12 @@ function ShopPage() {
               principles of respect for the ecosystem in search of a coffee that
               delivers authentic flavors and true aromas
             </p>
-            <AnimatedButton className="w-[150px]">DISCOVER</AnimatedButton>
+            <AnimatedButton
+              secoundChildren={<ArrowRightCircle className="text-white" />}
+              className="w-[150px]"
+            >
+              DISCOVER
+            </AnimatedButton>
           </article>
           <Image
             src={biologico}
@@ -132,7 +149,15 @@ function ShopPage() {
             alt={''}
           />
         </article>
-        <section className="w-full items-center justify-center pb-28 pt-20 hidden lg:flex flex-col xl:flex-row mx-auto lg:translate-x-[110px] xl:translate-x-0">
+
+        <section className="w-full items-center justify-center pb-24 hidden relative lg:flex flex-col xl:flex-row lg:translate-x-[110px] xl:translate-x-0">
+          <Image
+            src={graph}
+            height={graph.height}
+            width={graph.width}
+            className="absolute left-0 bottom-0 hidden xl:block"
+            alt="branch"
+          />
           <Link
             href={'/'}
             className="relative group top-[100px] right-[200px] xl:right-0  mr-[350px]"
@@ -155,6 +180,7 @@ function ShopPage() {
                 childrenClassName="justify-end pe-10"
                 width={260}
                 className="w-[260px]"
+                secoundChildren={<ArrowRightCircle className="text-white" />}
               >
                 DISCOVER
               </AnimatedButton>
@@ -182,6 +208,7 @@ function ShopPage() {
                 childrenClassName="justify-start ps-10"
                 width={260}
                 className="w-[260px]"
+                secoundChildren={<ArrowRightCircle className="text-white" />}
               >
                 SHOP ONLINE
               </AnimatedButton>
@@ -189,7 +216,7 @@ function ShopPage() {
           </Link>
         </section>
 
-        <section className="w-full px-5 flex lg:hidden flex-col space-y-6 justify-center items-center py-11">
+        <section className="w-full px-5 pb-12 flex lg:hidden flex-col space-y-6 justify-center items-center">
           <Image
             src={mokka}
             alt="cups"
@@ -208,6 +235,7 @@ function ShopPage() {
               childrenClassName="justify-center"
               width={260}
               className="w-[260px]"
+              secoundChildren={<ArrowRightCircle className="text-white" />}
             >
               DISCOVER
             </AnimatedButton>
@@ -230,79 +258,112 @@ function ShopPage() {
               childrenClassName="justify-center"
               width={260}
               className="w-[260px]"
+              secoundChildren={<ArrowRightCircle className="text-white" />}
             >
               DISCOVER
             </AnimatedButton>
           </div>
         </section>
+      </section>
 
-        <section className="lg:flex pb-24 hidden">
-          <article className="lg:flex flex-col hidden border-r px-8 space-y-6">
+      <section className="lg:flex pb-24 hidden justify-center items-center">
+        <article className="lg:flex flex-col hidden border-r px-8 space-y-6">
+          <Image src={assistenza} alt={''} />
+          <h3 className="text-3xl font-playfair-display">
+            Available for you <br /> to pucharse
+          </h3>
+          <AnimatedButton
+            secoundChildren={<ArrowRightCircle className="text-white" />}
+          >
+            CONTACTS
+          </AnimatedButton>
+        </article>{' '}
+        <article className="lg:flex flex-col hidden border-r px-8 space-y-6">
+          <Image src={qualita} alt={''} />
+          <h3 className="text-3xl font-playfair-display">
+            Choose the <br /> quality of real <br /> Italian espresso <br />{' '}
+            coffee
+          </h3>
+          <AnimatedButton
+            secoundChildren={<ArrowRightCircle className="text-white" />}
+          >
+            QUALITY
+          </AnimatedButton>
+        </article>{' '}
+        <article className="lg:flex flex-col hidden border-r px-8 space-y-6">
+          <Image src={siamo} alt={''} />
+          <h3 className="text-3xl font-playfair-display">
+            Artisan roasting <br /> since 1936
+          </h3>
+          <AnimatedButton
+            secoundChildren={<ArrowRightCircle className="text-white" />}
+          >
+            ABOUT US
+          </AnimatedButton>
+        </article>{' '}
+        <article className="lg:flex flex-col hidden px-8 space-y-6">
+          <Image src={degustazione} alt={''} />
+          <h3 className="text-3xl font-playfair-display">
+            Becouse <br /> Mokarico is <br /> different from the <br />
+            other brands
+          </h3>
+          <AnimatedButton
+            secoundChildren={<ArrowRightCircle className="text-white" />}
+          >
+            DISCOVER
+          </AnimatedButton>
+        </article>
+      </section>
+
+      <section className="flex pb-24 lg:hidden justify-center items-center">
+        <div className="border-r space-y-6 w-1/2">
+          <article className="lg:flex flex-col px-8 space-y-6">
             <Image src={assistenza} alt={''} />
             <h3 className="text-3xl font-playfair-display">
-              Available for you <br /> to pucharse
+              Available for you to pucharse
             </h3>
-            <AnimatedButton>CONTACTS</AnimatedButton>
-          </article>{' '}
-          <article className="lg:flex flex-col hidden border-r px-8 space-y-6">
-            <Image src={qualita} alt={''} />
-            <h3 className="text-3xl font-playfair-display">
-              Choose the <br /> quality of real <br /> Italian espresso <br />{' '}
-              coffee
-            </h3>
-            <AnimatedButton>CONTACTS</AnimatedButton>
-          </article>{' '}
-          <article className="lg:flex flex-col hidden border-r px-8 space-y-6">
+            <AnimatedButton
+              secoundChildren={<ArrowRightCircle className="text-white" />}
+            >
+              CONTACTS
+            </AnimatedButton>
+          </article>
+          <article className="lg:flex flex-col px-8 space-y-6">
             <Image src={siamo} alt={''} />
             <h3 className="text-3xl font-playfair-display">
-              Artisan roasting <br /> since 1936
+              Artisan roasting since 1936
             </h3>
-            <AnimatedButton>CONTACTS</AnimatedButton>
-          </article>{' '}
-          <article className="lg:flex flex-col hidden px-8 space-y-6">
+            <AnimatedButton
+              secoundChildren={<ArrowRightCircle className="text-white" />}
+            >
+              QUALITY
+            </AnimatedButton>
+          </article>
+        </div>
+        <div className="space-y-6 w-1/2">
+          <article className="lg:flex flex-col px-8 space-y-6">
+            <Image src={qualita} alt={''} />
+            <h3 className="text-3xl font-playfair-display">
+              Choose the quality of real Italian espresso coffee
+            </h3>
+            <AnimatedButton
+              secoundChildren={<ArrowRightCircle className="text-white" />}
+            >
+              ABOUT US
+            </AnimatedButton>
+          </article>
+          <article className="lg:flex flex-col px-8 space-y-6">
             <Image src={degustazione} alt={''} />
             <h3 className="text-3xl font-playfair-display">
-              Becouse <br /> Mokarico is <br /> different from the <br />
-              other brands
+              Becouse Mokarico is different from the other brands
             </h3>
-            <AnimatedButton>CONTACTS</AnimatedButton>
+            <AnimatedButton
+              secoundChildren={<ArrowRightCircle className="text-white" />}
+            >
+              DISCOVER
+            </AnimatedButton>
           </article>
-        </section>
-
-        <section className="flex pb-24 lg:hidden">
-          <div className="border-r space-y-6 w-1/2">
-            <article className="lg:flex flex-col px-8 space-y-6">
-              <Image src={assistenza} alt={''} />
-              <h3 className="text-3xl font-playfair-display">
-                Available for you to pucharse
-              </h3>
-              <AnimatedButton>CONTACTS</AnimatedButton>
-            </article>
-            <article className="lg:flex flex-col px-8 space-y-6">
-              <Image src={siamo} alt={''} />
-              <h3 className="text-3xl font-playfair-display">
-                Artisan roasting since 1936
-              </h3>
-              <AnimatedButton>CONTACTS</AnimatedButton>
-            </article>
-          </div>
-          <div className="space-y-6 w-1/2">
-            <article className="lg:flex flex-col px-8 space-y-6">
-              <Image src={qualita} alt={''} />
-              <h3 className="text-3xl font-playfair-display">
-                Choose the quality of real Italian espresso coffee
-              </h3>
-              <AnimatedButton>CONTACTS</AnimatedButton>
-            </article>
-            <article className="lg:flex flex-col px-8 space-y-6">
-              <Image src={degustazione} alt={''} />
-              <h3 className="text-3xl font-playfair-display">
-                Becouse Mokarico is different from the other brands
-              </h3>
-              <AnimatedButton>CONTACTS</AnimatedButton>
-            </article>
-          </div>
-        </section>
+        </div>
       </section>
     </>
   );

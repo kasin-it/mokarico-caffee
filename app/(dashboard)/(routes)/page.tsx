@@ -18,7 +18,7 @@ import story_sm_img from '@/public/img/story_img_sm.png';
 
 import Image from 'next/image';
 import { useEffect, useLayoutEffect } from 'react';
-import { ArrowDownCircleIcon } from 'lucide-react';
+import { ArrowDownCircleIcon, ArrowRightCircle } from 'lucide-react';
 import Link from 'next/link';
 
 function Home() {
@@ -82,9 +82,7 @@ function Home() {
           </p>
           <AnimatedButton
             childrenClassName="text-white md:text-black"
-            secoundChildren={
-              <ArrowDownCircleIcon className="rotate-[-90deg] text-white" />
-            }
+            secoundChildren={<ArrowRightCircle className="text-white" />}
             className="rotate-90 hidden md:block lg:left-[10px] md:left-[-60px] top-[190px] w-[150px]"
             width={160}
             // height={64} NOT working for now
@@ -120,7 +118,9 @@ function Home() {
           <SocialmediaProviders className="text-white" />
         </div>
       </section>
+
       {/* STORY SECTION */}
+
       <section className="relative mt-11 flex justify-center">
         <Image
           src={story_img}
@@ -159,7 +159,12 @@ function Home() {
                   alt="origini"
                   className="group-hover:opacity-30"
                 />
-                <AnimatedButton width={140}>COMPANY</AnimatedButton>
+                <AnimatedButton
+                  secoundChildren={<ArrowRightCircle className="text-white" />}
+                  width={140}
+                >
+                  COMPANY
+                </AnimatedButton>
               </Link>
               <Link
                 href={'/'}
@@ -170,7 +175,12 @@ function Home() {
                   alt="qualita"
                   className="group-hover:opacity-30"
                 />
-                <AnimatedButton width={140}>QUALITY</AnimatedButton>
+                <AnimatedButton
+                  secoundChildren={<ArrowRightCircle className="text-white" />}
+                  width={140}
+                >
+                  QUALITY
+                </AnimatedButton>
               </Link>
             </div>
             <div className="flex flex-col relative">
@@ -183,7 +193,12 @@ function Home() {
                   alt="miscele"
                   className="group-hover:opacity-30"
                 />
-                <AnimatedButton width={140}>BLENDS</AnimatedButton>
+                <AnimatedButton
+                  secoundChildren={<ArrowRightCircle className="text-white" />}
+                  width={140}
+                >
+                  BLENDS
+                </AnimatedButton>
               </Link>
               <Link
                 href={'/'}
@@ -194,7 +209,12 @@ function Home() {
                   alt="bioworld"
                   className="group-hover:opacity-30"
                 />
-                <AnimatedButton width={140}>BIO WORLD</AnimatedButton>
+                <AnimatedButton
+                  secoundChildren={<ArrowRightCircle className="text-white" />}
+                  width={140}
+                >
+                  BIO WORLD
+                </AnimatedButton>
               </Link>
               <span className="absolute text-xs right-[-60px] top-[180px] rotate-90 font-bold tracking-widest hidden md:block">
                 1936-2018
@@ -203,6 +223,8 @@ function Home() {
           </section>
         </article>
       </section>
+
+      {/* ABOUT SECTION */}
 
       <section className="w-full items-center justify-center pb-28 pt-20 hidden lg:flex flex-col xl:flex-row mx-auto xl:translate-x-[-60px]">
         <Link
@@ -227,6 +249,7 @@ function Home() {
               childrenClassName="justify-end pe-10"
               width={260}
               className="w-[260px]"
+              secoundChildren={<ArrowRightCircle className="text-white" />}
             >
               DISCOVER
             </AnimatedButton>
@@ -251,6 +274,7 @@ function Home() {
               childrenClassName="justify-end pe-10"
               width={260}
               className="w-[260px]"
+              secoundChildren={<ArrowRightCircle className="text-white" />}
             >
               SHOP ONLINE
             </AnimatedButton>
@@ -277,6 +301,7 @@ function Home() {
             childrenClassName="justify-center"
             width={260}
             className="w-[260px]"
+            secoundChildren={<ArrowRightCircle className="text-white" />}
           >
             DISCOVER
           </AnimatedButton>
@@ -299,6 +324,7 @@ function Home() {
             childrenClassName="justify-center"
             width={260}
             className="w-[260px]"
+            secoundChildren={<ArrowRightCircle className="text-white" />}
           >
             DISCOVER
           </AnimatedButton>
