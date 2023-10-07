@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState, useRef } from 'react';
-import './multiRangeSlider.css';
 import { cn } from '@/lib/utils';
 
 interface MultiRangeSliderProps {
@@ -52,7 +51,7 @@ const MultiRangeSlider = ({ min, max, onChange }: MultiRangeSliderProps) => {
   }, [minVal, maxVal, onChange]);
 
   return (
-    <div className="container">
+    <div className="h-24 flex items-center justify-center">
       <input
         type="range"
         min={min}
@@ -62,15 +61,19 @@ const MultiRangeSlider = ({ min, max, onChange }: MultiRangeSliderProps) => {
         onChange={(event) => {
           const value = Math.min(
             Math.max(+event.target.value, min),
-            max,
+            maxVal, // Ensure minVal doesn't exceed maxVal
           ) as number;
           setMinVal(value);
           event.target.value = value.toString();
         }}
-        className={cn('thumb thumb--zindex-3', {
-          'thumb--zindex-5': minVal > max - 100,
-        })}
+        className={cn(
+          'thumb pointer-events-none cursor-grab absolute h-0 w-[200px] outline-none z-[3]',
+          {
+            'z-[5]': minVal > max - 100,
+          },
+        )}
       />
+
       <input
         type="range"
         min={min}
@@ -80,19 +83,26 @@ const MultiRangeSlider = ({ min, max, onChange }: MultiRangeSliderProps) => {
         onChange={(event) => {
           const value = Math.max(
             Math.min(+event.target.value, max),
-            minVal,
+            minVal, // Ensure maxVal doesn't go below minVal
           ) as number;
           setMaxVal(value);
           event.target.value = value.toString();
         }}
-        className="thumb thumb--zindex-4"
+        className="thumb pointer-events-none cursor-grab absolute h-0 w-[200px] outline-none z-[4]"
       />
 
-      <div className="slider">
-        <div className="slider__track" />
-        <div ref={range} className="slider__range" />
-        <div className="slider__left-value">{minVal}</div>
-        <div className="slider__right-value">{maxVal}</div>
+      <div className="relative w-[200px]">
+        <div className="slider__track absolute h-[5px] rounded-[3px] bg-[#ced4da] w-full z-[1]" />
+        <div
+          ref={range}
+          className="slider__range absolute h-[5px] rounded-[3px] bg-[#9fe5e1] z-[2]"
+        />
+        <div className="slider__left-value absolute text-[#dee2e6] text-xs mt-5 left-1.5">
+          {minVal}
+        </div>
+        <div className="slider__right-value absolute text-[#dee2e6] text-xs mt-5 right-1">
+          {maxVal}
+        </div>
       </div>
     </div>
   );
