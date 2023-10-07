@@ -10,7 +10,7 @@ import Separator from '../ui/separator';
 import { Input } from 'postcss';
 import { useFilterModal } from '@/app/hooks/use-filter-modal';
 import Accordion from '../ui/accordion';
-import DoubleRangeSlider from '../ui/duble-range-slider';
+import DoubleRangeSlider from '../../app/(dashboard)/(routes)/shop/components/duble-range-slider';
 
 export const FilterModal = () => {
   const filter = useFilterModal();
@@ -30,7 +30,15 @@ export const FilterModal = () => {
           onClick={filter.onClose}
         />
         <Accordion
-          children={<DoubleRangeSlider />}
+          children={
+            <DoubleRangeSlider
+              min={0}
+              max={30}
+              onChange={({ min, max }) =>
+                console.log(`min = ${min}, max = ${max}`)
+              }
+            />
+          }
           title={'Filter by Price'}
           id={'d'}
         />{' '}
