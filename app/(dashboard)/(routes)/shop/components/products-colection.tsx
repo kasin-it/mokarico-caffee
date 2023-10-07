@@ -72,7 +72,7 @@ function ProductsCollection({ filter }: ProductsCollectionProps) {
   const handleSort = (criteria: string) => {
     const sortedItems = [...items];
 
-    sortedItems.sort((a, b) => {
+    sortedItems.sort((a: any, b: any) => {
       if (a[criteria] < b[criteria]) return -1;
       if (a[criteria] > b[criteria]) return 1;
       return 0;

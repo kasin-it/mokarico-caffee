@@ -59,7 +59,7 @@ function ShopPage() {
             SCORRI
           </AnimatedButton>
         </div>
-        <article className="w-full lg:w-2/5 mt-[190px]">
+        <article className="w-full flex lg:w-2/5 mt-7 lg:mt-[190px] justify-center">
           <ItemsCarousel />
         </article>
       </section>

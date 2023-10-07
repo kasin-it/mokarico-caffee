@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 function NotFound() {
   return (
-    <section className="flex flex-col justify-center items-center h-3/5 my-11">
+    <section className="flex flex-col justify-center items-center h-4/5 my-11 px-1 md:px-0">
       <section className="flex flex-col justify-center items-center max-w-[600px] text-center space-y-5">
         <Image
           src={not_found_gif.src}

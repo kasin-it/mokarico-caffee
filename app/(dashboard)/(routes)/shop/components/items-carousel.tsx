@@ -4,7 +4,7 @@ import React, { MouseEvent as ReactMouseEvent, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useMotionValue, useSpring, type PanInfo } from 'framer-motion';
-import { MoveLeft, MoveRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MoveLeft, MoveRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import coffee from '@/public/img/i_mono_brasile_1000.jpg';
 import AddToCartButton from '@/components/ui/add-to-cart-button';
@@ -221,7 +221,7 @@ export default function SuggestedCarousel() {
                   key={index}
                   ref={(el) => (itemsRef.current[index] = el)}
                   className={cn(
-                    'group relative shrink-0 select-none px-3 transition-opacity duration-300 w-[516px] text-center',
+                    'group relative shrink-0 select-none px-3 transition-opacity duration-300 w-[300px] text-center',
                     !active && 'opacity-30',
                   )}
                   transition={{
@@ -284,7 +284,7 @@ export default function SuggestedCarousel() {
             onMouseLeave={() => setHoverType(null)}
           >
             <span className="sr-only">Previous Guide</span>
-            <MoveLeft className="h-10 w-10 stroke-[1.5] transition-colors group-enabled:group-hover:text-gray-900 group-disabled:opacity-50" />
+            <ChevronLeft className="h-16 w-16 stroke-[1.5] transition-colors  group-enabled:group-hover:text-orange-600 group-disabled:opacity-50" />
           </button>
           <button
             type="button"
@@ -300,7 +300,7 @@ export default function SuggestedCarousel() {
             onMouseLeave={() => setHoverType(null)}
           >
             <span className="sr-only">Next Guide</span>
-            <MoveRight className="h-10 w-10 stroke-[1.5] transition-colors group-enabled:group-hover:text-gray-900 group-disabled:opacity-50" />
+            <ChevronRight className="h-16 w-16 stroke-[1.5] transition-colors  group-enabled:group-hover:text-orange-600  group-disabled:opacity-50" />
           </button>
         </div>
       </div>
