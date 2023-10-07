@@ -5,8 +5,6 @@ interface SeparatorProps {
 }
 
 function Separator({ className }: SeparatorProps) {
-  return (
-    <div className={cn('h-[1px] border-b-[1px]', className)} />
-  );
+  return <div className={cn('h-[1px] border-b-[1px]', className)} />;
 }
 export default Separator;

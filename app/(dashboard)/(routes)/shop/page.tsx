@@ -20,17 +20,9 @@ import mokka from '@/public/img/caffe-moka.jpg';
 import scrivania from '@/public/img/caffe-scrivania-lavoro.jpg';
 import graph from '@/public/img/graph-chicchi.png';
 import Link from 'next/link';
-import { useEffect } from 'react';
-import { useNavbarProperties } from '@/app/hooks/use-navbar-properties';
 import { ArrowRightCircle } from 'lucide-react';
 
 function ShopPage() {
-  const navbarProperties = useNavbarProperties();
-
-  useEffect(() => {
-    navbarProperties.setisTransparent(false);
-  }, []);
-
   return (
     <>
       <section className="flex flex-col lg:flex-row">

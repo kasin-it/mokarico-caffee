@@ -10,7 +10,6 @@ import Link from 'next/link';
 export const LoginModal = () => {
   const loginModal = useLoginModal();
 
-
   const [isLoginPage, setIsLoginPage] = useState(true);
 
   const handleLoginPageToggle = (

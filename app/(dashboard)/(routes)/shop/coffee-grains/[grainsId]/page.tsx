@@ -32,8 +32,7 @@ async function page() {
         <p>ROASTED IN BEANS 1kg</p>
         <p>desc</p>
 
-        <AddToCartForm productId={data}  />
-
+        <AddToCartForm productId={data} />
       </section>
     </div>
   );
