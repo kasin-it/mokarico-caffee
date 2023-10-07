@@ -25,7 +25,7 @@ export const CartModal = () => {
         <section className={'text-sm text-gray-600 opacity-50 py-5 pb-10'}>
           You have no items in your shopping cart
         </section>
-        <DefaultButton>GO TO SHOP</DefaultButton>
+        <DefaultButton onClick={cartModal.onClose}>GO TO SHOP</DefaultButton>
       </div>
     </Modal>
   );

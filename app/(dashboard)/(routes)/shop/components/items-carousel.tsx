@@ -221,7 +221,7 @@ export default function SuggestedCarousel() {
                   key={index}
                   ref={(el) => (itemsRef.current[index] = el)}
                   className={cn(
-                    'group relative shrink-0 select-none px-3 transition-opacity duration-300 w-[300px] text-center',
+                    'group relative shrink-0 select-none px-3 transition-opacity duration-300 w-[600px] text-center',
                     !active && 'opacity-30',
                   )}
                   transition={{

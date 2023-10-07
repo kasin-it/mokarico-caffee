@@ -38,7 +38,11 @@ export const MenuModal = () => {
         {/* ADD CHANGE LANG HERE */}
 
         <div className={'block w-full space-y-5 pb-4'}>
-          <Link href={'/'} className={'text-4xl text-orange-600'}>
+          <Link
+            href={'/'}
+            className={'text-4xl text-orange-600'}
+            onClick={menuModal.onClose}
+          >
             Home
           </Link>
           <MenuDropdown
@@ -46,24 +50,28 @@ export const MenuModal = () => {
             itemsList={shopItemsList}
             bigLabel={true}
             href="/shop"
+            onClose={menuModal.onClose}
           />
           <MenuDropdown
             dropdownName="Assistance"
             itemsList={assistanceItemsList}
             bigLabel={true}
             href="/assistance"
+            onClose={menuModal.onClose}
           />
           <MenuDropdown
             dropdownName="Coffe"
             itemsList={coffeItemsList}
             bigLabel={true}
             href="/coffee"
+            onClose={menuModal.onClose}
           />
           <MenuDropdown
             dropdownName="Business"
             itemsList={businessItemsList}
             bigLabel={true}
             href="/business"
+            onClose={menuModal.onClose}
           />
         </div>
         <Separator />

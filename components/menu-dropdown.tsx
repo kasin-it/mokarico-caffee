@@ -11,6 +11,7 @@ type Sizes = '4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 
 type MenuDropdownProps = {
   dropdownName: string;
+  onClose: () => void;
   itemsList: DropdownItem[];
   bigLabel?: boolean;
   sizeBig?: Sizes;
@@ -21,6 +22,7 @@ type MenuDropdownProps = {
 function MenuDropdown({
   dropdownName,
   itemsList,
+  onClose,
   bigLabel = false,
   sizeBig = '4xl',
   sizeSmall = '2xl',
@@ -36,6 +38,7 @@ function MenuDropdown({
       <div className={'flex w-full flex-row items-center justify-between'}>
         <Link
           href={href}
+          onClick={onClose}
           className={`hover:text-orange-600 ${
             bigLabel ? `text-${sizeBig}` : `text-${sizeSmall}`
           }`}
@@ -65,12 +68,14 @@ function MenuDropdown({
                 bigLabel={false} // Pass the value of bigLabel to nested dropdown
                 key={index}
                 href={item.href}
+                onClose={onClose}
               />
             ) : (
               <Link
                 href={item.href}
                 className={'hover:text-orange-600'}
                 key={index}
+                onClick={onClose}
               >
                 {item.label}
               </Link>

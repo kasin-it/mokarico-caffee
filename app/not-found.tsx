@@ -21,7 +21,7 @@ function NotFound() {
           below.
         </p>
         <div className="flex space-x-6">
-          <AnimatedButton className="W-[450px]" width={400}>
+          <AnimatedButton className="w-[450px]">
             BACK TO HOME
           </AnimatedButton>
           <AnimatedButton>GO TO HOME</AnimatedButton>

@@ -28,14 +28,14 @@ function ShopPage() {
       <section className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-3/5 h-screen relative">
           <ImageZoom />
-          <article className="absolute top-1/3 left-1/4 space-y-10">
+          <article className="absolute top-1/3 left-[20%] sm:left-1/4 space-y-10">
             <p className="text-white text-xl">Monorigine coffee</p>
-            <h1 className="text-white text-5xl md:text-[5vw] font-playfair-display leading-none">
+            <h1 className="text-white text-5xl md:text-[5vw] font-playfair-display leading-none text-center sm:text-left">
               Every country, <br /> flavors to talk <br /> about
             </h1>
             <AnimatedButton
               childrenClassName="text-white"
-              className="w-[200px] absolute left-0 z-30"
+              className="w-[200px] absolute left-[15%] sm:left-0 z-30"
               secoundChildrenClassName=""
               secoundChildren={<ArrowRightCircle className="text-white" />}
             >
@@ -44,7 +44,7 @@ function ShopPage() {
           </article>
           <AnimatedButton
             childrenClassName="text-white"
-            className="w-[130px] absolute left-0 bottom-32 border-b-white rotate-90 z-30"
+            className="w-[130px] absolute left-[38%] sm:left-0 bottom-32 border-b-white rotate-90 z-30 transition"
             secoundChildrenClassName="text-black bg-white"
             secoundChildren={<ArrowRightCircle />}
           >
@@ -119,9 +119,12 @@ function ShopPage() {
             height={rainforest.height}
             width={rainforest.width}
             alt={''}
+            className="mt-5"
           />
           <article className="w-full lg:w-1/2  px-10 pt-10 max-w-2xl">
-            <h2 className="text-[4vw] font-playfair-display">Rainforest</h2>
+            <h2 className="text-5xl lg:text-[4vw] font-playfair-display">
+              Rainforest
+            </h2>
             <p className="text-lg text-gray-600/90">
               Eines unserer Topseller jetzt auch Rainforest Alliance
               zertifiziert. Jeder Tropf von RFA Columbia trägt zum Schutz der
@@ -137,7 +140,7 @@ function ShopPage() {
         </article>
         <article className="flex flex-col items-center lg:flex-row lg:items-start">
           <article className="w-full lg:w-1/2 px-10 pt-10 space-y-5 max-w-2xl">
-            <h2 className="text-[4vw] font-playfair-display leading-none">
+            <h2 className="text-5xl lg:text-[4vw] font-playfair-display leading-none">
               Discover our <br /> organic soul.
             </h2>
             <p className="text-lg text-gray-600/90">
@@ -157,6 +160,7 @@ function ShopPage() {
             height={biologico.height}
             width={biologico.width}
             alt={''}
+            className="mt-5"
           />
         </article>
 
