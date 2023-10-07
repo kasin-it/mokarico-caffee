@@ -38,7 +38,7 @@ function ShopPage() {
           <ImageZoom />
           <article className="absolute top-1/3 left-1/4 space-y-10">
             <p className="text-white text-xl">Monorigine coffee</p>
-            <h1 className="text-white text-[5vw] font-playfair-display leading-none">
+            <h1 className="text-white text-5xl md:text-[5vw] font-playfair-display leading-none">
               Every country, <br /> flavors to talk <br /> about
             </h1>
             <AnimatedButton
@@ -67,7 +67,13 @@ function ShopPage() {
       <section className="flex items-center justify-center">
         <article className="flex flex-col lg:flex-row lg:space-x-12 space-y-10 lg:items-end justify-center my-16 w-full">
           <div className="flex flex-col lg:flex-row items-center lg:space-x-5">
-            <Image src={express} alt="coffe" width={50} height={50} />
+            <Image
+              src={express}
+              alt="coffe"
+              width={0}
+              height={0}
+              style={{ width: '50px', height: 'auto' }}
+            />
             <AnimatedButton
               childrenClassName="font-playfair-display px-1"
               className="w-[250px] text-2xl"
@@ -77,7 +83,13 @@ function ShopPage() {
             </AnimatedButton>
           </div>
           <div className="flex flex-col lg:flex-row items-center lg:space-x-5">
-            <Image src={grani} alt="coffe" width={50} height={50} />
+            <Image
+              src={grani}
+              alt="coffe"
+              width={0}
+              height={0}
+              style={{ width: '50px', height: 'auto' }}
+            />
             <AnimatedButton
               childrenClassName="font-playfair-display px-1"
               className="w-[200px]  text-2xl"
@@ -87,7 +99,13 @@ function ShopPage() {
             </AnimatedButton>
           </div>
           <div className="flex flex-col lg:flex-row items-center lg:space-x-5">
-            <Image src={maciento} alt="coffe" width={50} height={50} />
+            <Image
+              src={maciento}
+              alt="coffe"
+              width={0}
+              height={0}
+              style={{ width: '50px', height: 'auto' }}
+            />
 
             <AnimatedButton
               childrenClassName="font-playfair-display px-1"
@@ -178,7 +196,6 @@ function ShopPage() {
               </h2>
               <AnimatedButton
                 childrenClassName="justify-end pe-10"
-                width={260}
                 className="w-[260px]"
                 secoundChildren={<ArrowRightCircle className="text-white" />}
               >
@@ -206,7 +223,6 @@ function ShopPage() {
               </h2>
               <AnimatedButton
                 childrenClassName="justify-start ps-10"
-                width={260}
                 className="w-[260px]"
                 secoundChildren={<ArrowRightCircle className="text-white" />}
               >
@@ -233,7 +249,6 @@ function ShopPage() {
             </h2>
             <AnimatedButton
               childrenClassName="justify-center"
-              width={260}
               className="w-[260px]"
               secoundChildren={<ArrowRightCircle className="text-white" />}
             >
@@ -256,7 +271,6 @@ function ShopPage() {
             </h2>
             <AnimatedButton
               childrenClassName="justify-center"
-              width={260}
               className="w-[260px]"
               secoundChildren={<ArrowRightCircle className="text-white" />}
             >
@@ -285,13 +299,21 @@ function ShopPage() {
             coffee
           </h3>
           <AnimatedButton
-            secoundChildren={<ArrowRightCircle className="text-white" />}
+            secoundChildren={
+              <ArrowRightCircle className="text-white w-[150px]" />
+            }
           >
             QUALITY
           </AnimatedButton>
         </article>{' '}
         <article className="lg:flex flex-col hidden border-r px-8 space-y-6">
-          <Image src={siamo} alt={''} />
+          <Image
+            src={siamo}
+            alt={''}
+            width={0}
+            height={0}
+            style={{ width: '50px', height: 'auto' }}
+          />
           <h3 className="text-3xl font-playfair-display">
             Artisan roasting <br /> since 1936
           </h3>
@@ -302,7 +324,13 @@ function ShopPage() {
           </AnimatedButton>
         </article>{' '}
         <article className="lg:flex flex-col hidden px-8 space-y-6">
-          <Image src={degustazione} alt={''} />
+          <Image
+            src={degustazione}
+            alt={''}
+            width={0}
+            height={0}
+            style={{ width: '50px', height: 'auto' }}
+          />
           <h3 className="text-3xl font-playfair-display">
             Becouse <br /> Mokarico is <br /> different from the <br />
             other brands
@@ -318,7 +346,13 @@ function ShopPage() {
       <section className="flex pb-24 lg:hidden justify-center items-center">
         <div className="border-r space-y-6 w-1/2">
           <article className="lg:flex flex-col px-8 space-y-6">
-            <Image src={assistenza} alt={''} />
+            <Image
+              src={assistenza}
+              alt={''}
+              width={0}
+              height={0}
+              style={{ width: '50px', height: 'auto' }}
+            />
             <h3 className="text-3xl font-playfair-display">
               Available for you to pucharse
             </h3>
@@ -329,7 +363,13 @@ function ShopPage() {
             </AnimatedButton>
           </article>
           <article className="lg:flex flex-col px-8 space-y-6">
-            <Image src={siamo} alt={''} />
+            <Image
+              src={siamo}
+              alt={''}
+              width={0}
+              height={0}
+              style={{ width: '50px', height: 'auto' }}
+            />
             <h3 className="text-3xl font-playfair-display">
               Artisan roasting since 1936
             </h3>
@@ -342,7 +382,13 @@ function ShopPage() {
         </div>
         <div className="space-y-6 w-1/2">
           <article className="lg:flex flex-col px-8 space-y-6">
-            <Image src={qualita} alt={''} />
+            <Image
+              src={qualita}
+              alt={''}
+              width={0}
+              height={0}
+              style={{ width: '50px', height: 'auto' }}
+            />
             <h3 className="text-3xl font-playfair-display">
               Choose the quality of real Italian espresso coffee
             </h3>
@@ -353,7 +399,13 @@ function ShopPage() {
             </AnimatedButton>
           </article>
           <article className="lg:flex flex-col px-8 space-y-6">
-            <Image src={degustazione} alt={''} />
+            <Image
+              src={degustazione}
+              alt={''}
+              width={0}
+              height={0}
+              style={{ width: '50px', height: 'auto' }}
+            />
             <h3 className="text-3xl font-playfair-display">
               Becouse Mokarico is different from the other brands
             </h3>

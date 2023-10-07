@@ -53,7 +53,15 @@ const Navbar = () => {
         </svg>
       </button>
       <div className={'w-[140px] lg:w-[200px]'}>
-        <Image src={logo} alt="logo" width={200} height={64} />
+        <Link href={'/'}>
+          <Image
+            src={logo}
+            alt="logo"
+            width={0}
+            height={0}
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Link>
       </div>
 
       {/* SEARCH */}

@@ -12,9 +12,20 @@ body,
 .thumb::-webkit-slider-thumb {
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
-  pointer-events: all;
 }
 
-.thumb::-moz-range-thumb {
-  pointer-events: all;
+input[type='range'] {
+  pointer-events: none;
+}
+input[type='range']::-webkit-slider-thumb {
+  /*Webkit Browsers like Chrome and Safari*/
+  pointer-events: auto;
+}
+input[type='range']::-moz-range-thumb {
+  /*Firefox*/
+  pointer-events: auto;
+}
+input[type='range']::-ms-thumb {
+  /*Internet Explorer*/
+  pointer-events: auto;
 }

@@ -201,17 +201,20 @@ function Footer() {
               required
             />
             <div className={'mb-4 flex w-full flex-row justify-start'}>
-              <input type="checkbox" />
-
-              <span className={'ms-4 items-start text-sm'}>
+              <input
+                type="checkbox"
+                id="privacyCheckbox"
+                className="cursor-pointer"
+              />
+              <label
+                htmlFor="privacyCheckbox"
+                className="ms-4 items-start text-sm"
+              >
                 Accept our{' '}
-                <Link
-                  href={'#'}
-                  className={'text-gray-600 hover:text-orange-600'}
-                >
+                <a href="#" className="text-gray-600 hover:text-orange-600">
                   Privacy Policy
-                </Link>
-              </span>
+                </a>
+              </label>
             </div>
             <AnimatedButton
               className={'border-2 border-orange-600'}
@@ -312,27 +315,31 @@ function Footer() {
           <section className="flex p-5 space-x-5">
             <Image
               src={regione.src}
-              height={regione.height}
-              width={regione.width / 2}
               alt={''}
+              width={0}
+              height={0}
+              style={{ width: `${regione.width / 2}px`, height: 'auto' }}
             />
             <Image
               src={toscana.src}
-              height={toscana.height}
-              width={toscana.width / 2}
               alt={''}
+              width={0}
+              height={0}
+              style={{ width: `${toscana.width / 2}px`, height: 'auto' }}
             />
             <Image
               src={repubblica.src}
-              height={repubblica.height}
-              width={repubblica.width / 2}
               alt={''}
+              width={0}
+              height={0}
+              style={{ width: `${repubblica.width / 2}px`, height: 'auto' }}
             />
             <Image
               src={unione.src}
-              height={unione.height}
-              width={unione.width / 2}
               alt={''}
+              width={0}
+              height={0}
+              style={{ width: `${unione.width / 2}px`, height: 'auto' }}
             />
           </section>
         </article>

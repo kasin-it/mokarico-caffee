@@ -67,7 +67,7 @@ const MultiRangeSlider = ({ min, max, onChange }: MultiRangeSliderProps) => {
           event.target.value = value.toString();
         }}
         className={cn(
-          'thumb pointer-events-none cursor-grab absolute h-0 w-[200px] outline-none z-[3]',
+          'thumb pointer-events-none cursor-grab absolute h-0 w-[200px] outline-none z-[3] bg-black',
           {
             'z-[5]': minVal > max - 100,
           },
@@ -88,20 +88,20 @@ const MultiRangeSlider = ({ min, max, onChange }: MultiRangeSliderProps) => {
           setMaxVal(value);
           event.target.value = value.toString();
         }}
-        className="thumb pointer-events-none cursor-grab absolute h-0 w-[200px] outline-none z-[4]"
+        className="thumb pointer-events-none cursor-grab absolute h-0 w-[200px] outline-none z-[4] bg-black"
       />
 
       <div className="relative w-[200px]">
-        <div className="slider__track absolute h-[5px] rounded-[3px] bg-[#ced4da] w-full z-[1]" />
+        <div className="slider__track absolute h-[5px] rounded-[3px] bg-black w-full z-[1]" />
         <div
           ref={range}
-          className="slider__range absolute h-[5px] rounded-[3px] bg-[#9fe5e1] z-[2]"
+          className="slider__range absolute h-[5px] rounded-[3px] bg-black z-[2]"
         />
-        <div className="slider__left-value absolute text-[#dee2e6] text-xs mt-5 left-1.5">
-          {minVal}
+        <div className="slider__left-value absolute text-black text-xs mt-5 left-1.5">
+          €{minVal}
         </div>
-        <div className="slider__right-value absolute text-[#dee2e6] text-xs mt-5 right-1">
-          {maxVal}
+        <div className="slider__right-value absolute text-black text-xs mt-5 right-1">
+          €{maxVal}
         </div>
       </div>
     </div>

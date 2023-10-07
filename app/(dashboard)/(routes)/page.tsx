@@ -84,7 +84,7 @@ function Home() {
             childrenClassName="text-white md:text-black"
             secoundChildren={<ArrowRightCircle className="text-white" />}
             className="rotate-90 hidden md:block lg:left-[10px] md:left-[-60px] top-[190px] w-[150px]"
-            width={160}
+            // width={160}
             // height={64} NOT working for now
           >
             BROWSE
@@ -108,7 +108,6 @@ function Home() {
               <ArrowDownCircleIcon className="rotate-[-90deg] text-white" />
             }
             className="rotate-90 md:hidden bottom-[-100px] w-[150px]"
-            width={160}
             // height={64} NOT working for now
           >
             BROWSE
@@ -161,7 +160,7 @@ function Home() {
                 />
                 <AnimatedButton
                   secoundChildren={<ArrowRightCircle className="text-white" />}
-                  width={140}
+                  className="w-[160px]"
                 >
                   COMPANY
                 </AnimatedButton>
@@ -176,8 +175,10 @@ function Home() {
                   className="group-hover:opacity-30"
                 />
                 <AnimatedButton
-                  secoundChildren={<ArrowRightCircle className="text-white" />}
-                  width={140}
+                  secoundChildren={
+                    <ArrowRightCircle className="text-white w-[140px]" />
+                  }
+                  className="w-[160px]"
                 >
                   QUALITY
                 </AnimatedButton>
@@ -194,8 +195,10 @@ function Home() {
                   className="group-hover:opacity-30"
                 />
                 <AnimatedButton
-                  secoundChildren={<ArrowRightCircle className="text-white" />}
-                  width={140}
+                  secoundChildren={
+                    <ArrowRightCircle className="text-white w-[140px]" />
+                  }
+                  className="w-[160px]"
                 >
                   BLENDS
                 </AnimatedButton>
@@ -210,8 +213,10 @@ function Home() {
                   className="group-hover:opacity-30"
                 />
                 <AnimatedButton
-                  secoundChildren={<ArrowRightCircle className="text-white" />}
-                  width={140}
+                  secoundChildren={
+                    <ArrowRightCircle className="text-white w-[140px]" />
+                  }
+                  className="w-[160px]"
                 >
                   BIO WORLD
                 </AnimatedButton>
@@ -247,7 +252,6 @@ function Home() {
             </h2>
             <AnimatedButton
               childrenClassName="justify-end pe-10"
-              width={260}
               className="w-[260px]"
               secoundChildren={<ArrowRightCircle className="text-white" />}
             >
@@ -272,7 +276,6 @@ function Home() {
             </h2>
             <AnimatedButton
               childrenClassName="justify-end pe-10"
-              width={260}
               className="w-[260px]"
               secoundChildren={<ArrowRightCircle className="text-white" />}
             >
@@ -299,7 +302,6 @@ function Home() {
           </h2>
           <AnimatedButton
             childrenClassName="justify-center"
-            width={260}
             className="w-[260px]"
             secoundChildren={<ArrowRightCircle className="text-white" />}
           >
@@ -322,7 +324,6 @@ function Home() {
           </h2>
           <AnimatedButton
             childrenClassName="justify-center"
-            width={260}
             className="w-[260px]"
             secoundChildren={<ArrowRightCircle className="text-white" />}
           >

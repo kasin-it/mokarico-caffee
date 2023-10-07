@@ -15,6 +15,37 @@ import DoubleRangeSlider from '../../app/(dashboard)/(routes)/shop/components/du
 export const FilterModal = () => {
   const filter = useFilterModal();
 
+  const items = [
+    {
+      x: 'x',
+      y: 'y',
+    },
+    {
+      x: 'x',
+      y: 'y',
+    },
+    {
+      x: 'x',
+      y: 'y',
+    },
+    {
+      x: 'x',
+      y: 'y',
+    },
+    {
+      x: 'x',
+      y: 'y',
+    },
+    {
+      x: 'x',
+      y: 'y',
+    },
+    {
+      x: 'x',
+      y: 'y',
+    },
+  ];
+
   return (
     <Modal isOpen={filter.isOpen} onClose={filter.onClose}>
       <div
@@ -34,21 +65,47 @@ export const FilterModal = () => {
             <DoubleRangeSlider
               min={0}
               max={30}
-              onChange={({ min, max }) =>
-                console.log(`min = ${min}, max = ${max}`)
-              }
+              onChange={({ min, max }) => {}}
             />
           }
           title={'Filter by Price'}
           id={'d'}
         />{' '}
         <Accordion
-          children={<div>xD</div>}
+          children={
+            <div className="space-y-5 ps-5 pt-5">
+              {items.map((item, index) => (
+                <div className="space-x-3" key={index}>
+                  <input type="checkbox" id={`check-${index}`} />
+                  <label
+                    htmlFor={`check-${index}`}
+                    className="hover:text-orange-600 text-md"
+                  >
+                    in beans
+                  </label>
+                </div>
+              ))}
+            </div>
+          }
           title={'Filter by Content'}
           id={'d'}
         />{' '}
         <Accordion
-          children={<div>xD</div>}
+          children={
+            <div className="space-y-5 ps-5 pt-5">
+              {items.map((item, index) => (
+                <div className="space-x-3" key={index}>
+                  <input type="checkbox" id={`check-${index}`} />
+                  <label
+                    htmlFor={`check-${index}`}
+                    className="hover:text-orange-600 text-md"
+                  >
+                    in beans
+                  </label>
+                </div>
+              ))}
+            </div>
+          }
           title={'Filter by Quantity'}
           id={'d'}
         />
