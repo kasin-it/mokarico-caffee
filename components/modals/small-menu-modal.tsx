@@ -60,7 +60,7 @@ export const SmallMenuModal = () => {
         </form>
 
         <div className={'block w-full space-y-2 pb-11'}>
-          <Link href={'#'} className={'text-2xl text-orange-600'}>
+          <Link href={'/'} className={'text-2xl text-orange-600'}>
             Home
           </Link>
           <Separator />
@@ -70,6 +70,7 @@ export const SmallMenuModal = () => {
             bigLabel={true}
             sizeBig="2xl"
             sizeSmall="xl"
+            href="/shop"
           />
           <Separator />
 
@@ -79,6 +80,7 @@ export const SmallMenuModal = () => {
             bigLabel={true}
             sizeBig="2xl"
             sizeSmall="xl"
+            href="/assistance"
           />
           <Separator />
 
@@ -88,6 +90,7 @@ export const SmallMenuModal = () => {
             bigLabel={true}
             sizeBig="2xl"
             sizeSmall="xl"
+            href="/coffee"
           />
           <Separator />
 
@@ -97,6 +100,7 @@ export const SmallMenuModal = () => {
             bigLabel={true}
             sizeBig="2xl"
             sizeSmall="xl"
+            href="/business"
           />
           <Separator />
         </div>

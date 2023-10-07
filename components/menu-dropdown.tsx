@@ -15,7 +15,7 @@ type MenuDropdownProps = {
   bigLabel?: boolean;
   sizeBig?: Sizes;
   sizeSmall?: Sizes;
-  href?: string;
+  href: string;
 };
 
 function MenuDropdown({
@@ -24,7 +24,7 @@ function MenuDropdown({
   bigLabel = false,
   sizeBig = '4xl',
   sizeSmall = '2xl',
-  href = '#',
+  href,
 }: MenuDropdownProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleDropdown = () => {
@@ -64,6 +64,7 @@ function MenuDropdown({
                 itemsList={item.items}
                 bigLabel={false} // Pass the value of bigLabel to nested dropdown
                 key={index}
+                href={item.href}
               />
             ) : (
               <Link

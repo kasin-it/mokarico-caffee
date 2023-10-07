@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ProductsCollectionItem from './product-collection-item';
 import coffee from '@/public/img/i_mono_brasile_1000.jpg';
-import { PlusCircle, PlusCircleIcon } from 'lucide-react';
+import { PlusCircle } from 'lucide-react';
 import { useFilterModal } from '@/app/hooks/use-filter-modal';
 import { cn } from '@/lib/utils';
 
@@ -21,7 +21,6 @@ interface Product {
 
 function ProductsCollection({ filter }: ProductsCollectionProps) {
   const [sortingCriteria, setSortingCriteria] = useState<string>('price'); // Default sorting criteria
-
   const filterModal = useFilterModal();
 
   const [items, setItems] = useState<Product[]>([
@@ -69,27 +68,25 @@ function ProductsCollection({ filter }: ProductsCollectionProps) {
     },
   ]);
 
-  useEffect(() => {
-    // Function to handle sorting based on the selected criteria
-    const handleSort = () => {
-      const sortedItems = [...items];
+  // Function to handle sorting based on the selected criteria
+  const handleSort = (criteria: string) => {
+    const sortedItems = [...items];
 
-      sortedItems.sort((a, b) => {
-        if (a[sortingCriteria] < b[sortingCriteria]) return -1;
-        if (a[sortingCriteria] > b[sortingCriteria]) return 1;
-        return 0;
-      });
+    sortedItems.sort((a, b) => {
+      if (a[criteria] < b[criteria]) return -1;
+      if (a[criteria] > b[criteria]) return 1;
+      return 0;
+    });
 
-      setItems(sortedItems);
-    };
+    setItems(sortedItems);
+  };
 
-    handleSort(); // Call the sorting function initially
-
-    // Clean up the effect
-    return () => {
-      // You can perform cleanup here if needed
-    };
-  }, [sortingCriteria, items]); // Listen for changes in sortingCriteria and items
+  // Event handler for select change
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedValue = e.target.value;
+    setSortingCriteria(selectedValue);
+    handleSort(selectedValue); // Call the sorting function directly when the select option changes
+  };
 
   return (
     <div className="mt-11">
@@ -117,7 +114,7 @@ function ProductsCollection({ filter }: ProductsCollectionProps) {
           </label>
           <select
             id="sortSelect"
-            onChange={(e) => setSortingCriteria(e.target.value)}
+            onChange={handleSelectChange} // Call the event handler on select change
             value={sortingCriteria}
             className="bg-transparent"
           >

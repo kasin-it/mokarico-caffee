@@ -9,11 +9,15 @@ import Link from 'next/link';
 import Separator from '../ui/separator';
 import PaymentsProviders from '../ui/payment-providers';
 import SocialmediaProviders from '../ui/socialmedia-providers';
-import { assistanceItemsList, businessItemsList, coffeItemsList, shopItemsList } from '@/lib/routes';
+import {
+  assistanceItemsList,
+  businessItemsList,
+  coffeItemsList,
+  shopItemsList,
+} from '@/lib/routes';
 
 export const MenuModal = () => {
   const menuModal = useMenuModal();
-
 
   return (
     <Modal isOpen={menuModal.isOpen} onClose={menuModal.onClose}>
@@ -34,7 +38,7 @@ export const MenuModal = () => {
         {/* ADD CHANGE LANG HERE */}
 
         <div className={'block w-full space-y-5 pb-4'}>
-          <Link href={'#'} className={'text-4xl text-orange-600'}>
+          <Link href={'/'} className={'text-4xl text-orange-600'}>
             Home
           </Link>
           <MenuDropdown
@@ -47,16 +51,19 @@ export const MenuModal = () => {
             dropdownName="Assistance"
             itemsList={assistanceItemsList}
             bigLabel={true}
+            href="/assistance"
           />
           <MenuDropdown
             dropdownName="Coffe"
             itemsList={coffeItemsList}
             bigLabel={true}
+            href="/coffee"
           />
           <MenuDropdown
             dropdownName="Business"
             itemsList={businessItemsList}
             bigLabel={true}
+            href="/business"
           />
         </div>
         <Separator />
