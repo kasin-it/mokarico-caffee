@@ -49,7 +49,7 @@ function Home() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [searchModal.isOpen, loginModal.isOpen, navbarProperties.setisTransparent]);
+  }, [searchModal.isOpen, loginModal.isOpen]);
 
   return (
     <>
