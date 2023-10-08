@@ -10,7 +10,7 @@ import coffee from '@/public/img/i_mono_brasile_1000.jpg';
 import AddToCartButton from '@/components/ui/add-to-cart-button';
 
 const START_INDEX = 1;
-const DRAG_THRESHOLD = 150;
+const DRAG_THRESHOLD = 10;
 const FALLBACK_WIDTH = 509;
 
 const CURSOR_SIZE = 80;
