@@ -147,7 +147,7 @@ function Footer() {
 
   return (
     <div className="flex justify-center w-full">
-      <footer className="max-w-[1140px]">
+      <footer className="max-w-[1140px] overflow-hidden">
         <Separator className="max-w-[1140px]" />
         <section className={'py-6  px-6'}>
           <h1 className="text-xl font-playfair-display">
@@ -270,8 +270,8 @@ function Footer() {
           </section>
         </section>
         <Separator className="max-w-[1140px]" />
-        <article className="flex p-5">
-          <Headphones className="text-orange-600 me-3" size={70} />
+        <article className="p-5">
+          <Headphones className="text-orange-600 me-3 h-12" />
           We are available to answer any query by phone from Mon - Fri 9:00
           -12:30 and 14:00 - 17:30 at{' '}
           <span className="font-bold mx-2"> 055 849 5085 </span> or email at
@@ -302,7 +302,7 @@ function Footer() {
         </article>{' '}
         <Separator />
         <article className="grid grid-cols-1 md:grid-cols-2 p-5">
-          <p>
+          <span className="word-wrap">
             MOKAR - Investimento nella realizzazione di un nuovo impianto di
             torrefazione caffè scalabile per piccole produzioni, per affrontare
             nuovi mercati e superare le difficoltà di sviluppo in questo settore
@@ -311,35 +311,35 @@ function Footer() {
             internationalisation strategy for a historic Tuscan coffee roasting
             in the areas of China and Taiwan” Project co-financed by the POR
             FESR Tuscany 2014-2020 AXIS III - ACTION 3.4.2 sub a)
-          </p>
+          </span>
           <section className="flex p-5 space-x-5">
             <Image
               src={regione.src}
               alt={''}
               width={0}
               height={0}
-              style={{ width: `${regione.width / 2}px`, height: 'auto' }}
+              style={{ width: `${regione.width / 2.5}px`, height: 'auto' }}
             />
             <Image
               src={toscana.src}
               alt={''}
               width={0}
               height={0}
-              style={{ width: `${toscana.width / 2}px`, height: 'auto' }}
+              style={{ width: `${toscana.width / 2.5}px`, height: 'auto' }}
             />
             <Image
               src={repubblica.src}
               alt={''}
               width={0}
               height={0}
-              style={{ width: `${repubblica.width / 2}px`, height: 'auto' }}
+              style={{ width: `${repubblica.width / 2.5}px`, height: 'auto' }}
             />
             <Image
               src={unione.src}
               alt={''}
               width={0}
               height={0}
-              style={{ width: `${unione.width / 2}px`, height: 'auto' }}
+              style={{ width: `${unione.width / 2.5}px`, height: 'auto' }}
             />
           </section>
         </article>

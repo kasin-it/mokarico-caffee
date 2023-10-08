@@ -130,7 +130,7 @@ function Home() {
           height={story_img.height / 2}
           className="hidden lg:block"
         />
-        <article className="flex flex-col">
+        <article className="flex flex-col w-full">
           <article className="ml-5 mt-11 space-y-5">
             <div className="relative">
               <Image
@@ -150,11 +150,11 @@ function Home() {
               time.
             </p>
           </article>
-          <section className="flex flex-row">
-            <div className="flex flex-col border-r">
+          <section className="flex flex-row w-full">
+            <div className="flex flex-col border-r w-1/2 md:w-2/5 max-w-md">
               <Link
                 href={'/'}
-                className="group flex h-[200px] w-[210px]  flex-col items-center justify-end pb-12 border-b"
+                className="group flex h-[200px] w-full  flex-col items-center justify-end pb-12 border-b"
               >
                 <Image
                   src={origini_svg}
@@ -163,14 +163,14 @@ function Home() {
                 />
                 <AnimatedButton
                   secoundChildren={<ArrowRightCircle className="text-white" />}
-                  className="w-[160px]"
+                  className=" w-4/6"
                 >
                   COMPANY
                 </AnimatedButton>
               </Link>
               <Link
                 href={'/'}
-                className="group flex h-[200px] w-[210px]  flex-col items-center justify-end  pb-12 "
+                className="group flex h-[200px] w-full  flex-col items-center justify-end  pb-12 "
               >
                 <Image
                   src={qualita_svg}
@@ -181,16 +181,16 @@ function Home() {
                   secoundChildren={
                     <ArrowRightCircle className="text-white w-[140px]" />
                   }
-                  className="w-[160px]"
+                  className=" w-4/6"
                 >
                   QUALITY
                 </AnimatedButton>
               </Link>
             </div>
-            <div className="flex flex-col relative">
+            <div className="flex flex-col relative w-1/2 md:w-2/5 max-w-md">
               <Link
                 href={'/'}
-                className="group flex h-[200px] w-[210px]  flex-col items-center justify-end pb-12  border-b"
+                className="group flex h-[200px] w-full  flex-col items-center justify-end pb-12  border-b"
               >
                 <Image
                   src={miscele_svg}
@@ -201,14 +201,14 @@ function Home() {
                   secoundChildren={
                     <ArrowRightCircle className="text-white w-[140px]" />
                   }
-                  className="w-[160px]"
+                  className=" w-4/6"
                 >
                   BLENDS
                 </AnimatedButton>
               </Link>
               <Link
                 href={'/'}
-                className="group flex h-[200px] w-[210px] flex-col items-center justify-end pb-12"
+                className="group flex h-[200px] w-full flex-col items-center justify-end pb-12"
               >
                 <Image
                   src={bioworld_svg}
@@ -219,7 +219,7 @@ function Home() {
                   secoundChildren={
                     <ArrowRightCircle className="text-white w-[140px]" />
                   }
-                  className="w-[160px]"
+                  className=" w-4/6"
                 >
                   BIO WORLD
                 </AnimatedButton>

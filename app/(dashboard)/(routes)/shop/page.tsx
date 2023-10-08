@@ -164,7 +164,7 @@ function ShopPage() {
           />
         </article>
 
-        <section className="w-full items-center justify-center pb-24 hidden relative lg:flex flex-col xl:flex-row lg:translate-x-[110px] xl:translate-x-0">
+        <section className="w-full items-center justify-center pb-24 hidden relative lg:flex flex-col xl:flex-row ">
           <Image
             src={graph}
             height={graph.height}
@@ -202,7 +202,7 @@ function ShopPage() {
           </Link>
           <Link
             href={'/'}
-            className="relative group right-[-150px] xl:right-0 "
+            className="relative group right-[-150px] xl:right-0 lg:translate-x-[110px] xl:translate-x-0"
             aria-label="home"
           >
             <Image
