@@ -28,7 +28,7 @@ function ShopPage() {
       <section className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-3/5 h-screen relative">
           <ImageZoom />
-          <article className="absolute top-1/3 left-[20%] sm:left-1/4 space-y-10">
+          <article className="absolute left-1/4 top-1/3 sm:left-1/4 space-y-10 text-center sm:text-start">
             <p className="text-white text-xl">Monorigine coffee</p>
             <h1 className="text-white text-5xl md:text-[5vw] font-playfair-display leading-none text-center sm:text-left">
               Every country, <br /> flavors to talk <br /> about
@@ -278,7 +278,7 @@ function ShopPage() {
         </section>
       </section>
 
-      <section className="lg:flex pb-24 hidden justify-center items-center">
+      <section className="lg:flex pb-24 hidden justify-center items-start">
         <article className="lg:flex flex-col hidden border-r px-8 space-y-6">
           <Image src={assistenza} alt={''} />
           <h3 className="text-3xl font-playfair-display">
@@ -341,7 +341,7 @@ function ShopPage() {
         </article>
       </section>
 
-      <section className="flex pb-24 lg:hidden justify-center items-center">
+      <section className="flex pb-24 lg:hidden justify-center items-start">
         <div className="border-r space-y-6 w-1/2">
           <article className="lg:flex flex-col px-8 space-y-6">
             <Image

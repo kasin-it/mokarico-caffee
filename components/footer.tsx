@@ -150,9 +150,9 @@ function Footer() {
       <footer className="max-w-[1140px]">
         <Separator className="max-w-[1140px]" />
         <section className={'py-6  px-6'}>
-          <h3 className="text-xl font-playfair-display">
+          <h1 className="text-xl font-playfair-display">
             Certifications are an appropriate reward for our quality{' '}
-          </h3>
+          </h1>
           <article className={'grid grid-cols-1 md:grid-cols-2 space-y-5'}>
             {/* {badges.map((badge, index) => (
             

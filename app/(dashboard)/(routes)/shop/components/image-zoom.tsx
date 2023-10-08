@@ -36,10 +36,10 @@ function ImageZoom() {
           src={img.src}
           alt="Your Image"
           className={cn(
-            `transform transition-transform duration-500 scale-110 h-full w-full opacity-80`,
+            `transform transition-transform duration-500 scale-110 h-full w-full opacity-80 object-cover`,
           )}
           fill
-          objectFit="cover"
+          loading='eager'
           style={{
             transformOrigin: `${mousePosition.x / 5}px ${
               mousePosition.y / 5
