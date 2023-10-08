@@ -91,7 +91,7 @@ function Home() {
             BROWSE
           </AnimatedButton>
         </div>
-        <div className="z-20 flex flex-col justify-center items-center">
+        <div className="z-20 flex flex-col justify-start items-center">
           <h1 className="text-6xl text-white font-playfair-display left-[130px] top-[-70px] text-center md:hidden translate-y-6">
             The Stylish
             <br /> coffee
@@ -109,7 +109,7 @@ function Home() {
             secoundChildren={
               <ArrowDownCircleIcon className="rotate-[-90deg] text-white" />
             }
-            className="rotate-90 md:hidden bottom-[-100px] w-[150px]"
+            className="rotate-90 md:hidden mt-24 w-[150px]"
             // height={64} NOT working for now
           >
             BROWSE
@@ -139,7 +139,7 @@ function Home() {
                 width={0}
                 height={0}
                 style={{ width: `${story_sm_img.width}px`, height: 'auto' }}
-                className="lg:hidden absolute bottom-[-200px] z-[-20]"
+                className="lg:hidden absolute -top-32 z-[-20]"
               />
             </div>
             <h1 className="text-5xl font-playfair-display pl-8 sm:pl-0">
@@ -150,7 +150,7 @@ function Home() {
               time.
             </p>
           </article>
-          <section className="flex flex-row w-full">
+          <section className="flex flex-row w-full justify-center">
             <div className="flex flex-col border-r w-1/2 md:w-2/5 max-w-md">
               <Link
                 href={'/'}

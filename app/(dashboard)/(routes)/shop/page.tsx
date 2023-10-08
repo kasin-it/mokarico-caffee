@@ -28,28 +28,28 @@ function ShopPage() {
       <section className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-3/5 h-screen relative">
           <ImageZoom />
-          <article className="absolute left-1/4 top-1/3 sm:left-1/4 space-y-10 text-center sm:text-start">
-            <p className="text-white text-xl">Monorigine coffee</p>
+          <article className="absolute left-0 top-0 w-full h-full flex flex-col items-center justify-center md:items-start md:pl-32">
+            <h2 className="text-white text-xl">Monorigine coffee</h2>
             <h1 className="text-white text-5xl md:text-[5vw] font-playfair-display leading-none text-center sm:text-left">
               Every country, <br /> flavors to talk <br /> about
             </h1>
             <AnimatedButton
               childrenClassName="text-white"
-              className="w-[200px] absolute left-[15%] sm:left-0 z-30"
+              className="w-[200px]  z-30"
               secoundChildrenClassName=""
               secoundChildren={<ArrowRightCircle className="text-white" />}
             >
               DISCOVER MONO
             </AnimatedButton>
-          </article>
           <AnimatedButton
             childrenClassName="text-white"
-            className="w-[130px] absolute left-[38%] sm:left-0 bottom-32 border-b-white rotate-90 z-30 transition"
+            className="w-[130px] mt-32 border-b-white rotate-90 z-30 transition"
             secoundChildrenClassName="text-black bg-white"
             secoundChildren={<ArrowRightCircle />}
           >
             SCORRI
           </AnimatedButton>
+          </article>
         </div>
         <article className="w-full flex lg:w-2/5 mt-7 lg:mt-[190px] justify-center">
           <ItemsCarousel />
