@@ -85,8 +85,6 @@ function Home() {
             childrenClassName="text-white md:text-black"
             secoundChildren={<ArrowRightCircle className="text-white" />}
             className="rotate-90 hidden md:block lg:left-[10px] md:left-[-60px] top-[190px] w-[150px]"
-            // width={160}
-            // height={64} NOT working for now
           >
             BROWSE
           </AnimatedButton>
@@ -109,7 +107,7 @@ function Home() {
             secoundChildren={
               <ArrowDownCircleIcon className="rotate-[-90deg] text-white" />
             }
-            className="rotate-90 md:hidden mt-24 w-[150px]"
+            className="rotate-90 md:hidden mt-16 w-[150px]"
             // height={64} NOT working for now
           >
             BROWSE
