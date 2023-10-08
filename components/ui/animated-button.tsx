@@ -22,6 +22,7 @@ function AnimatedButton({
         'group/btn relative overflow-hidden border-b-[2px] border-b-orange-600 duration-700 hover:bg-orange-600 h-[64px] w-full',
         className,
       )}
+      aria-label={'button'}
     >
       <div
         className={cn(

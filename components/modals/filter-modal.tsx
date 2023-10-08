@@ -88,14 +88,14 @@ export const FilterModal = () => {
             </div>
           }
           title={'Filter by Content'}
-          id={'d'}
+          id={'dasdasd'}
         />{' '}
         <Accordion
           children={
             <div className="space-y-5 ps-5 pt-5">
               {items.map((item, index) => (
                 <div className="space-x-3" key={index}>
-                  <input type="checkbox" id={`check-${index}`} />
+                  <input type="checkbox" id={`check2-${index}`} />
                   <label
                     htmlFor={`check-${index}`}
                     className="hover:text-orange-600 text-md"
@@ -107,7 +107,7 @@ export const FilterModal = () => {
             </div>
           }
           title={'Filter by Quantity'}
-          id={'d'}
+          id={'checkboxed-2'}
         />
       </div>
     </Modal>

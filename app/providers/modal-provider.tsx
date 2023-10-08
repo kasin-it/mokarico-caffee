@@ -1,15 +1,47 @@
-'use client';
+"use client"
 
-import ArrowUpModal from '@/components/modals/arrow-up-modal';
-import { CartModal } from '@/components/modals/cart-modal';
-import { FilterModal } from '@/components/modals/filter-modal';
-import { MenuModal } from '@/components/modals/menu-modal';
-import { SmallMenuModal } from '@/components/modals/small-menu-modal';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-
 import React from 'react';
 
 const ModalProvider = () => {
+  const DynamicMenuModal = dynamic(
+    () => import('@/components/modals/menu-modal').then((mod) => mod.MenuModal),
+    {
+      ssr: false,
+    },
+  );
+
+  const DynamicArrowUpModal = dynamic(
+    () =>
+      import('@/components/modals/arrow-up-modal').then((mod) => mod.default),
+    {
+      ssr: false,
+    },
+  );
+
+  const DynamicFilterModal = dynamic(
+    () => import('@/components/modals/filter-modal').then((mod) => mod.FilterModal),
+    {
+      ssr: false,
+    },
+  );
+
+  const DynamicCartModal = dynamic(
+    () => import('@/components/modals/cart-modal').then((mod) => mod.CartModal),
+    {
+      ssr: false,
+    },
+  );
+
+  const DynamicSmallMenuModal = dynamic(
+    () =>
+      import('@/components/modals/small-menu-modal').then((mod) => mod.SmallMenuModal),
+    {
+      ssr: false,
+    },
+  );
+
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -22,11 +54,11 @@ const ModalProvider = () => {
 
   return (
     <>
-      <MenuModal />
-      <CartModal />
-      <SmallMenuModal />
-      <ArrowUpModal />
-      <FilterModal />
+      <DynamicMenuModal />
+      <DynamicCartModal />
+      <DynamicSmallMenuModal />
+      <DynamicArrowUpModal />
+      <DynamicFilterModal />
     </>
   );
 };

@@ -7,7 +7,10 @@ interface AddToCartButtonProps {
 
 function AddToCartButton() {
   return (
-    <button className="rounded-full border-orange-600 border-[3px] p-0 inset-0 w-[3.7rem] h-[3.7rem] relative flex items-center justify-center group/btn transition overflow-hidden">
+    <button
+      className="rounded-full border-orange-600 border-[3px] p-0 inset-0 w-[3.7rem] h-[3.7rem] relative flex items-center justify-center group/btn transition overflow-hidden"
+      aria-label="add to cart"
+    >
       <ShoppingCart
         size={23}
         className="z-30 group-hover/btn:text-white"

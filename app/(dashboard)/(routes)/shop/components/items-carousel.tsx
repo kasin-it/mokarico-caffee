@@ -244,9 +244,9 @@ export default function SuggestedCarousel() {
                       alt={''}
                       draggable={false}
                     />
-                    <h3 className="text-4xl font-playfair-display">coffee</h3>
+                    <h2 className="text-4xl font-playfair-display">coffee</h2>
                   </Link>
-                  <p className="text-md text-gray-500/90">
+                  <p className="text-md text-gray-800">
                     asdaskjdkjashdkjahkdjhakjh
                   </p>
                   <div className={cn('mt-4 flex justify-center')}>

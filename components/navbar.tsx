@@ -36,6 +36,7 @@ const Navbar = () => {
             ? 'text-white md:text-black'
             : 'text-black',
         )}
+        aria-label='menu button'
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

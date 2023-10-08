@@ -25,7 +25,7 @@ function DashboardLayout({ children }: { children: React.ReactNode }) {
     return () => {
       window.removeEventListener('scroll', handleArrowVisibility);
     };
-  }, [arrowUp]);
+  }, []);
 
   return <>{children}</>;
 }

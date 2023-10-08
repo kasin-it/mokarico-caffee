@@ -3,9 +3,10 @@
 import { useLoginModal } from '@/app/hooks/use-login-modal';
 import { useNavbarProperties } from '@/app/hooks/use-navbar-properties';
 import { useSearchModal } from '@/app/hooks/use-search-modal';
-import { useArrowUpModal } from '@/app/hooks/use-arrow-up-modal';
+
 import SocialmediaProviders from '@/components/ui/socialmedia-providers';
 import AnimatedButton from '@/components/ui/animated-button';
+
 import hero_img from '@/public/img/hero_img.jpg';
 import story_img from '@/public/img/story_img.jpg';
 import origini_svg from '@/public/svg/origini.svg';
@@ -17,7 +18,7 @@ import home_office_img from '@/public/img/home_office.jpg';
 import story_sm_img from '@/public/img/story_img_sm.png';
 
 import Image from 'next/image';
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import { ArrowDownCircleIcon, ArrowRightCircle } from 'lucide-react';
 import Link from 'next/link';
 
@@ -101,6 +102,7 @@ function Home() {
             width={hero_img.width}
             height={hero_img.height}
             className="px-11 md:px-0"
+            loading="eager"
           />
           <AnimatedButton
             childrenClassName="text-white md:text-black"

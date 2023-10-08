@@ -88,6 +88,7 @@ const MultiRangeSlider = ({ min, max, onChange }: MultiRangeSliderProps) => {
           setMaxVal(value);
           event.target.value = value.toString();
         }}
+        
         className="thumb pointer-events-none cursor-grab absolute h-0 w-[200px] outline-none z-[4] bg-black"
       />
 

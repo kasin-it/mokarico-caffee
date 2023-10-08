@@ -11,6 +11,7 @@ function NotFound() {
           height={not_found_gif.height / 2}
           width={not_found_gif.width / 2}
           alt="404"
+          loading={"eager"}
         />
         <h1 className="font-playfair-display text-4xl">
           Maybe you are not where you expected to be{' '}

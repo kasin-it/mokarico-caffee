@@ -1,12 +1,22 @@
 'use client';
 
-import { CartModal } from '@/components/modals/cart-modal';
-import { LoginModal } from '@/components/modals/login-modal';
-import { MenuModal } from '@/components/modals/menu-modal';
-import { SearchModal } from '@/components/modals/search-modal';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
-import React from 'react';
+const DynamicSearchModal = dynamic(
+  () =>
+    import('@/components/modals/search-modal').then((mod) => mod.SearchModal),
+  {
+    ssr: false,
+  },
+);
+
+const DynamicLoginModal = dynamic(
+  () => import('@/components/modals/login-modal').then((mod) => mod.LoginModal),
+  {
+    ssr: false,
+  },
+);
 
 const FormProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -21,8 +31,8 @@ const FormProvider = () => {
 
   return (
     <>
-      <SearchModal />
-      <LoginModal />
+      <DynamicSearchModal />
+      <DynamicLoginModal />
     </>
   );
 };

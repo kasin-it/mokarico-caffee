@@ -25,7 +25,7 @@ export const SearchModal = () => {
         </section>
         <form className={'w-full'}>
           <label
-            htmlFor="search"
+            htmlFor="search1"
             className={
               'sr-only mb-2 text-lg font-medium text-gray-900 dark:text-white'
             }
@@ -36,7 +36,7 @@ export const SearchModal = () => {
             <div className={'relative w-[60%]'}>
               <input
                 type="search"
-                id="search"
+                id="search1"
                 className={
                   'block w-full border border-gray-500/70 p-4 text-sm outline-none ring-0'
                 }

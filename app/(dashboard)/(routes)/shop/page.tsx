@@ -175,6 +175,7 @@ function ShopPage() {
           <Link
             href={'/'}
             className="relative group top-[100px] right-[200px] xl:right-0  mr-[350px]"
+            aria-label="home"
           >
             <Image
               src={mokka}
@@ -202,6 +203,7 @@ function ShopPage() {
           <Link
             href={'/'}
             className="relative group right-[-150px] xl:right-0 "
+            aria-label="home"
           >
             <Image
               src={scrivania}

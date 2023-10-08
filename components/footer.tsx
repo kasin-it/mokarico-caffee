@@ -194,6 +194,7 @@ function Footer() {
             Keep up to date with us
             <input
               type="email"
+              id="email1"
               className={
                 'mb-7 w-full border-b-2 border-b-gray-600 p-3 outline-none'
               }
