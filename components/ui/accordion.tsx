@@ -21,7 +21,7 @@ export default function Accordion({
 
   useEffect(() => {
     setAccordionOpen(active);
-  }, []);
+  }, [active]);
 
   return (
     <div className="py-2">

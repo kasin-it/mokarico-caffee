@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
-import supabase from '@/config/supabaseClient';
+// import { redirect } from 'next/navigation';
+// import supabase from '@/config/supabaseClient';
 
 export default async function ProductLayout({
   children,
@@ -8,27 +8,27 @@ export default async function ProductLayout({
   children: React.ReactNode;
   params: { grainsId: string };
 }) {
-  const getProduct = async () => {
-    const { data, error } = await supabase
-      .from('coffee-grains')
-      .select('id')
-      .eq('id', params.grainsId)
-      .single();
+  // const getProduct = async () => {
+  //   const { data, error } = await supabase
+  //     .from('coffee-grains')
+  //     .select('id')
+  //     .eq('id', params.grainsId)
+  //     .single();
 
-    if (error) {
-      console.error('Error fetching product:', error);
-      return null;
-    }
+  //   if (error) {
+  //     console.error('Error fetching product:', error);
+  //     return null;
+  //   }
 
-    return data;
-  };
+  //   return data;
+  // };
 
-  const product = await getProduct();
+  // const product = await getProduct();
 
-  if (!product) {
-    redirect('/');
-    return null;
-  }
+  // if (!product) {
+  //   redirect('/');
+  //   return null;
+  // }
 
   return <>{children}</>;
 }

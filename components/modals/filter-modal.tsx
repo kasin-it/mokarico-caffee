@@ -60,55 +60,40 @@ export const FilterModal = () => {
           }
           onClick={filter.onClose}
         />
-        <Accordion
-          children={
-            <DoubleRangeSlider
-              min={0}
-              max={30}
-              onChange={({ min, max }) => {}}
-            />
-          }
-          title={'Filter by Price'}
-          id={'d'}
-        />{' '}
-        <Accordion
-          children={
-            <div className="space-y-5 ps-5 pt-5">
-              {items.map((item, index) => (
-                <div className="space-x-3" key={index}>
-                  <input type="checkbox" id={`check-${index}`} />
-                  <label
-                    htmlFor={`check-${index}`}
-                    className="hover:text-orange-600 text-md"
-                  >
-                    in beans
-                  </label>
-                </div>
-              ))}
-            </div>
-          }
-          title={'Filter by Content'}
-          id={'dasdasd'}
-        />{' '}
-        <Accordion
-          children={
-            <div className="space-y-5 ps-5 pt-5">
-              {items.map((item, index) => (
-                <div className="space-x-3" key={index}>
-                  <input type="checkbox" id={`check2-${index}`} />
-                  <label
-                    htmlFor={`check-${index}`}
-                    className="hover:text-orange-600 text-md"
-                  >
-                    in beans
-                  </label>
-                </div>
-              ))}
-            </div>
-          }
-          title={'Filter by Quantity'}
-          id={'checkboxed-2'}
-        />
+        <Accordion title={'Filter by Price'} id={'d'}>
+          <DoubleRangeSlider min={0} max={30} onChange={({ min, max }) => {}} />
+        </Accordion>{' '}
+        <Accordion title={'Filter by Content'} id={'dasdasd'}>
+          <div className="space-y-5 ps-5 pt-5">
+            {items.map((item, index) => (
+              <div className="space-x-3" key={index}>
+                <input type="checkbox" id={`check-${index}`} />
+                <label
+                  htmlFor={`check-${index}`}
+                  className="hover:text-orange-600 text-md"
+                >
+                  in beans
+                </label>
+              </div>
+            ))}
+          </div>
+        </Accordion>
+        <Accordion title={'Filter by Quantity'} id={'checkboxed-2'}>
+          {' '}
+          <div className="space-y-5 ps-5 pt-5">
+            {items.map((item, index) => (
+              <div className="space-x-3" key={index}>
+                <input type="checkbox" id={`check2-${index}`} />
+                <label
+                  htmlFor={`check-${index}`}
+                  className="hover:text-orange-600 text-md"
+                >
+                  in beans
+                </label>
+              </div>
+            ))}
+          </div>
+        </Accordion>
       </div>
     </Modal>
   );

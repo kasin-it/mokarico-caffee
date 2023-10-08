@@ -250,23 +250,22 @@ function Footer() {
           <section className="lg:hidden">
             {routes.map((route, index) => (
               <Accordion
-                children={
-                  <>
-                    {route.routes.map((subRoute, subIndex) => (
-                      <Link
-                        href={subRoute.href}
-                        className="text-black hover:text-orange-600 py-2 text-sm ps-5 border-t block"
-                        key={subIndex}
-                      >
-                        {subRoute.label}
-                      </Link>
-                    ))}
-                  </>
-                }
                 title={route.title}
                 key={index}
                 id={`acordion-${index}`}
-              />
+              >
+                <>
+                  {route.routes.map((subRoute, subIndex) => (
+                    <Link
+                      href={subRoute.href}
+                      className="text-black hover:text-orange-600 py-2 text-sm ps-5 border-t block"
+                      key={subIndex}
+                    >
+                      {subRoute.label}
+                    </Link>
+                  ))}
+                </>
+              </Accordion>
             ))}
           </section>
         </section>

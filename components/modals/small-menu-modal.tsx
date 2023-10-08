@@ -71,6 +71,7 @@ export const SmallMenuModal = () => {
             sizeBig="2xl"
             sizeSmall="xl"
             href="/shop"
+            onClose={smallMenuModal.onClose}
           />
           <Separator />
 
@@ -81,6 +82,7 @@ export const SmallMenuModal = () => {
             sizeBig="2xl"
             sizeSmall="xl"
             href="/assistance"
+            onClose={smallMenuModal.onClose}
           />
           <Separator />
 
@@ -91,6 +93,7 @@ export const SmallMenuModal = () => {
             sizeBig="2xl"
             sizeSmall="xl"
             href="/coffee"
+            onClose={smallMenuModal.onClose}
           />
           <Separator />
 
@@ -101,6 +104,7 @@ export const SmallMenuModal = () => {
             sizeBig="2xl"
             sizeSmall="xl"
             href="/business"
+            onClose={smallMenuModal.onClose}
           />
           <Separator />
         </div>

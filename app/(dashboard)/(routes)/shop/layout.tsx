@@ -12,7 +12,7 @@ function ShopLayout({ children }: ShopLayoutProps) {
 
   useEffect(() => {
     navbarProperties.setisTransparent(false);
-  }, []);
+  }, [navbarProperties]);
 
   return <>{children}</>;
 }
