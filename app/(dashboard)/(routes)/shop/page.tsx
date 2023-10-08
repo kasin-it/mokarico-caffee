@@ -57,8 +57,8 @@ function ShopPage() {
       </section>
 
       <section className="flex items-center justify-center">
-        <article className="flex flex-col lg:flex-row lg:space-x-12 space-y-10 lg:items-end justify-center my-16 w-full">
-          <div className="flex flex-col lg:flex-row items-center lg:space-x-5">
+        <article className="flex flex-col lg:flex-row lg:space-x-12 space-y-10 items-center lg:items-end justify-center my-16 w-full">
+          <div className="flex  items-center space-x-5">
             <Image
               src={express}
               alt="coffe"
@@ -74,7 +74,7 @@ function ShopPage() {
               Pods and Capsules
             </AnimatedButton>
           </div>
-          <div className="flex flex-col lg:flex-row items-center lg:space-x-5">
+          <div className="flex  items-center space-x-5">
             <Image
               src={grani}
               alt="coffe"
@@ -90,7 +90,7 @@ function ShopPage() {
               Coffee Grains
             </AnimatedButton>
           </div>
-          <div className="flex flex-col lg:flex-row items-center lg:space-x-5">
+          <div className="flex tems-center space-x-5">
             <Image
               src={maciento}
               alt="coffe"

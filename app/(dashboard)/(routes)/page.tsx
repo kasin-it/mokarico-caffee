@@ -136,8 +136,9 @@ function Home() {
               <Image
                 src={story_sm_img}
                 alt="story"
-                width={story_sm_img.width}
-                height={story_sm_img.height}
+                width={0}
+                height={0}
+                style={{ width: `${story_sm_img.width}px`, height: 'auto' }}
                 className="lg:hidden absolute bottom-[-200px] z-[-20]"
               />
             </div>
@@ -153,7 +154,7 @@ function Home() {
             <div className="flex flex-col border-r">
               <Link
                 href={'/'}
-                className="group flex h-[200px] w-[260px] flex-col items-center justify-end pb-12 border-b"
+                className="group flex h-[200px] w-[210px]  flex-col items-center justify-end pb-12 border-b"
               >
                 <Image
                   src={origini_svg}
@@ -169,7 +170,7 @@ function Home() {
               </Link>
               <Link
                 href={'/'}
-                className="group flex h-[200px] w-[260px] flex-col items-center justify-end  pb-12 "
+                className="group flex h-[200px] w-[210px]  flex-col items-center justify-end  pb-12 "
               >
                 <Image
                   src={qualita_svg}
@@ -189,7 +190,7 @@ function Home() {
             <div className="flex flex-col relative">
               <Link
                 href={'/'}
-                className="group flex h-[200px] w-[260px] flex-col items-center justify-end pb-12  border-b"
+                className="group flex h-[200px] w-[210px]  flex-col items-center justify-end pb-12  border-b"
               >
                 <Image
                   src={miscele_svg}
@@ -207,7 +208,7 @@ function Home() {
               </Link>
               <Link
                 href={'/'}
-                className="group flex h-[200px] w-[260px] flex-col items-center justify-end pb-12"
+                className="group flex h-[200px] w-[210px] flex-col items-center justify-end pb-12"
               >
                 <Image
                   src={bioworld_svg}
