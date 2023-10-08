@@ -120,7 +120,7 @@ function Home() {
 
       {/* STORY SECTION */}
 
-      <section className="relative mt-11 flex justify-center">
+      <section className="mt-11 flex items-center justify-center w-full">
         <Image
           src={story_img}
           alt="story"
@@ -128,7 +128,7 @@ function Home() {
           height={story_img.height / 2}
           className="hidden lg:block"
         />
-        <article className="flex flex-col w-full">
+        <article className="flex flex-col w-full lg:w-1/2">
           <article className="ml-5 mt-11 space-y-5">
             <div className="relative">
               <Image
@@ -148,7 +148,7 @@ function Home() {
               time.
             </p>
           </article>
-          <section className="flex flex-row w-full justify-center">
+          <section className="flex flex-row max-w-1/2">
             <div className="flex flex-col border-r w-1/2 md:w-2/5 max-w-md">
               <Link
                 href={'/'}
