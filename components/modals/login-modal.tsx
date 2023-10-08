@@ -4,13 +4,45 @@ import Modal from '../ui/modal';
 import { Search, Triangle, X } from 'lucide-react';
 import DefaultButton from '../ui/default-button';
 import { useLoginModal } from '@/app/hooks/use-login-modal';
-import { useState } from 'react';
 import Link from 'next/link';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import type { Database } from '@/lib/database.types';
 
 export const LoginModal = () => {
   const loginModal = useLoginModal();
 
   const [isLoginPage, setIsLoginPage] = useState(true);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const router = useRouter();
+  const supabase = createClientComponentClient<Database>();
+
+  const handleSignUp = async () => {
+    await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: `${location.origin}/auth/callback`,
+      },
+    });
+    router.refresh();
+  };
+
+  const handleSignIn = async () => {
+    await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    router.refresh();
+  };
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    router.refresh();
+  };
 
   const handleLoginPageToggle = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -55,18 +87,22 @@ export const LoginModal = () => {
           {isLoginPage ? (
             <form>
               <input
-                type="text"
                 className={
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
-                placeholder="Email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
+
               <input
                 type="password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
                 className={
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
-                placeholder="Password"
               />
               <div
                 className={'flex w-full flex-row items-center justify-between'}
@@ -79,6 +115,7 @@ export const LoginModal = () => {
                 </Link>
                 <button
                   className={'items-center bg-orange-600 px-6 py-3 text-white'}
+                  onClick={handleSignIn}
                 >
                   <span>LOGIN</span>
                 </button>
