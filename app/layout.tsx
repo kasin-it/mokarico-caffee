@@ -6,6 +6,7 @@ import ModalProvider from './providers/modal-provider';
 import Navbar from '@/components/navbar';
 import FormProvider from './providers/form-provider';
 import Footer from '@/components/footer';
+import { cn } from '@/lib/utils';
 
 const playfair = Playfair_Display({ subsets: ['latin'] });
 const sofia_sans = Sofia_Sans({ subsets: ['latin'] });
@@ -22,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={sofia_sans.className}>
+      <body className={cn('overflow-x-hidden', sofia_sans.className)}>
         <ModalProvider />
         <Navbar />
         <FormProvider />

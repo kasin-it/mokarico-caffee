@@ -174,7 +174,7 @@ function ShopPage() {
           />
           <Link
             href={'/'}
-            className="relative group top-[100px] right-[200px] xl:right-0  mr-[350px]"
+            className="relative group top-[100px] right-[200px] xl:right-0  mr-[320px]"
             aria-label="home"
           >
             <Image
