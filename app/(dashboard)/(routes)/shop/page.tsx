@@ -1,5 +1,3 @@
-'use client';
-
 import ImageZoom from '@/app/(dashboard)/(routes)/shop/components/image-zoom';
 import AnimatedButton from '@/components/ui/animated-button';
 import ItemsCarousel from './components/items-carousel';
@@ -21,8 +19,16 @@ import scrivania from '@/public/img/caffe-scrivania-lavoro.jpg';
 import graph from '@/public/img/graph-chicchi.png';
 import Link from 'next/link';
 import { ArrowRightCircle } from 'lucide-react';
+import { cookies } from 'next/headers';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 
-function ShopPage() {
+async function ShopPage() {
+  const cookieStore = cookies();
+  const supabase = createServerComponentClient({
+    cookies: () => cookieStore,
+  });
+  const { data } = await supabase.from('coffee-grains').select('*');
+
   return (
     <>
       <section className="flex flex-col lg:flex-row">
@@ -41,18 +47,18 @@ function ShopPage() {
             >
               DISCOVER MONO
             </AnimatedButton>
-          <AnimatedButton
-            childrenClassName="text-white"
-            className="w-[130px] mt-32 border-b-white rotate-90 z-30 transition"
-            secoundChildrenClassName="text-black bg-white"
-            secoundChildren={<ArrowRightCircle />}
-          >
-            SCORRI
-          </AnimatedButton>
+            <AnimatedButton
+              childrenClassName="text-white"
+              className="w-[130px] mt-32 border-b-white rotate-90 z-30 transition"
+              secoundChildrenClassName="text-black bg-white"
+              secoundChildren={<ArrowRightCircle />}
+            >
+              SCORRI
+            </AnimatedButton>
           </article>
         </div>
         <article className="w-full flex lg:w-2/5 mt-7 lg:mt-[190px] justify-center">
-          <ItemsCarousel />
+          <ItemsCarousel items={data} />
         </article>
       </section>
 

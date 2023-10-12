@@ -1,8 +1,8 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 function RegisterForm() {
   return (
-    <form>
+    <form action="api/auth/sign-up" method="post">
       <div className={'m-0 flex w-full justify-between  p-0'}>
         <input
           type="text"
@@ -10,6 +10,7 @@ function RegisterForm() {
             ' mb-7 w-[190px] border border-gray-600/20 p-3 outline-none'
           }
           placeholder="First Name"
+          name="firstName"
         />
         <input
           type="text"
@@ -17,6 +18,7 @@ function RegisterForm() {
             ' mb-7 w-[190px] border border-gray-600/20 p-3 outline-none'
           }
           placeholder="Last Name"
+          name="lastName"
         />
       </div>
       <input
@@ -63,6 +65,7 @@ function RegisterForm() {
       {/* IMPLEMENT SYMBOLS */}
       <button
         className={'w-full items-center bg-orange-600 px-6 py-3 text-white'}
+        type="submit"
       >
         <span>REGISTER</span>
       </button>

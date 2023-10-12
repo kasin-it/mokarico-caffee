@@ -6,34 +6,25 @@ import Image from 'next/image';
 import { motion, useMotionValue, useSpring, type PanInfo } from 'framer-motion';
 import { ChevronLeft, ChevronRight, MoveLeft, MoveRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import coffee from '@/public/img/i_mono_brasile_1000.jpg';
 import AddToCartButton from '@/components/ui/add-to-cart-button';
 
-const START_INDEX = 1;
+const START_INDEX = 8;
 const DRAG_THRESHOLD = 10;
 const FALLBACK_WIDTH = 509;
 
 const CURSOR_SIZE = 80;
 
-const items = [
-  {
-    label: 'caffe',
-    img: coffee,
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, nesciunt nam explicabo facere alias repellat in aperiam placeat rerum. Hic explicabo nam, beatae veniam tenetur adipisci illo dicta eligendi maiores!',
-  },
-  {
-    label: 'caffe',
-    img: coffee,
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, nesciunt nam explicabo facere alias repellat in aperiam placeat rerum. Hic explicabo nam, beatae veniam tenetur adipisci illo dicta eligendi maiores!',
-  },
-  {
-    label: 'caffe',
-    img: coffee,
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, nesciunt nam explicabo facere alias repellat in aperiam placeat rerum. Hic explicabo nam, beatae veniam tenetur adipisci illo dicta eligendi maiores!',
-  },
-];
+interface Item {
+  id: string;
+  label: string;
+  gallery: string;
+  desc: string;
+}
+interface SuggestedCarouselProps {
+  items: Item[];
+}
 
-export default function SuggestedCarousel() {
+export default function SuggestedCarousel({ items }: SuggestedCarouselProps) {
   const containerRef = useRef<HTMLUListElement>(null);
   const itemsRef = useRef<(HTMLLIElement | null)[]>([]);
   const [activeSlide, setActiveSlide] = useState(START_INDEX);
@@ -46,6 +37,7 @@ export default function SuggestedCarousel() {
   });
 
   const [isDragging, setIsDragging] = useState(false);
+
   function handleDragSnap(
     _: MouseEvent,
     { offset: { x: dragOffset } }: PanInfo,
@@ -221,7 +213,7 @@ export default function SuggestedCarousel() {
                   key={index}
                   ref={(el) => (itemsRef.current[index] = el)}
                   className={cn(
-                    'group relative shrink-0 select-none px-3 transition-opacity duration-300 w-[600px] text-center',
+                    'group relative shrink-0 select-none px-3 transition-opacity duration-300 w-[400px] text-center',
                     !active && 'opacity-30',
                   )}
                   transition={{
@@ -238,20 +230,20 @@ export default function SuggestedCarousel() {
                     onClick={disableDragClick}
                   >
                     <Image
-                      src={coffee}
-                      width={coffee.width}
-                      height={coffee.height}
+                      src={item.gallery}
+                      width={400}
+                      height={400}
                       alt={''}
                       draggable={false}
                     />
-                    <h2 className="text-4xl font-playfair-display">coffee</h2>
+                    <h2 className="text-4xl font-playfair-display">
+                      {item.label}
+                    </h2>
                   </Link>
-                  <p className="text-md text-gray-800">
-                    asdaskjdkjashdkjahkdjhakjh
-                  </p>
+                  <p className="text-md text-gray-800">{item.label}</p>
                   <div className={cn('mt-4 flex justify-center')}>
                     <Link
-                      href={item.label}
+                      href={`/products/${item.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xl font-bold leading-tight transition-colors hover:text-lime-300"

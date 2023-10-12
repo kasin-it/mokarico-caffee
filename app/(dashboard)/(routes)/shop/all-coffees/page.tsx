@@ -2,19 +2,7 @@ import Separator from '@/components/ui/separator';
 // import supabase from '@/config/supabaseClient';
 import ProductsCollection from '../components/products-colection';
 
-async function GroundCoffeePage() {
-  // const getProducts = async () => {
-  //   const { data, error } = await supabase.from('coffee-grains').select();
-
-  //   if (error) {
-  //     console.error('Error fetching product:', error);
-  //     return null;
-  //   }
-
-  //   return data;
-  // };
-
-  // const products = await getProducts();
+function GroundCoffeePage() {
 
   return (
     <section className="mt-[100px] flex flex-col items-center justify-center px-3 md:px-20">
