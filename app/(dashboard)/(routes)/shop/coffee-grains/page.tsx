@@ -1,37 +1,24 @@
-// import Separator from '@/components/ui/separator';
-// import supabase from '@/config/supabaseClient';
-// import ProductsCollection from '../components/products-colection';
+import Separator from '@/components/ui/separator';
+import ProductsCollection from '../components/products-colection';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
-// async function CoffeeGrainsPage() {
-//   const getProducts = async () => {
-//     const { data, error } = await supabase.from('coffee-grains').select();
+async function CoffeeGrainsPage() {
+  const cookieStore = cookies();
+  const supabase = createServerComponentClient({
+    cookies: () => cookieStore,
+  });
+  const { data } = await supabase.from('coffee-grains').select('*');
 
-//     if (error) {
-//       console.error('Error fetching product:', error);
-//       return null;
-//     }
-
-//     return data;
-//   };
-
-//   const products = await getProducts();
-
-//   return (
-//     <section className="mt-[100px] flex flex-col items-center justify-center px-3 md:px-20">
-//       <section className="w-full space-y-3 max-w-[1100px]">
-//         <h1 className="font-playfair-display text-7xl">Coffee Grains</h1>
-//         <p>Home / Shop /Coffee Grains</p>
-//         <Separator className="bg-gray-600" />
-//       </section>
-//       <ProductsCollection />
-//     </section>
-//   );
-// }
-// export default CoffeeGrainsPage;
-
-function page() {
   return (
-    <div>page</div>
-  )
+    <section className="mt-[100px] flex flex-col items-center justify-center px-3 md:px-20">
+      <section className="w-full space-y-3 max-w-[1100px]">
+        <h1 className="font-playfair-display text-7xl">Coffee Grains</h1>
+        <p>Home / Shop /Coffee Grains</p>
+        <Separator className="bg-gray-600" />
+      </section>
+      <ProductsCollection products={data} />
+    </section>
+  );
 }
-export default page
+export default CoffeeGrainsPage;

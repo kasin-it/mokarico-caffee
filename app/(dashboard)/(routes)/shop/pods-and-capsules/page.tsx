@@ -1,20 +1,14 @@
 import Separator from '@/components/ui/separator';
-// import supabase from '@/config/supabaseClient';
 import ProductsCollection from '../components/products-colection';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 async function PodsAndCapsulesPage() {
-//   const getProducts = async () => {
-//     const { data, error } = await supabase.from('coffee-grains').select();
-
-//     if (error) {
-//       console.error('Error fetching product:', error);
-//       return null;
-//     }
-
-//     return data;
-//   };
-
-//   const products = await getProducts();
+  const cookieStore = cookies();
+  const supabase = createServerComponentClient({
+    cookies: () => cookieStore,
+  });
+  const { data } = await supabase.from('pods-and-capsules').select('*');
 
   return (
     <section className="mt-[100px] flex flex-col items-center justify-center px-3 md:px-20">
@@ -25,7 +19,7 @@ async function PodsAndCapsulesPage() {
         <p>Home / Shop / Pods and Capsules</p>
         <Separator className="bg-gray-600" />
       </section>
-      <ProductsCollection />
+      <ProductsCollection products={data} />
     </section>
   );
 }

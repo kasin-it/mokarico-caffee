@@ -1,20 +1,16 @@
 import Separator from '@/components/ui/separator';
-// import supabase from '@/config/supabaseClient';
 import ProductsCollection from '../components/products-colection';
+import { cookies } from 'next/headers';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 
 async function GroundCoffeePage() {
-  // const getProducts = async () => {
-  //   const { data, error } = await supabase.from('coffee-grains').select();
+  const cookieStore = cookies();
+  const supabase = createServerComponentClient({
+    cookies: () => cookieStore,
+  });
+  const { data } = await supabase.from('ground-coffee').select('*');
 
-  //   if (error) {
-  //     console.error('Error fetching product:', error);
-  //     return null;
-  //   }
-
-  //   return data;
-  // };
-
-  // const products = await getProducts();
+  // console.log(data);
 
   return (
     <section className="mt-[100px] flex flex-col items-center justify-center px-3 md:px-20">
@@ -23,7 +19,7 @@ async function GroundCoffeePage() {
         <p>Home / Shop / Ground Coffee</p>
         <Separator className="bg-gray-600" />
       </section>
-      <ProductsCollection />
+      <ProductsCollection products={data} />
     </section>
   );
 }
