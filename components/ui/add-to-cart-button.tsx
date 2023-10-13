@@ -1,19 +1,11 @@
 'use client';
 
 import useCart from '@/app/hooks/use-cart';
+import { Product } from '@/types';
 import { ShoppingCart } from 'lucide-react';
 
-interface Item {
-  id: string;
-  label: string;
-  image: string;
-  grammage: number;
-  quantity: number;
-  price: number;
-}
-
 interface AddToCartButtonProps {
-  item: Item;
+  item: Product;
 }
 
 function AddToCartButton({ item }: AddToCartButtonProps) {

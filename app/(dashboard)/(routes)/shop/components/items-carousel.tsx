@@ -7,6 +7,7 @@ import { motion, useMotionValue, useSpring, type PanInfo } from 'framer-motion';
 import { ChevronLeft, ChevronRight, MoveLeft, MoveRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AddToCartButton from '@/components/ui/add-to-cart-button';
+import { Product } from '@/types';
 
 const START_INDEX = 0;
 const DRAG_THRESHOLD = 10;
@@ -14,17 +15,8 @@ const FALLBACK_WIDTH = 509;
 
 const CURSOR_SIZE = 80;
 
-interface Item {
-  id: string;
-  label: string;
-  image: string;
-  desc: string;
-  grammage: number;
-  quantity: number;
-  price: number;
-}
 interface SuggestedCarouselProps {
-  items: Item[];
+  items: Product[];
 }
 
 export default function SuggestedCarousel({ items }: SuggestedCarouselProps) {

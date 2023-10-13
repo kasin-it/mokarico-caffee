@@ -1,28 +1,19 @@
 'use client';
 
+import { Product } from '@/types';
 import { Search, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
 
-interface ProductsCollectionItemProps {
-  img: string;
-  label: string;
-  price: number;
-  grammage: string;
-  type: string;
-  className: string;
-}
-
 function ProductsCollectionItem({
-  img,
+  image,
   label,
   price,
   grammage,
   type,
-  className,
-}: ProductsCollectionItemProps) {
+}: Product) {
   return (
     <section className="group/coffee-item relative overflow-hidden">
-      <Image src={img} width={290} height={290} alt="coffee grains" />
+      <Image src={image} width={290} height={290} alt="coffee grains" />
       <p className="text-lg font-bold">{label}</p>
       <p className="opacity-50">€{price}</p>
       <div className="flex space-x-4">

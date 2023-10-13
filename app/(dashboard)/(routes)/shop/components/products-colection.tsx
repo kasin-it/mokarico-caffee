@@ -2,22 +2,14 @@
 
 import React, { useState } from 'react';
 import ProductsCollectionItem from './product-collection-item';
-import coffee from '@/public/img/i_mono_brasile_1000.jpg';
 import { PlusCircle } from 'lucide-react';
 import { useFilterModal } from '@/app/hooks/use-filter-modal';
 import { cn } from '@/lib/utils';
+import { Product } from '@/types';
 
 interface ProductsCollectionProps {
   filter?: boolean;
   products: Product[];
-}
-
-interface Product {
-  image: string;
-  label: string;
-  price: number;
-  grammge: number;
-  type: string;
 }
 
 function ProductsCollection({ filter, products }: ProductsCollectionProps) {
@@ -85,15 +77,7 @@ function ProductsCollection({ filter, products }: ProductsCollectionProps) {
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-[1100px]">
         {items.map((item, index) => (
-          <ProductsCollectionItem
-            key={index}
-            img={item.image}
-            label={item.label}
-            price={item.price}
-            grammage={`${item.grammge} G`}
-            type={item.type}
-            className={''}
-          />
+          <ProductsCollectionItem key={index} {...item} />
         ))}
       </div>
     </div>
