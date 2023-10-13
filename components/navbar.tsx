@@ -10,7 +10,7 @@ import { useSmallMenuModal } from '@/app/hooks/use-small-menu-modal';
 import { useSearchModal } from '@/app/hooks/use-search-modal';
 import { useLoginModal } from '@/app/hooks/use-login-modal';
 import { useNavbarProperties } from '@/app/hooks/use-navbar-properties';
-import { useCart } from '@/app/hooks/use-cart';
+import useCart from '@/app/hooks/use-cart';
 
 const Navbar = () => {
   const navbarProperties = useNavbarProperties();
@@ -141,7 +141,7 @@ const Navbar = () => {
                   'absolute left-5 top-4 rounded-full bg-orange-500 px-1 text-xs text-white'
                 }
               >
-                {cart.totalItems}
+                {cart.items.length}
               </div>
             </div>
           </button>

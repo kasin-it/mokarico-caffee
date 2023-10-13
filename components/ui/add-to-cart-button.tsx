@@ -1,6 +1,6 @@
-"use client"
+'use client';
 
-import { useCart } from '@/app/hooks/use-cart';
+import useCart from '@/app/hooks/use-cart';
 import { ShoppingCart } from 'lucide-react';
 
 interface Item {
@@ -16,13 +16,11 @@ interface AddToCartButtonProps {
   item: Item;
 }
 
-function AddToCartButton({item}: AddToCartButtonProps) {
-
-  const cart = useCart()
+function AddToCartButton({ item }: AddToCartButtonProps) {
+  const cart = useCart();
 
   const handleAddToCart = () => {
     cart.addItem(item);
-    console.log(item)
   };
 
   return (
