@@ -4,9 +4,12 @@ import { useCartModal } from '@/app/hooks/use-cart-modal';
 import Modal from '../ui/modal';
 import { X } from 'lucide-react';
 import DefaultButton from '../ui/default-button';
+import { useCart } from '@/app/hooks/use-cart';
 
 export const CartModal = () => {
   const cartModal = useCartModal();
+
+  const cart = useCart();
 
   return (
     <Modal isOpen={cartModal.isOpen} onClose={cartModal.onClose}>
@@ -23,9 +26,25 @@ export const CartModal = () => {
           onClick={cartModal.onClose}
         />
         <section className={'text-sm text-gray-600 opacity-50 py-5 pb-10'}>
-          You have no items in your shopping cart
+          {cart.items.length < 1 ? (
+            'You have no items in your shopping cart'
+          ) : (
+            <>
+              {/* {cart.items.map((item) => (
+                <div
+                  key={item.id}
+                  className={'flex justify-between items-center'}
+                >
+                  {item.label}
+                </div>
+              ))} */}
+              xd
+            </>
+          )}
         </section>
-        <DefaultButton className='w-[250px]' onClick={cartModal.onClose}>GO TO SHOP</DefaultButton>
+        <DefaultButton className="w-[250px]" onClick={cartModal.onClose}>
+          GO TO SHOP
+        </DefaultButton>
       </div>
     </Modal>
   );

@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, MoveLeft, MoveRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AddToCartButton from '@/components/ui/add-to-cart-button';
 
-const START_INDEX = 8;
+const START_INDEX = 0;
 const DRAG_THRESHOLD = 10;
 const FALLBACK_WIDTH = 509;
 
@@ -17,8 +17,11 @@ const CURSOR_SIZE = 80;
 interface Item {
   id: string;
   label: string;
-  gallery: string;
+  image: string;
   desc: string;
+  grammage: number;
+  quantity: number;
+  price: number;
 }
 interface SuggestedCarouselProps {
   items: Item[];
@@ -183,7 +186,7 @@ export default function SuggestedCarousel({ items }: SuggestedCarouselProps) {
         <div className="relative overflow-hidden">
           <motion.ul
             ref={containerRef}
-            className="flex cursor-grab justify-center"
+            className="flex cursor-grab items-start"
             style={{
               x: animatedX,
             }}
@@ -213,7 +216,7 @@ export default function SuggestedCarousel({ items }: SuggestedCarouselProps) {
                   key={index}
                   ref={(el) => (itemsRef.current[index] = el)}
                   className={cn(
-                    'group relative shrink-0 select-none px-3 transition-opacity duration-300 w-[400px] text-center',
+                    'group relative shrink-0 select-none px-3 transition-opacity duration-300 w-[400px] text-center flex-col justify-start items-center',
                     !active && 'opacity-30',
                   )}
                   transition={{
@@ -230,7 +233,7 @@ export default function SuggestedCarousel({ items }: SuggestedCarouselProps) {
                     onClick={disableDragClick}
                   >
                     <Image
-                      src={item.gallery}
+                      src={item.image}
                       width={400}
                       height={400}
                       alt={''}
@@ -242,18 +245,7 @@ export default function SuggestedCarousel({ items }: SuggestedCarouselProps) {
                   </Link>
                   <p className="text-md text-gray-800">{item.label}</p>
                   <div className={cn('mt-4 flex justify-center')}>
-                    <Link
-                      href={`/products/${item.id}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xl font-bold leading-tight transition-colors hover:text-lime-300"
-                      draggable={false}
-                      onClick={disableDragClick}
-                      onMouseEnter={() => setHoverType('click')}
-                      onMouseLeave={() => setHoverType(null)}
-                    >
-                      <AddToCartButton />
-                    </Link>
+                    <AddToCartButton item={item} />
                   </div>
                 </motion.li>
               );

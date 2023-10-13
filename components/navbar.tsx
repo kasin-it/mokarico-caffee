@@ -10,6 +10,7 @@ import { useSmallMenuModal } from '@/app/hooks/use-small-menu-modal';
 import { useSearchModal } from '@/app/hooks/use-search-modal';
 import { useLoginModal } from '@/app/hooks/use-login-modal';
 import { useNavbarProperties } from '@/app/hooks/use-navbar-properties';
+import { useCart } from '@/app/hooks/use-cart';
 
 const Navbar = () => {
   const navbarProperties = useNavbarProperties();
@@ -18,6 +19,8 @@ const Navbar = () => {
   const cartModal = useCartModal();
   const searchModal = useSearchModal();
   const loginModal = useLoginModal();
+
+  const cart = useCart();
 
   return (
     <nav
@@ -36,7 +39,7 @@ const Navbar = () => {
             ? 'text-white md:text-black'
             : 'text-black',
         )}
-        aria-label='menu button'
+        aria-label="menu button"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +141,7 @@ const Navbar = () => {
                   'absolute left-5 top-4 rounded-full bg-orange-500 px-1 text-xs text-white'
                 }
               >
-                0
+                {cart.totalItems}
               </div>
             </div>
           </button>
