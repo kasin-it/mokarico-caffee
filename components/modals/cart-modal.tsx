@@ -36,7 +36,7 @@ export const CartModal = () => {
           ) : (
             <>
               {items.map((item) => (
-                <CartItem item={item} />
+                <CartItem item={item} key={item.id} />
               ))}
             </>
           )}

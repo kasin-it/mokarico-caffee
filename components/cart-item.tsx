@@ -14,6 +14,7 @@ function CartItem({ item }: CartItemProps) {
         <div>
           <h1 className="font-semibold text-black text-md">{item.label}</h1>
           <p className="text-md text-black">{formatter.format(item.price)}</p>
+          <p>{item.desc}</p>
         </div>
       </div>
     </div>
