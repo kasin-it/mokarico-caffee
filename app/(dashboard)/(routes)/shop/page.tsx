@@ -58,7 +58,7 @@ async function ShopPage() {
           </article>
         </div>
         <article className="w-full flex lg:w-2/5 mt-7 lg:mt-[190px] justify-center">
-          <ItemsCarousel items={data} />
+          {data ? <ItemsCarousel items={data} /> : 'Something went wrong.'}
         </article>
       </section>
 

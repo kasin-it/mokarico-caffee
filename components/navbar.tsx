@@ -11,6 +11,7 @@ import { useSearchModal } from '@/app/hooks/use-search-modal';
 import { useLoginModal } from '@/app/hooks/use-login-modal';
 import { useNavbarProperties } from '@/app/hooks/use-navbar-properties';
 import useCart from '@/app/hooks/use-cart';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const navbarProperties = useNavbarProperties();
@@ -19,8 +20,17 @@ const Navbar = () => {
   const cartModal = useCartModal();
   const searchModal = useSearchModal();
   const loginModal = useLoginModal();
-
   const cart = useCart();
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <nav

@@ -76,9 +76,11 @@ function ProductsCollection({ filter, products }: ProductsCollectionProps) {
         </div>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-[1100px]">
-        {items.map((item, index) => (
-          <ProductsCollectionItem key={index} {...item} />
-        ))}
+        {items
+          ? items.map((item, index) => (
+              <ProductsCollectionItem key={index} {...item} />
+            ))
+          : 'Something went wrong.'}
       </div>
     </div>
   );

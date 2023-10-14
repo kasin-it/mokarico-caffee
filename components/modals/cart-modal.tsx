@@ -5,11 +5,16 @@ import Modal from '../ui/modal';
 import { X } from 'lucide-react';
 import DefaultButton from '../ui/default-button';
 import useCart from '@/app/hooks/use-cart';
+import { reduceDuplicatesAndCount } from '@/lib/utils';
+import Image from 'next/image';
+import CartItem from '../cart-item';
 
 export const CartModal = () => {
   const cartModal = useCartModal();
 
   const cart = useCart();
+
+  const items = reduceDuplicatesAndCount(cart.items);
 
   return (
     <Modal isOpen={cartModal.isOpen} onClose={cartModal.onClose}>
@@ -25,20 +30,14 @@ export const CartModal = () => {
           }
           onClick={cartModal.onClose}
         />
-        <section className={'text-sm text-gray-600 opacity-50 py-5 pb-10'}>
+        <section className={'text-sm text-gray-600 py-5 pb-10'}>
           {cart.items.length < 1 ? (
             'You have no items in your shopping cart'
           ) : (
             <>
-              {/* {cart.items.map((item) => (
-                <div
-                  key={item.id}
-                  className={'flex justify-between items-center'}
-                >
-                  {item.label}
-                </div>
-              ))} */}
-              xd
+              {items.map((item) => (
+                <CartItem item={item} />
+              ))}
             </>
           )}
         </section>

@@ -1,5 +1,6 @@
 'use client';
 
+import { formatter } from '@/lib/utils';
 import { Product } from '@/types';
 import { Search, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
@@ -15,7 +16,7 @@ function ProductsCollectionItem({
     <section className="group/coffee-item relative overflow-hidden">
       <Image src={image} width={290} height={290} alt="coffee grains" />
       <p className="text-lg font-bold">{label}</p>
-      <p className="opacity-50">€{price}</p>
+      <p className="opacity-50">{formatter.format(price)}</p>
       <div className="flex space-x-4">
         <p className="text-sm">{grammage}</p>
         <p className="text-sm">{type}</p>
