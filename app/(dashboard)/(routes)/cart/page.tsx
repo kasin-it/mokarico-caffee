@@ -3,7 +3,7 @@
 import useCart from '@/app/hooks/use-cart';
 import { useNavbarProperties } from '@/app/hooks/use-navbar-properties';
 import CartItem2 from '@/components/cart-item-2';
-import { reduceDuplicatesAndCount } from '@/lib/utils';
+import { formatter, reduceDuplicatesAndCount } from '@/lib/utils';
 import { ChevronLeft, RefreshCw, RefreshCwIcon, Trash } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect } from 'react';
@@ -21,7 +21,7 @@ function CartPage() {
     <main className="flex justify-center items-center mt-24 text-center w-full">
       <div className="max-w-[1170px] w-full">
         <h1 className="text-5xl font-playfair-display py-11">Shopping cart</h1>
-        <div className="w-full mb-24">
+        <div className="w-full mb-24 flex space-x-16">
           <article className="w-[60%] flex flex-col justify-left">
             <div className="grid grid-cols-4 px-5 w-full border-y text-black/50 ms-12">
               <p>Product</p>
@@ -63,6 +63,34 @@ function CartPage() {
                 <Trash strokeWidth={'1px'} />
                 <p>CLEAR CART</p>
               </button>
+            </div>
+          </article>
+          <article className="px-5 flex flex-col border w-[30%] py-3">
+            <div className="flex w-full justify-between border-b py-5">
+              <p>Subtotal</p>
+              <p>
+                {formatter.format(
+                  Object.values(products).reduce(
+                    (acc, product) => acc + product.item.price * product.count,
+                    0,
+                  ),
+                )}
+              </p>
+            </div>
+            <div className="flex w-full justify-between border-b py-5">
+              <p>Shipping (Standard)</p>
+              <p>{formatter.format(9)}</p>
+            </div>
+            <div className="flex w-full justify-between py-5">
+              <p className="text-xl font-bold">Order Total</p>
+              <p className='text-xl font-bold'>
+                {formatter.format(
+                  Object.values(products).reduce(
+                    (acc, product) => acc + product.item.price * product.count,
+                    0,
+                  ) + 9,
+                )}
+              </p>
             </div>
           </article>
         </div>

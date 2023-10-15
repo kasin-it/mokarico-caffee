@@ -38,7 +38,7 @@ function CartItem2({ item, count }: CartItem2Props) {
           </p>
         </div>
       </div>
-      <div className="flex justify-start absolute right-5 bottom-5">
+      <div className="flex justify-start absolute right-5 bottom-5 space-x-5">
         <Link
           href={`/shop/${item.category}/${item.id}`}
           className="hover:opacity-70 cursor-pointer hover:bg-black hover:text-white rounded-lg border border-black/80 p-1"
