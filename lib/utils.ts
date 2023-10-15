@@ -11,7 +11,9 @@ export const formatter = new Intl.NumberFormat('en-US', {
   currency: 'EUR',
 });
 
-export function reduceDuplicatesAndCount(items: Product[]): Product[] {
+export function reduceDuplicatesAndCount(items: Product[]): {
+  [key: string]: { item: Product; count: number };
+} {
   // Create an object to store item counts
   const itemCounts: { [key: string]: number } = {};
 
@@ -28,17 +30,16 @@ export function reduceDuplicatesAndCount(items: Product[]): Product[] {
     }
   });
 
-  // Create a new array to store unique items with counts
-  const uniqueItems: Product[] = [];
+  // Create an object to store items and their respective counts
+  const itemsWithCounts: { [key: string]: { item: Product; count: number } } =
+    {};
 
-  // Iterate through the object and add unique items with counts to the new array
+  // Iterate through the object and add items with counts to the new object
   for (const key in itemCounts) {
     const item = JSON.parse(key);
-    if (itemCounts[key] > 0) {
-      item.count = itemCounts[key];
-      uniqueItems.push(item);
-    }
+    const count = itemCounts[key];
+    itemsWithCounts[key] = { item, count };
   }
 
-  return uniqueItems;
+  return itemsWithCounts;
 }

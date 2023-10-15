@@ -5,16 +5,17 @@ import Modal from '../ui/modal';
 import { X } from 'lucide-react';
 import DefaultButton from '../ui/default-button';
 import useCart from '@/app/hooks/use-cart';
-import { reduceDuplicatesAndCount } from '@/lib/utils';
+import { formatter, reduceDuplicatesAndCount } from '@/lib/utils';
 import Image from 'next/image';
 import CartItem from '../cart-item';
+import { Product } from '@/types';
 
 export const CartModal = () => {
   const cartModal = useCartModal();
 
   const cart = useCart();
 
-  const items = reduceDuplicatesAndCount(cart.items);
+  const products = reduceDuplicatesAndCount(cart.items);
 
   return (
     <Modal isOpen={cartModal.isOpen} onClose={cartModal.onClose}>
@@ -30,20 +31,50 @@ export const CartModal = () => {
           }
           onClick={cartModal.onClose}
         />
-        <section className={'text-sm text-gray-600 py-5 pb-10'}>
+        <section
+          className={'text-sm text-gray-600 py-5 pb-10 h-[75%] overflow-scroll'}
+        >
           {cart.items.length < 1 ? (
-            'You have no items in your shopping cart'
+            <div className="w-full justify-center items-center space-y-5">
+              <p>You have no items in your shopping cart</p>
+              <DefaultButton className="w-[250px]" onClick={cartModal.onClose}>
+                GO TO SHOP
+              </DefaultButton>
+            </div>
           ) : (
             <>
-              {items.map((item) => (
-                <CartItem item={item} key={item.id} />
+              {Object.values(products).map((product) => (
+                <CartItem
+                  item={product.item}
+                  key={product.item.id}
+                  count={product.count}
+                />
               ))}
             </>
           )}
         </section>
-        <DefaultButton className="w-[250px]" onClick={cartModal.onClose}>
-          GO TO SHOP
-        </DefaultButton>
+        {cart.items.length > 0 ? (
+          <article className="flex px-7 flex-col space-y-3">
+            <div className="flex justify-between py-5">
+              <p className="text-xl ">Total:</p>
+              <p className="text-xl">
+                {formatter.format(
+                  Object.values(products).reduce(
+                    (acc, product) => acc + product.item.price * product.count,
+                    0,
+                  ),
+                )}
+              </p>
+            </div>
+            <DefaultButton className="border-black border-[1px] text-black bg-white w-full hover:bg-black transition hover:text-white">
+              GO TO CART
+            </DefaultButton>
+
+            <DefaultButton className="bg-green-600 hover:bg-green-700 transition w-full">
+              CHECK OUT
+            </DefaultButton>
+          </article>
+        ) : null}
       </div>
     </Modal>
   );

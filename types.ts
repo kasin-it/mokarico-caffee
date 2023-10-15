@@ -7,4 +7,5 @@ export interface Product {
   type: string;
   grammage?: number;
   quantity?: number;
+  category: string;
 }
