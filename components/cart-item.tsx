@@ -24,9 +24,13 @@ function CartItem({ item, count }: CartItemProps) {
           <div className="flex space-x-4">
             <button onClick={() => cart.removeItem(item.id)}>
               <Minus />
-            </button>{' '}
+            </button>
             <p>{count}</p>
-            <button onClick={() => cart.addItem(item)}>
+            <button
+              onClick={() => {
+                cart.addItem(item);
+              }}
+            >
               <Plus />
             </button>
           </div>

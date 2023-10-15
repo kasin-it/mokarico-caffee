@@ -9,6 +9,7 @@ import { formatter, reduceDuplicatesAndCount } from '@/lib/utils';
 import Image from 'next/image';
 import CartItem from '../cart-item';
 import { Product } from '@/types';
+import Link from 'next/link';
 
 export const CartModal = () => {
   const cartModal = useCartModal();
@@ -66,9 +67,14 @@ export const CartModal = () => {
                 )}
               </p>
             </div>
-            <DefaultButton className="border-black border-[1px] text-black bg-white w-full hover:bg-black transition hover:text-white">
-              GO TO CART
-            </DefaultButton>
+            <Link href={'/cart'}>
+              <DefaultButton
+                className="border-black border-[1px] text-black bg-white w-full hover:bg-black transition hover:text-white"
+                onClick={cartModal.onClose}
+              >
+                GO TO CART
+              </DefaultButton>
+            </Link>
 
             <DefaultButton className="bg-green-600 hover:bg-green-700 transition w-full">
               CHECK OUT
