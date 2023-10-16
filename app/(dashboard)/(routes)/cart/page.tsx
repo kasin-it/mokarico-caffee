@@ -3,6 +3,7 @@
 import useCart from '@/app/hooks/use-cart';
 import { useNavbarProperties } from '@/app/hooks/use-navbar-properties';
 import CartItem2 from '@/components/cart-item-2';
+import DefaultButton from '@/components/ui/default-button';
 import { formatter, reduceDuplicatesAndCount } from '@/lib/utils';
 import { ChevronLeft, RefreshCw, RefreshCwIcon, Trash } from 'lucide-react';
 import Link from 'next/link';
@@ -83,7 +84,7 @@ function CartPage() {
             </div>
             <div className="flex w-full justify-between py-5">
               <p className="text-xl font-bold">Order Total</p>
-              <p className='text-xl font-bold'>
+              <p className="text-xl font-bold">
                 {formatter.format(
                   Object.values(products).reduce(
                     (acc, product) => acc + product.item.price * product.count,
@@ -92,6 +93,10 @@ function CartPage() {
                 )}
               </p>
             </div>
+            
+            <DefaultButton className="w-full h-[70px] bg-green-400 hover:opacity-100 hover:bg-green-500 transition duration-300 text-xl font-medium">
+              PROCEED TO CHECKOUT
+            </DefaultButton>
           </article>
         </div>
       </div>
