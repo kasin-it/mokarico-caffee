@@ -17,7 +17,11 @@ async function CoffeeGrainsPage() {
         <p>Home / Shop /Coffee Grains</p>
         <Separator className="bg-gray-600" />
       </section>
-      <ProductsCollection products={data} />
+      {data ? (
+        <ProductsCollection products={data} />
+      ) : (
+        <p>Something went wrong</p>
+      )}
     </section>
   );
 }

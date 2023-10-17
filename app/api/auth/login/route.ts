@@ -14,10 +14,14 @@ export async function POST(request: Request) {
     cookies: () => cookieStore,
   });
 
-  await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
+  try {
+    await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+  } catch (error) {
+    return new NextResponse('Wrong credentials.', { status: 403 });
+  }
 
   return NextResponse.redirect(requestUrl.origin, {
     status: 301,

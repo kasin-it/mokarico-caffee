@@ -19,7 +19,7 @@ async function PodsAndCapsulesPage() {
         <p>Home / Shop / Pods and Capsules</p>
         <Separator className="bg-gray-600" />
       </section>
-      <ProductsCollection products={data} />
+      {data ? <ProductsCollection products={data} /> : 'Something went wrong.'}
     </section>
   );
 }

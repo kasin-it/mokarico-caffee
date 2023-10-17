@@ -7,7 +7,7 @@ export default async function ProductLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { grainsId: string };
+  params: { podsId: string };
 }) {
   const getProduct = async () => {
     const cookieStore = cookies();
@@ -15,9 +15,9 @@ export default async function ProductLayout({
       cookies: () => cookieStore,
     });
     const { data } = await supabase
-      .from('coffee-grains')
+      .from('pods-and-capsules')
       .select('id')
-      .eq('id', params.grainsId)
+      .eq('id', params.podsId)
       .single();
 
     if (!data) {

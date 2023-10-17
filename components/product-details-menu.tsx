@@ -1,14 +1,17 @@
 'use client';
 
+import useCart from '@/app/hooks/use-cart';
+import { Product } from '@/types';
 import { Minus, Plus } from 'lucide-react';
 import { useState } from 'react';
 
-interface AddToCartFormProps {
-  productId: string;
+interface ProductDetailsMenuProps {
+  product: Product;
 }
 
-function AddToCartForm({ productId }: AddToCartFormProps) {
+function ProductDetailsMenu({ product }: ProductDetailsMenuProps) {
   const [quantity, setQuantity] = useState(1);
+  const cart = useCart();
 
   const onDecrement = () => {
     if (quantity > 1) {
@@ -18,14 +21,18 @@ function AddToCartForm({ productId }: AddToCartFormProps) {
   const onIncrement = () => {
     setQuantity(quantity + 1);
   };
+
+  const handleClick = () => {
+    for (let index = 0; index < quantity; index++) {
+      cart.addItem(product);
+    }
+    setQuantity(1);
+  };
   return (
-    <form>
-      <button className="w-64 bg-green-700 opacity-60 text-white font-semibold py-3">
-        ADD TO CART
-      </button>
+    <div className="flex space-x-5">
       <div className="flex">
         <div
-          className="w-12 h-12 flex items-center justify-center bg-green-700 text-whitel cursor-pointer"
+          className="w-12 h-12 flex items-center justify-center text-whitel cursor-pointer"
           onClick={onDecrement}
         >
           <Minus />
@@ -39,13 +46,19 @@ function AddToCartForm({ productId }: AddToCartFormProps) {
           />
         </span>
         <div
-          className="w-12 h-12 flex items-center justify-center bg-green-700 text-whitel cursor-pointer"
+          className="w-12 h-12 flex items-center justify-center  text-whitel cursor-pointer"
           onClick={onIncrement}
         >
           <Plus />
         </div>
       </div>
-    </form>
+      <button
+        className="w-64 bg-green-700 opacity-60 text-white font-semibold py-3"
+        onClick={handleClick}
+      >
+        ADD TO CART
+      </button>
+    </div>
   );
 }
-export default AddToCartForm;
+export default ProductDetailsMenu;
