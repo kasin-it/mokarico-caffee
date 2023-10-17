@@ -1,10 +1,7 @@
-import AddToCartForm from '../../../../../../components/product-details-menu';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import Image from 'next/image';
-
-import { formatter } from '@/lib/utils';
-import ProductDetailsMenu from '../../../../../../components/product-details-menu';
+import ProductDetails from '@/components/product-details';
+import { redirect } from 'next/navigation';
 
 async function page({ params }: { params: { grainsId: string } }) {
   const getProduct = async () => {
@@ -28,9 +25,10 @@ async function page({ params }: { params: { grainsId: string } }) {
   const data = await getProduct();
 
   if (!data) {
+    redirect('/');
     return null;
   }
 
-  return <ProductDetailsMenu product={data} />;
+  return <ProductDetails product={data} />;
 }
 export default page;

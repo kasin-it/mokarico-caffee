@@ -5,7 +5,6 @@ import img from '@/public/img/aromi-caffe-mokarico.jpg';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
-
 function ImageZoom() {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -40,7 +39,7 @@ function ImageZoom() {
             `transform transition-transform duration-500 scale-110 h-full w-full opacity-80 object-cover`,
           )}
           fill
-          loading='eager'
+          loading="eager"
           style={{
             transformOrigin: `${mousePosition.x / 5}px ${
               mousePosition.y / 5

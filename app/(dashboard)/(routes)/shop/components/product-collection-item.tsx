@@ -15,11 +15,13 @@ function ProductsCollectionItem({ item }: ProductsCollectionItemProps) {
   const cart = useCart();
 
   return (
-    <section className="group/coffee-item relative overflow-hidden">
+    <section className="group/coffee-item relative overflow-hidden mb-11">
       <Link href={`/shop/${item.category}/${item.id}`}>
         <Image src={item.image} width={290} height={290} alt="coffee grains" />
       </Link>
-      <p className="text-lg font-bold">{item.label}</p>
+      <p className="text-lg font-bold break-words max-w-[200px]">
+        {item.label}
+      </p>
       <p className="opacity-50">{formatter.format(item.price)}</p>
       <div className="flex space-x-4">
         <p className="text-sm">

@@ -9,10 +9,15 @@ import { Product } from '@/types';
 
 interface ProductsCollectionProps {
   filter?: boolean;
+  amount?: boolean;
   products: Product[];
 }
 
-function ProductsCollection({ filter, products }: ProductsCollectionProps) {
+function ProductsCollection({
+  filter,
+  products,
+  amount,
+}: ProductsCollectionProps) {
   const [sortingCriteria, setSortingCriteria] = useState<string>('price'); // Default sorting criteria
   const filterModal = useFilterModal();
 
@@ -70,8 +75,12 @@ function ProductsCollection({ filter, products }: ProductsCollectionProps) {
           >
             <option value="price">Price</option>
             <option value="label">Label</option>
-            <option value="grammge">Grammage</option>
-            <option value="type">Type</option>
+            {amount &&
+              (items[0].grammage ? (
+                <option value="grammage">Grammage</option>
+              ) : (
+                <option value="quantity">Quantity</option>
+              ))}
           </select>
         </div>
       </div>

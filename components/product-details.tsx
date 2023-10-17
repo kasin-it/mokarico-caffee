@@ -1,6 +1,7 @@
 import { formatter } from '@/lib/utils';
 import { Product } from '@/types';
 import Image from 'next/image';
+import ProductDetailsMenu from './product-details-menu';
 
 interface ProductDetailsProps {
   product: Product;
@@ -8,8 +9,8 @@ interface ProductDetailsProps {
 
 function ProductDetails({ product }: ProductDetailsProps) {
   return (
-    <div className="mt-[200px] flex">
-      <Image src={product.image} alt="image" width={700} height={700} />
+    <div className="mt-[200px] flex w-full justify-center">
+      <Image src={product.image} alt="image" width={600} height={600} loading='eager' />
 
       <section className="space-y-4">
         <h1 className="text-5xl font-playfair-display">{product.label}</h1>
@@ -21,7 +22,7 @@ function ProductDetails({ product }: ProductDetailsProps) {
 
         <p className="text-2xl">{formatter.format(product.price)}</p>
 
-        <ProductDetails product={product} />
+        <ProductDetailsMenu product={product} />
       </section>
     </div>
   );

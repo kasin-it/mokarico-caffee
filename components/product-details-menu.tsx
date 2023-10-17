@@ -41,7 +41,7 @@ function ProductDetailsMenu({ product }: ProductDetailsMenuProps) {
           <input
             type="number"
             value={quantity}
-            contentEditable
+            readOnly
             className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none] w-16 text-2xl text-center pt-2"
           />
         </span>

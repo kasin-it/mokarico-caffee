@@ -1,8 +1,8 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
-import ProductDetailsMenu from '../../../../../../components/product-details-menu';
 import ProductDetails from '@/components/product-details';
+import { redirect } from 'next/navigation';
 
 async function page({ params }: { params: { groundId: string } }) {
   const getProduct = async () => {
@@ -26,6 +26,7 @@ async function page({ params }: { params: { groundId: string } }) {
   const data = await getProduct();
 
   if (!data) {
+    redirect('/');
     return null;
   }
 

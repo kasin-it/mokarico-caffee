@@ -12,8 +12,7 @@ interface GalleryProps {
 function Gallery({ image }: GalleryProps) {
   return (
     <section className="flex">
-      <div className="group/arrows relative">
-      </div>
+      <div className="group/arrows relative"></div>
     </section>
   );
 }

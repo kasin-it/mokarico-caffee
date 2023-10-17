@@ -10,7 +10,6 @@ async function GroundCoffeePage() {
   });
   const { data } = await supabase.from('ground-coffee').select('*');
 
-  // console.log(data);
 
   return (
     <section className="mt-[100px] flex flex-col items-center justify-center px-3 md:px-20">
@@ -19,7 +18,7 @@ async function GroundCoffeePage() {
         <p>Home / Shop / Ground Coffee</p>
         <Separator className="bg-gray-600" />
       </section>
-      <ProductsCollection products={data} />
+      {data ? <ProductsCollection products={data} /> : 'Something went wrong.'}
     </section>
   );
 }
