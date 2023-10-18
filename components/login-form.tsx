@@ -1,6 +1,37 @@
+'use client';
+
+import {
+  createBrowserSupabaseClient,
+  createClientComponentClient,
+} from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 function LoginForm() {
+  const router = useRouter();
+
+  const supabase = createClientComponentClient();
+
+  useEffect(() => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(() => {
+      router.refresh();
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [supabase, router]);
+
+  const signIn = () => {
+    supabase.auth.signInWithPassword({
+      email: 'sup3rs3cur3@gmail.com',
+      password: 'sup3rs3cur3',
+    });
+  };
+
   return (
     <form action="api/auth/login" method="post">
       <input
@@ -26,6 +57,7 @@ function LoginForm() {
         <button
           type="submit"
           className={'items-center bg-orange-600 px-6 py-3 text-white'}
+          onClick={signIn}
         >
           <span>LOGIN</span>
         </button>
