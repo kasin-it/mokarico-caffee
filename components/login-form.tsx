@@ -1,7 +1,7 @@
 'use client';
 
+import { useSupabse } from '@/app/hooks/use-supabse';
 import {
-  createBrowserSupabaseClient,
   createClientComponentClient,
 } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
@@ -11,12 +11,12 @@ import { useEffect, useState } from 'react';
 function LoginForm() {
   const router = useRouter();
 
-  const supabase = createClientComponentClient();
+  const supabase = useSupabse();
 
   useEffect(() => {
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(() => {
+    } = supabase.supabse.auth.onAuthStateChange(() => {
       router.refresh();
     });
 
@@ -26,7 +26,7 @@ function LoginForm() {
   }, [supabase, router]);
 
   const signIn = () => {
-    supabase.auth.signInWithPassword({
+    supabase.supabse.auth.signInWithPassword({
       email: 'sup3rs3cur3@gmail.com',
       password: 'sup3rs3cur3',
     });

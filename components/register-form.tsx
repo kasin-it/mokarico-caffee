@@ -1,8 +1,34 @@
+import { useSupabse } from '@/app/hooks/use-supabse';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 function RegisterForm() {
+  const router = useRouter();
+
+  const supabase = useSupabse();
+
+  useEffect(() => {
+    const {
+      data: { subscription },
+    } = supabase.supabse.auth.onAuthStateChange(() => {
+      router.refresh();
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [supabase, router]);
+
+  const signUp = () => {
+    supabase.supabse.auth.signUp({
+      email: 's@gmail.com',
+      password: 'sup3rs3cur3',
+    });
+  };
   return (
-    <form action="api/auth/sign-up" method="post">
+    <form>
       <div className={'m-0 flex w-full justify-between  p-0'}>
         <input
           type="text"
@@ -55,7 +81,7 @@ function RegisterForm() {
         <input type="checkbox" />
 
         <span className={'ms-4 items-start text-sm'}>
-          Accept our{' '}
+          Accept our
           <Link href={'#'} className={'text-gray-600 hover:text-orange-600'}>
             Privacy Policy
           </Link>
@@ -66,6 +92,7 @@ function RegisterForm() {
       <button
         className={'w-full items-center bg-orange-600 px-6 py-3 text-white'}
         type="submit"
+        onClick={signUp}
       >
         <span>REGISTER</span>
       </button>
