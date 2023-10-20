@@ -8,6 +8,7 @@
 		"start": "next start",
 		"lint": "next lint"
 	},
+	"proxy": "http://localhost:54321",
 	"dependencies": {
 		"@supabase/auth-helpers-nextjs": "^0.8.1",
 		"@supabase/supabase-js": "^2.38.0",
@@ -32,9 +33,10 @@
 		"typescript": "5.2.2",
 		"zustand": "^4.4.1"
 	},
+	
 	"devDependencies": {
 		"prettier": "^3.0.3",
 		"prettier-plugin-tailwindcss": "^0.5.4",
 		"supabase": "^1.100.1"
-	}
+	},
 }

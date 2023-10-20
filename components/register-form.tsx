@@ -60,8 +60,8 @@ function RegisterForm() {
   };
   const signUp = () => {
     supabase.supabse.auth.signUp({
-      email: 's@ssup3rs3cur3sgmail.com',
-      password: 'sup3rs3cur3',
+      email: email,
+      password: password,
     });
   };
   return (
