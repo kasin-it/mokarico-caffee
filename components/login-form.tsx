@@ -1,6 +1,7 @@
 'use client';
 
 import { useSupabse } from '@/app/hooks/use-supabse';
+import { error } from 'console';
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -11,6 +12,7 @@ function LoginForm() {
   const supabase = useSupabse();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [erorr, setError] = useState('');
 
   useEffect(() => {
     const {
@@ -24,12 +26,17 @@ function LoginForm() {
     };
   }, [supabase, router]);
 
-  const signIn = () => {
-    supabase.supabse.auth.signInWithPassword({
+  const signIn = async () => {
+    const x = await supabase.supabse.auth.signInWithPassword({
       email: email,
       password: password,
     });
-    router.refresh();
+
+    if (x.data.user) {
+      window.location.href = '/account';
+    } else {
+      setError('Invalid credentials.');
+    }
   };
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +48,8 @@ function LoginForm() {
   };
 
   return (
-    <form>
+    <div>
+      <p className="text-red-500">{erorr}</p>
       <input
         className={' mb-7 w-full border border-gray-600/20 p-3 outline-none'}
         autoComplete="auto"
@@ -72,7 +80,7 @@ function LoginForm() {
           <span>LOGIN</span>
         </button>
       </div>
-    </form>
+    </div>
   );
 }
 export default LoginForm;

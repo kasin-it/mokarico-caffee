@@ -58,11 +58,17 @@ function RegisterForm() {
       signUp();
     }
   };
-  const signUp = () => {
-    supabase.supabse.auth.signUp({
+  const signUp = async () => {
+    const x = await supabase.supabse.auth.signUp({
       email: email,
       password: password,
     });
+
+    if (x.data.user) {
+      window.location.href = '/account';
+    } else {
+      setError('Something went wrong.');
+    }
   };
   return (
     <div>

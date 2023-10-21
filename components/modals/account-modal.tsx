@@ -9,9 +9,9 @@ function AccountModal() {
   const router = useRouter();
   const supabse = useSupabse();
 
-  const handlClick = () => {
-    supabse.supabse.auth.signOut();
-    router.refresh();
+  const handleClick = async () => {
+    await supabse.supabse.auth.signOut();
+    window.location.href = '/';
   };
   return (
     <div
@@ -29,7 +29,7 @@ function AccountModal() {
         </li>
         <li
           className="hover:text-black transition cursor-pointer"
-          onClick={handlClick}
+          onClick={handleClick}
         >
           Sign Out
         </li>

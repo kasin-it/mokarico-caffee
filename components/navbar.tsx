@@ -35,9 +35,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchData = async () => {
       const session = await supabase.supabse.auth.getSession();
-      setSession(session.data.session);
-      console.log(session);
-    
+      setSession(session.data.session);    
     };
 
     fetchData(); // Call the fetchData function
