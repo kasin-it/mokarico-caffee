@@ -2,7 +2,7 @@ import { useSupabse } from '@/app/hooks/use-supabse';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 
 function RegisterForm() {
   const router = useRouter();
@@ -45,7 +45,9 @@ function RegisterForm() {
     };
   }, [supabase, router]);
 
-  const handleSignUp = () => {
+  const handleSignUp = (e: React.MouseEvent) => {
+    e.preventDefault();
+
     const passwordsMtaching = password === repeatPassword;
     const dataNotEmpty =
       name && lastName && password && repeatPassword && email;
@@ -62,12 +64,21 @@ function RegisterForm() {
     const x = await supabase.supabse.auth.signUp({
       email: email,
       password: password,
+      // options: {
+      //   data: {
+      //     name: name,
+      //     last_name: lastName,
+      //   },
+      // },
+      // name: name,
+      // last_name: lastName,
     });
 
     if (x.data.user) {
       window.location.href = '/account';
     } else {
-      setError('Something went wrong.');
+      setError(String(x.error?.message));
+      console.log(x);
     }
   };
   return (
@@ -80,7 +91,7 @@ function RegisterForm() {
             ' mb-7 w-[190px] border border-gray-600/20 p-3 outline-none'
           }
           placeholder="First Name"
-          name="firstName"
+          name="name"
           value={name}
           onChange={handleNameChange}
         />
@@ -90,13 +101,14 @@ function RegisterForm() {
             ' mb-7 w-[190px] border border-gray-600/20 p-3 outline-none'
           }
           placeholder="Last Name"
-          name="lastName"
+          name="last_name"
           value={lastName}
           onChange={handleLastNameChange}
         />
       </div>
       <input
         type="email"
+        name="email"
         className={' mb-7 w-full border border-gray-600/20 p-3 outline-none'}
         placeholder="Email*"
         required
@@ -133,10 +145,12 @@ function RegisterForm() {
 
       <div className={'mb-4 flex w-full flex-row justify-start'}>
         <input type="checkbox" required />
-
         <span className={'ms-4 items-start text-sm'}>
           Accept our
-          <Link href={'#'} className={'text-gray-600 hover:text-orange-600'}>
+          <Link
+            href={'#'}
+            className={'text-gray-600 hover:text-orange-600 ml-2'}
+          >
             Privacy Policy
           </Link>
         </span>
@@ -145,8 +159,8 @@ function RegisterForm() {
       {/* IMPLEMENT SYMBOLS */}
       <button
         className={'w-full items-center bg-orange-600 px-6 py-3 text-white'}
+        onClick={(event) => handleSignUp(event)}
         type="submit"
-        onClick={handleSignUp}
       >
         <span>REGISTER</span>
       </button>

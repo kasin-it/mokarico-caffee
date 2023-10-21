@@ -27,10 +27,10 @@ function Home() {
   const loginModal = useLoginModal();
   const navbarProperties = useNavbarProperties();
 
-  const screanHeight = window.scrollY;
-
+  
   useEffect(() => {
     // Function to handle scroll events
+    const screanHeight = window.scrollY;
 
     const handleScroll = () => {
       const isTop = screanHeight === 0;

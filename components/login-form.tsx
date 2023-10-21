@@ -35,7 +35,7 @@ function LoginForm() {
     if (x.data.user) {
       window.location.href = '/account';
     } else {
-      setError('Invalid credentials.');
+      setError(String(x.error?.message));
     }
   };
 
@@ -54,6 +54,7 @@ function LoginForm() {
         className={' mb-7 w-full border border-gray-600/20 p-3 outline-none'}
         autoComplete="auto"
         placeholder="Email"
+        type='email'
         required
         value={email}
         onChange={handleEmailChange}
