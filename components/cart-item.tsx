@@ -37,12 +37,12 @@ function CartItem({ item, count }: CartItemProps) {
         </div>
       </div>
       <div className="flex flex-col space-y-3 justify-start">
-        <Link
+        {/* <Link
           href={`/shop/${item.category}/${item.id}`}
           className="hover:opacity-70 cursor-pointer"
         >
           <Edit className="h-4 " />
-        </Link>
+        </Link> */}
         <X
           className="h-4 hover:opacity-70 cursor-pointer"
           onClick={() => cart.removeAllId(item.id)}

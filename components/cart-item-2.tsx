@@ -14,7 +14,10 @@ function CartItem2({ item, count }: CartItem2Props) {
   const cart = useCart();
 
   return (
-    <div key={item.id} className={'flex items-start border-b relative mb-2 h-36'}>
+    <div
+      key={item.id}
+      className={'flex items-start border-b relative mb-2 h-36'}
+    >
       <div className="flex w-full">
         <Image src={item.image} alt={item.label} height={100} width={100} />
         <div className="grid grid-cols-4 w-full px-0 gap-x-12">
@@ -24,7 +27,7 @@ function CartItem2({ item, count }: CartItem2Props) {
             <button onClick={() => cart.removeItem(item.id)}>
               <Minus />
             </button>
-            <p className='text-md'>{count}</p>
+            <p className="text-md">{count}</p>
             <button
               onClick={() => {
                 cart.addItem(item);

@@ -25,7 +25,7 @@ function AccountModal() {
     >
       <ul className="text-gray-500 bg-white border border-gray-500 p-5">
         <li className="hover:text-black transition cursor-pointer">
-          <Link href={'/my_account'}>My Account</Link>
+          <Link href={'/account'}>My Account</Link>
         </li>
         <li
           className="hover:text-black transition cursor-pointer"

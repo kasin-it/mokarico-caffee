@@ -178,7 +178,7 @@ export default function SuggestedCarousel({ items }: SuggestedCarouselProps) {
         <div className="relative overflow-hidden">
           <motion.ul
             ref={containerRef}
-            className="flex cursor-grab items-start"
+            className="flex cursor-grab items-start ml-[5%] sm:ml-[25%] lg:ml-[7%] xl:ml-[25%]"
             style={{
               x: animatedX,
             }}

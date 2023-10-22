@@ -37,10 +37,15 @@ export const CartModal = () => {
         >
           {cart.items.length < 1 ? (
             <div className="w-full justify-center items-center space-y-5">
-              <p>You have no items in your shopping cart</p>
-              <DefaultButton className="w-[250px]" onClick={cartModal.onClose}>
-                GO TO SHOP
-              </DefaultButton>
+              <p className='mb-11'>You have no items in your shopping cart</p>
+              <Link href={'/shop'}>
+                <DefaultButton
+                  className="w-[250px]"
+                  onClick={cartModal.onClose}
+                >
+                  GO TO SHOP
+                </DefaultButton>
+              </Link>
             </div>
           ) : (
             <>

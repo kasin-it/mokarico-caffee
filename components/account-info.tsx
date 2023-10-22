@@ -76,7 +76,7 @@ function AccountInfo() {
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
                 autoComplete="auto"
-                placeholder="text"
+                placeholder="First Name"
                 type="text"
                 required
               />
@@ -85,7 +85,7 @@ function AccountInfo() {
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
                 autoComplete="auto"
-                placeholder="text"
+                placeholder="Last Name"
                 type="text"
                 required
               />
@@ -96,7 +96,7 @@ function AccountInfo() {
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
                 autoComplete="auto"
-                placeholder="text"
+                placeholder="Company"
                 type="text"
                 required
               />
@@ -105,7 +105,7 @@ function AccountInfo() {
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
                 autoComplete="auto"
-                placeholder="text"
+                placeholder="Phone Number"
                 type="text"
                 required
               />{' '}
@@ -114,7 +114,7 @@ function AccountInfo() {
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
                 autoComplete="auto"
-                placeholder="text"
+                placeholder="Fax"
                 type="text"
                 required
               />
@@ -127,7 +127,7 @@ function AccountInfo() {
                 ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
               }
               autoComplete="auto"
-              placeholder="text"
+              placeholder="Streat Address"
               type="text"
               required
             />
@@ -136,7 +136,7 @@ function AccountInfo() {
                 ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
               }
               autoComplete="auto"
-              placeholder="text"
+              placeholder="Streat Address 2"
               type="text"
               required
             />{' '}
@@ -145,7 +145,7 @@ function AccountInfo() {
                 ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
               }
               autoComplete="auto"
-              placeholder="text"
+              placeholder="VAT Number"
               type="text"
               required
             />
@@ -155,7 +155,7 @@ function AccountInfo() {
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
                 autoComplete="auto"
-                placeholder="text"
+                placeholder="City"
                 type="text"
                 required
               />
@@ -164,7 +164,7 @@ function AccountInfo() {
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
                 autoComplete="auto"
-                placeholder="text"
+                placeholder=""
                 type="text"
                 required
               />
@@ -175,7 +175,7 @@ function AccountInfo() {
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
                 autoComplete="auto"
-                placeholder="text"
+                placeholder="Zip/Postal Code"
                 type="text"
                 required
               />
@@ -184,7 +184,7 @@ function AccountInfo() {
                   ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
                 }
                 autoComplete="auto"
-                placeholder="text"
+                placeholder="Country"
                 type="text"
                 required
               />
@@ -201,7 +201,7 @@ function AccountInfo() {
               className="w-[200px]"
               onClick={() => setSection('My Account')}
             >
-              SUBMIT
+              SAVE ADDRESS
             </DefaultButton>
           </div>
         </div>
@@ -218,7 +218,7 @@ function AccountInfo() {
                 ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
               }
               autoComplete="auto"
-              placeholder="text"
+              placeholder="First Name"
               type="text"
               required
             />
@@ -227,17 +227,18 @@ function AccountInfo() {
                 ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
               }
               autoComplete="auto"
-              placeholder="text"
+              placeholder="Last Name"
               type="text"
               required
             />
           </div>
+          <p>Tax / VAT number</p>
           <input
             className={
               ' mb-7 w-full border border-gray-600/20 p-3 outline-none'
             }
             autoComplete="auto"
-            placeholder="text"
+            // placeholder="text"
             type="text"
             required
           />
@@ -262,7 +263,7 @@ function AccountInfo() {
       label: 'Delete Account',
       section: (
         <div className="flex flex-col">
-          <p>CONTACT INFORMATION</p>
+          <p className="text-2xl mb-10">CONTACT INFORMATION</p>
 
           <DefaultButton
             className="w-[200px]"
@@ -277,10 +278,12 @@ function AccountInfo() {
       label: 'Newsletter Subscriptions',
       section: (
         <div className="flex flex-col">
-          <p>Subscription option</p>
+          <p className="text-2xl mb-10">Subscription option</p>
 
-          <input type="checkbox" name="Subscription" id="Subscription" />
-          <label htmlFor="SUB">Subscription</label>
+          <div className='flex space-x-2 mb-5'>
+            <input type="checkbox" name="SUB" id="SUB" />
+            <label htmlFor="SUB">Subscription</label>
+          </div>
           <DefaultButton
             className="w-[200px]"
             onClick={() => setSection('My Account')}

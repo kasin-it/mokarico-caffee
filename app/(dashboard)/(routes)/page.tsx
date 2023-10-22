@@ -27,10 +27,9 @@ function Home() {
   const loginModal = useLoginModal();
   const navbarProperties = useNavbarProperties();
 
-  
   useEffect(() => {
     // Function to handle scroll events
-    
+
     const handleScroll = () => {
       const screanHeight = window.scrollY;
       const isTop = screanHeight === 0;
@@ -82,13 +81,15 @@ function Home() {
             A cup of coffee lasts only a moment, but it is that moment that
             makes your day better.
           </p>
-          <AnimatedButton
-            childrenClassName="text-white md:text-black"
-            secoundChildren={<ArrowRightCircle className="text-white" />}
-            className="rotate-90 hidden md:block lg:left-[10px] md:left-[-60px] top-[190px] w-[150px]"
-          >
-            BROWSE
-          </AnimatedButton>
+          <Link href={'/shop'}>
+            <AnimatedButton
+              childrenClassName="text-white md:text-black"
+              secoundChildren={<ArrowRightCircle className="text-white" />}
+              className="rotate-90 hidden md:block lg:left-[10px] md:left-[-60px] top-[190px] w-[150px]"
+            >
+              BROWSE
+            </AnimatedButton>
+          </Link>
         </div>
         <div className="z-20 flex flex-col justify-start items-center">
           <h1 className="text-6xl text-white font-playfair-display left-[130px] top-[-70px] text-center md:hidden translate-y-6">

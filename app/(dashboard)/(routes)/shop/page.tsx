@@ -72,13 +72,15 @@ async function ShopPage() {
               height={0}
               style={{ width: '50px', height: 'auto' }}
             />
-            <AnimatedButton
-              childrenClassName="font-playfair-display px-1"
-              className="w-[250px] text-2xl"
-              secoundChildren={<ArrowRightCircle className="text-white" />}
-            >
-              Pods and Capsules
-            </AnimatedButton>
+            <Link href={'/shop/pods-and-capsules'}>
+              <AnimatedButton
+                childrenClassName="font-playfair-display px-1"
+                className="w-[250px] text-2xl"
+                secoundChildren={<ArrowRightCircle className="text-white" />}
+              >
+                Pods and Capsules
+              </AnimatedButton>
+            </Link>
           </div>
           <div className="flex  items-center space-x-5">
             <Image
@@ -88,13 +90,15 @@ async function ShopPage() {
               height={0}
               style={{ width: '50px', height: 'auto' }}
             />
-            <AnimatedButton
-              childrenClassName="font-playfair-display px-1"
-              className="w-[200px]  text-2xl"
-              secoundChildren={<ArrowRightCircle className="text-white" />}
-            >
-              Coffee Grains
-            </AnimatedButton>
+            <Link href={'/shop/coffee-grains'}>
+              <AnimatedButton
+                childrenClassName="font-playfair-display px-1"
+                className="w-[200px]  text-2xl"
+                secoundChildren={<ArrowRightCircle className="text-white" />}
+              >
+                Coffee Grains
+              </AnimatedButton>
+            </Link>
           </div>
           <div className="flex tems-center space-x-5">
             <Image
@@ -104,14 +108,15 @@ async function ShopPage() {
               height={0}
               style={{ width: '50px', height: 'auto' }}
             />
-
-            <AnimatedButton
-              childrenClassName="font-playfair-display px-1"
-              className="w-[200px] text-2xl"
-              secoundChildren={<ArrowRightCircle className="text-white" />}
-            >
-              Ground Coffee
-            </AnimatedButton>
+            <Link href={'/shop/ground-coffee'}>
+              <AnimatedButton
+                childrenClassName="font-playfair-display px-1"
+                className="w-[200px] text-2xl"
+                secoundChildren={<ArrowRightCircle className="text-white" />}
+              >
+                Ground Coffee
+              </AnimatedButton>
+            </Link>
           </div>
         </article>
       </section>
