@@ -20,7 +20,7 @@ function CartItem2({ item, count }: CartItem2Props) {
     >
       <div className="flex w-full">
         <Image src={item.image} alt={item.label} height={100} width={100} />
-        <div className="grid grid-cols-4 w-full px-0 gap-x-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 w-full px-0 md:gap-x-12">
           <h1 className="font-semibold text-black text-lg">{item.label}</h1>
           <p className="text-md text-black">{formatter.format(item.price)}</p>
           <div className="flex space-x-4 justify-center items-start">

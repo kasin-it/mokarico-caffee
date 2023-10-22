@@ -9,7 +9,7 @@ interface ProductDetailsProps {
 
 function ProductDetails({ product }: ProductDetailsProps) {
   return (
-    <div className="mt-[200px] flex w-full justify-center">
+    <div className="mt-[100px] flex flex-col md:flex-row w-full justify-center items-center mb-11">
       <Image src={product.image} alt="image" width={600} height={600} loading='eager' />
 
       <section className="space-y-4">

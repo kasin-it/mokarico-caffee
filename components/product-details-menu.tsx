@@ -29,8 +29,8 @@ function ProductDetailsMenu({ product }: ProductDetailsMenuProps) {
     setQuantity(1);
   };
   return (
-    <div className="flex space-x-5">
-      <div className="flex">
+    <div className="flex flex-col md:flex-row md:space-x-5 w-[400px] md:w-auto items-center">
+      <div className="flex justify-center items-center md:justify-start">
         <div
           className="w-12 h-12 flex items-center justify-center text-whitel cursor-pointer"
           onClick={onDecrement}

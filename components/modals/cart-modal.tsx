@@ -6,9 +6,7 @@ import { X } from 'lucide-react';
 import DefaultButton from '../ui/default-button';
 import useCart from '@/app/hooks/use-cart';
 import { formatter, reduceDuplicatesAndCount } from '@/lib/utils';
-import Image from 'next/image';
 import CartItem from '../cart-item';
-import { Product } from '@/types';
 import Link from 'next/link';
 
 export const CartModal = () => {
@@ -33,7 +31,7 @@ export const CartModal = () => {
           onClick={cartModal.onClose}
         />
         <section
-          className={'text-sm text-gray-600 py-5 pb-10 h-[75%] overflow-scroll'}
+          className={'text-sm text-gray-600 py-5 pb-10 h-[55%] overflow-scroll'}
         >
           {cart.items.length < 1 ? (
             <div className="w-full justify-center items-center space-y-5">

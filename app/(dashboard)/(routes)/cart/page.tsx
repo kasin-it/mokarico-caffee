@@ -36,9 +36,9 @@ function CartPage() {
     <main className="flex justify-center items-center mt-24 text-center w-full">
       <div className="max-w-[1170px] w-full">
         <h1 className="text-5xl font-playfair-display py-11">Shopping cart</h1>
-        <div className="w-full mb-24 flex space-x-16">
-          <article className="w-[60%] flex flex-col justify-left">
-            <div className="grid grid-cols-4 px-5 w-full border-y text-black/50 ms-12">
+        <div className="w-full mb-24 flex space-y-7 md:space-y-0 md:space-x-16 flex-col md:flex-row">
+          <article className="md:w-[60%] flex flex-col justify-left">
+            <div className="hidden md:grid grid-cols-4 px-5 w-full border-y text-black/50 md:ms-12">
               <p>Product</p>
               <p>PRICE</p>
               <p>QTANTITY</p>
@@ -84,7 +84,7 @@ function CartPage() {
               </button>
             </div>
           </article>
-          <article className="px-5 flex flex-col border w-[30%] py-3">
+          <article className="px-5 flex flex-col border md:w-[30%] py-3">
             <div className="flex w-full justify-between border-b py-5">
               <p>Subtotal</p>
               <p>{isMounted && formatter.format(totalPrice)}</p>
