@@ -217,7 +217,7 @@ export default function SuggestedCarousel({ items }: SuggestedCarouselProps) {
                   }}
                 >
                   <Link
-                    href={item.label}
+                    href={`/shop/${item.category}/${item.id}`}
                     className="flex flex-col justify-center items-center text-center"
                     target="_blank"
                     rel="noopener noreferrer"
