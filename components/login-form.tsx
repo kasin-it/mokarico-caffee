@@ -14,8 +14,6 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [erorr, setError] = useState('');
 
-
-
   const signIn = async () => {
     const x = await supabase.supabse.auth.signInWithPassword({
       email: email,
@@ -40,11 +38,14 @@ function LoginForm() {
   return (
     <div>
       <p className="text-red-500">{erorr}</p>
+      <p>
+        test account: <br /> email:test@gmail.com <br /> password:sup3rs3cur3
+      </p>
       <input
         className={' mb-7 w-full border border-gray-600/20 p-3 outline-none'}
         autoComplete="auto"
         placeholder="Email"
-        type='email'
+        type="email"
         required
         value={email}
         onChange={handleEmailChange}
