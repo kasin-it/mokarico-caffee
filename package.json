@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint"
 	},
-	"proxy": "http://localhost:54321",
+	"proxy": ["http://localhost:54321"],
 	"dependencies": {
 		"@supabase/auth-helpers-nextjs": "^0.8.1",
 		"@supabase/supabase-js": "^2.38.0",
