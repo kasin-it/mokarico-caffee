@@ -1,11 +1,11 @@
 import { useSupabse } from '@/app/hooks/use-supabse';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+// import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 
 function RegisterForm() {
-  const router = useRouter();
+  // const router = useRouter();
   const supabase = useSupabse();
 
   const [name, setName] = useState('');
@@ -33,18 +33,6 @@ function RegisterForm() {
     setRepeatPassword(e.target.value);
   };
 
-  useEffect(() => {
-    const {
-      data: { subscription },
-    } = supabase.supabse.auth.onAuthStateChange(() => {
-      router.refresh();
-    });
-
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, [supabase, router]);
-
   const handleSignUp = (e: React.MouseEvent) => {
     e.preventDefault();
 
@@ -64,14 +52,12 @@ function RegisterForm() {
     const x = await supabase.supabse.auth.signUp({
       email: email,
       password: password,
-      // options: {
-      //   data: {
-      //     name: name,
-      //     last_name: lastName,
-      //   },
-      // },
-      // name: name,
-      // last_name: lastName,
+      options: {
+        data: {
+          name: name,
+          last_name: lastName,
+        },
+      },
     });
 
     if (x.data.user) {

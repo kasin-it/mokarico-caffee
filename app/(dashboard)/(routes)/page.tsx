@@ -30,9 +30,9 @@ function Home() {
   
   useEffect(() => {
     // Function to handle scroll events
-    const screanHeight = window.scrollY;
-
+    
     const handleScroll = () => {
+      const screanHeight = window.scrollY;
       const isTop = screanHeight === 0;
 
       navbarProperties.setisTransparent(

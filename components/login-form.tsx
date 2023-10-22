@@ -8,23 +8,13 @@ import { useRouter } from 'next/navigation';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 function LoginForm() {
-  const router = useRouter();
+  // const router = useRouter();
   const supabase = useSupabse();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [erorr, setError] = useState('');
 
-  useEffect(() => {
-    const {
-      data: { subscription },
-    } = supabase.supabse.auth.onAuthStateChange(() => {
-      router.refresh();
-    });
 
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, [supabase, router]);
 
   const signIn = async () => {
     const x = await supabase.supabse.auth.signInWithPassword({
