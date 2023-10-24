@@ -37,7 +37,7 @@ async function GroundCoffeePage() {
         <p>Home / Shop / All Coffees</p>
         <Separator className="bg-gray-600" />
       </section>
-      <ProductsCollection filter={true} products={allCoffeeData} amount={false} />
+      <ProductsCollection filter={false} products={allCoffeeData} amount={false} />
     </section>
   );
 }

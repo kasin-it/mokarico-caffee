@@ -60,7 +60,7 @@ export const MenuModal = () => {
             onClose={menuModal.onClose}
           />
           <MenuDropdown
-            dropdownName="Coffe"
+            dropdownName="Coffee"
             itemsList={coffeItemsList}
             bigLabel={true}
             href="/coffee"

@@ -10,7 +10,7 @@ interface ProductDetailsProps {
 function ProductDetails({ product }: ProductDetailsProps) {
   return (
     <div className="mt-[100px] flex flex-col md:flex-row w-full justify-center items-center mb-11">
-      <Image src={product.image} alt="image" width={600} height={600} loading='eager' />
+      <Image src={product.image} alt="image" width={600} height={600} loading='eager' quality={100} />
 
       <section className="space-y-4">
         <h1 className="text-5xl font-playfair-display">{product.label}</h1>
