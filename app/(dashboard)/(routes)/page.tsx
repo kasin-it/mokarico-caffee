@@ -103,6 +103,7 @@ function Home() {
             height={hero_img.height}
             className="px-11 md:px-0"
             loading="eager"
+            priority={true}
           />
           <AnimatedButton
             childrenClassName="text-white md:text-black"
