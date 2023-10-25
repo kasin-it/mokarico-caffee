@@ -31,11 +31,11 @@ export const CartModal = () => {
           onClick={cartModal.onClose}
         />
         <section
-          className={'text-sm text-gray-600 py-5 pb-10 h-[55%] overflow-scroll'}
+          className={'text-sm text-gray-600 py-5 pb-10 h-[55%] overflow-y-auto'}
         >
           {cart.items.length < 1 ? (
             <div className="w-full justify-center items-center space-y-5">
-              <p className='mb-11'>You have no items in your shopping cart</p>
+              <p className="mb-11">You have no items in your shopping cart</p>
               <Link href={'/shop'}>
                 <DefaultButton
                   className="w-[250px]"
