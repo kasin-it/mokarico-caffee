@@ -1,6 +1,6 @@
 # Mokarico-coffee
 
-This project is built with Next.js 13, utilizing app router with route handlers & dynamic routes & SSR, and Google API.
+This project is built with Next.js 13, utilizing app router with SSR and dynamic routes.
 
 ### 🚀 Features
 
