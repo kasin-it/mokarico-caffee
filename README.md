@@ -4,8 +4,6 @@ This project is built with Next.js 13, utilizing app router with SSR and dynamic
 
 ### 🚀 Features
 
-- 🌟 **Reviews and Ratings**
-
 - 🤵 **User Registration and Authentication**
 
 - 💻 **Responsive Design**
